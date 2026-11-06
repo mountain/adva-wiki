@@ -9,7 +9,7 @@ import threading
 import unittest
 
 from adva_wiki.config import load_config
-from adva_wiki.render import render_markdown
+from adva_wiki.render import MetadataError, UnknownLanguage, render_markdown, render_page
 from adva_wiki.revisions import Revisions
 from adva_wiki.server import content_path, create_server
 
@@ -55,11 +55,85 @@ class RenderingTests(unittest.TestCase):
         self.assertNotIn('href="javascript:', html)
 
 
+class MultilingualRenderingTests(unittest.TestCase):
+    SOURCE = """---
+languages:
+  en: Torsor
+  zh: "挠子（Torsor）"
+default: en
+---
+
+# Torsor
+
+English body with [[README|home]] and $x$.
+
+## Definition
+
+A $G$-torsor.
+
+# 挠子（Torsor）
+
+中文正文，包含 $x$。
+
+## 定义
+
+一个 $G$-挠子。
+
+# References
+
+Shared references.
+"""
+
+    def test_default_language_and_shared_sections(self):
+        page = render_page(self.SOURCE)
+        self.assertEqual((page.language, page.default, page.title), ("en", "en", "Torsor"))
+        self.assertEqual([language.code for language in page.languages], ["en", "zh"])
+        self.assertIn("English body", page.html)
+        self.assertNotIn("中文正文", page.html)
+        self.assertIn("Shared references", page.html)
+        self.assertNotIn("languages:", page.html)
+
+    def test_selected_language(self):
+        page = render_page(self.SOURCE, "zh")
+        self.assertEqual((page.language, page.title), ("zh", "挠子（Torsor）"))
+        self.assertIn("中文正文", page.html)
+        self.assertNotIn("English body", page.html)
+        self.assertIn('id="挠子torsor"', page.html)
+
+    def test_default_falls_back_to_first_language(self):
+        source = self.SOURCE.replace("default: en\n", "")
+        page = render_page(source)
+        self.assertEqual((page.language, page.default), ("en", "en"))
+        source = self.SOURCE.replace("default: en\n", "").replace(
+            "languages:\n  en: Torsor\n  zh:", "languages:\n  zh:"
+        )
+        page = render_page(source)
+        self.assertEqual((page.language, page.default), ("zh", "zh"))
+
+    def test_unknown_language_and_bad_metadata(self):
+        with self.assertRaises(UnknownLanguage):
+            render_page(self.SOURCE, "fr")
+        for broken in (
+            self.SOURCE.replace("  zh: \"挠子（Torsor）\"", "  zh: Missing"),
+            self.SOURCE.replace("  en: Torsor", "  e: Torsor"),
+            self.SOURCE.replace("  en: Torsor", "  en: Torsor\n  e: Other"),
+            self.SOURCE.replace("default: en", "default: fr"),
+            self.SOURCE.replace("  zh: \"挠子（Torsor）\"", "  zh: Torsor"),
+            self.SOURCE.replace("  zh: \"挠子（Torsor）\"", "  zh: \"\""),
+        ):
+            with self.subTest(metadata=broken.splitlines()[1:4]), self.assertRaises(MetadataError):
+                render_page(broken)
+
+    def test_plain_markdown_is_unchanged(self):
+        self.assertIn("<h1 id=\"title\">Title</h1>", render_markdown("# Title"))
+        self.assertIn("<hr />", render_markdown("---\n\n# Title"))
+
+
 class WikiTests(unittest.TestCase):
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
         self.addCleanup(self.temp.cleanup)
-        self.root = Path(self.temp.name)
+        self.root = Path(self.temp.name).resolve()
         self.docs = self.root / "docs"
         self.docs.mkdir()
         self.page = self.docs / "README.md"
@@ -153,6 +227,82 @@ class WikiTests(unittest.TestCase):
             self.assertIn(b'href="/wiki/README.md"', body)
             self.page.write_text("# Updated live", encoding="utf-8")
             self.assertIn(b"Updated live", self.request(port, "/wiki/README.md")[2])
+
+    def test_multilingual_language_subpages(self):
+        (self.docs / "images").mkdir()
+        (self.docs / "images" / "pixel.png").write_bytes(b"\x89PNG\r\n\x1a\n")
+        self.git("init")
+        (self.docs / "torsor.md").write_text("# Torsor\n\nOld body.\n", encoding="utf-8")
+        old = self.commit("Old torsor")
+        (self.docs / "torsor.md").write_text(
+            '---\n'
+            'languages:\n'
+            '  en: Torsor\n'
+            '  zh: "挠子（Torsor）"\n'
+            'default: en\n'
+            '---\n\n'
+            '# Torsor\n\nEnglish body.\n\n![Image](images/pixel.png)\n\n'
+            '# 挠子（Torsor）\n\n中文正文。\n\n![图像](images/pixel.png)\n\n'
+            '# References\n\nShared references.\n',
+            encoding="utf-8",
+        )
+        sha = self.commit("Add torsor")
+        with self.serving() as port:
+            status, _, body = self.request(port, "/wiki/torsor.md")
+            self.assertEqual(status, 200)
+            self.assertIn(b'<html lang="en">', body)
+            self.assertIn(b"English body", body)
+            self.assertNotIn("中文正文".encode(), body)
+            self.assertIn(b'href="/wiki/torsor.zh.md"', body)
+            self.assertIn(b'src="images/pixel.png"', body)
+            self.assertIn(b"Shared references", body)
+            self.assertNotIn(b"languages:", body)
+
+            status, _, body = self.request(port, "/wiki/torsor.zh.md")
+            self.assertEqual(status, 200)
+            self.assertIn(b'<html lang="zh">', body)
+            self.assertIn("中文正文".encode(), body)
+            self.assertNotIn(b"English body", body)
+            self.assertIn(b'href="/wiki/torsor.md"', body)
+            self.assertIn(b'src="images/pixel.png"', body)
+            self.assertIn(b'aria-current="page"', body)
+
+            status, _, body = self.request(port, "/wiki/torsor.md?lang=zh")
+            self.assertEqual(status, 200)
+            self.assertIn("中文正文".encode(), body)
+
+            self.assertEqual(self.request(port, "/wiki/torsor.xx.md")[0], 404)
+            self.assertEqual(self.request(port, "/wiki/torsor.md?lang=xx")[0], 404)
+
+            status, _, body = self.request(port, f"/wiki/torsor.zh.md?rev={sha}")
+            self.assertEqual(status, 200)
+            self.assertIn("中文正文".encode(), body)
+            self.assertIn(b"Shared references", body)
+            self.assertIn(f"rev={sha}".encode(), body)
+
+            status, _, body = self.request(port, f"/wiki/torsor.zh.md?rev={old}")
+            self.assertEqual(status, 200)
+            self.assertIn(b"Old body", body)
+            self.assertIn(b"not available in this revision", body)
+
+            status, _, history = self.request(port, "/wiki/torsor.zh.md?history=1")
+            self.assertEqual(status, 200)
+            self.assertIn(sha.encode(), history)
+
+            status, _, pages = self.request(port, "/pages")
+            self.assertEqual(status, 200)
+            self.assertIn(b"torsor.md", pages)
+            self.assertNotIn(b"torsor.zh.md", pages)
+
+    def test_invalid_page_metadata_is_a_server_error(self):
+        (self.docs / "broken.md").write_text(
+            '---\nlanguages:\n  en: Declared title\n---\n\n# Another title\n',
+            encoding="utf-8",
+        )
+        with self.serving() as port:
+            status, _, body = self.request(port, "/wiki/broken.md")
+            self.assertEqual(status, 500)
+            self.assertIn(b"Invalid page metadata", body)
 
     def test_images_static_assets_and_index(self):
         (self.docs / ".hidden.md").write_text("Private", encoding="utf-8")

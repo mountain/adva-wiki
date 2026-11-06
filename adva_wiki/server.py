@@ -6,7 +6,7 @@ from pathlib import Path, PurePosixPath
 from urllib.parse import parse_qs, quote, unquote, urlsplit
 
 from .config import Config
-from .render import render_markdown
+from .render import LANGUAGE_CODE, MetadataError, RenderedPage, UnknownLanguage, render_page
 from .revisions import GitError, Revisions
 
 
@@ -32,9 +32,51 @@ def content_path(root: Path, name: str) -> Path:
     return path
 
 
-def layout(title: str, body: str, wiki_title: str) -> str:
+def split_language_alias(root: Path, name: str) -> tuple[str, str | None]:
+    """Map ``page.zh.md`` to ``page.md`` plus language ``zh`` if no such file exists."""
+    if not name.endswith(".md"):
+        return name, None
+    stem = name[:-3]
+    base, separator, code = stem.rpartition(".")
+    if not separator or not base or not LANGUAGE_CODE.fullmatch(code):
+        return name, None
+    if content_path(root, name).exists():
+        return name, None
+    base_name = base + ".md"
+    if not content_path(root, base_name).is_file():
+        return name, None
+    return base_name, code
+
+
+def language_href(page_url: str, code: str, default: str | None, revision: str | None) -> str:
+    if code == default:
+        href = page_url
+    elif page_url.endswith(".md"):
+        href = page_url[:-3] + "." + quote(code, safe="") + ".md"
+    else:
+        href = page_url + "?lang=" + quote(code, safe="")
+    if revision:
+        href += ("&" if "?" in href else "?") + "rev=" + quote(revision, safe="")
+    return href
+
+
+def language_nav(rendered: RenderedPage, page_url: str, revision: str | None) -> str:
+    if len(rendered.languages) < 2:
+        return ""
+    links = []
+    for language in rendered.languages:
+        href = language_href(page_url, language.code, rendered.default, revision)
+        current = ' aria-current="page"' if language.code == rendered.language else ""
+        links.append(
+            f'<a href="{escape(href)}" hreflang="{escape(language.code)}" '
+            f'lang="{escape(language.code)}"{current}>{escape(language.title)}</a>'
+        )
+    return '<nav class="language-nav" aria-label="Page languages">' + "".join(links) + "</nav>"
+
+
+def layout(title: str, body: str, wiki_title: str, lang: str = "en") -> str:
     return f"""<!doctype html>
-<html lang="en"><head><meta charset="utf-8">
+<html lang="{escape(lang)}"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{escape(title)} — {escape(wiki_title)}</title>
 <link rel="stylesheet" href="/static/wiki.css">
@@ -66,8 +108,8 @@ class WikiHandler(BaseHTTPRequestHandler):
         if self.command != "HEAD":
             self.wfile.write(payload)
 
-    def page(self, title: str, body: str, status=200):
-        self.respond(status, layout(title, body, self.config.title))
+    def page(self, title: str, body: str, status=200, lang="en"):
+        self.respond(status, layout(title, body, self.config.title, lang))
 
     def do_HEAD(self):
         self.do_GET()
@@ -75,6 +117,14 @@ class WikiHandler(BaseHTTPRequestHandler):
     def do_GET(self):
         try:
             self.route()
+        except UnknownLanguage:
+            self.page("Language not found", "<h1>Language not found</h1>", 404)
+        except MetadataError as error:
+            self.page(
+                "Invalid page metadata",
+                "<h1>Invalid page metadata</h1><p>" + escape(str(error)) + "</p>",
+                500,
+            )
         except (ValueError, UnicodeError):
             self.page("Bad request", "<h1>Invalid path or revision</h1>", 400)
         except (FileNotFoundError, IsADirectoryError, NotADirectoryError):
@@ -118,7 +168,9 @@ class WikiHandler(BaseHTTPRequestHandler):
             return
         if not path.startswith("/wiki/"):
             raise FileNotFoundError
-        name = path.removeprefix("/wiki/") or "README.md"
+        requested_name = path.removeprefix("/wiki/") or "README.md"
+        name, alias_language = split_language_alias(self.config.content_dir, requested_name)
+        requested_language = alias_language or (query.get("lang", [None])[0] or None)
         file = content_path(self.config.content_dir, name)
         if file.suffix.lower() in IMAGES:
             self.respond(200, file.read_bytes(), IMAGES[file.suffix.lower()])
@@ -127,16 +179,20 @@ class WikiHandler(BaseHTTPRequestHandler):
             raise FileNotFoundError
         revisions = Revisions(self.config.content_dir)
         page_url = "/wiki/" + quote(name)
+        view_url = "/wiki/" + quote(requested_name)
+        if alias_language is None and "lang" in query and requested_language:
+            view_url += "?lang=" + quote(requested_language, safe="")
         title = name[:-3]
         if "history" in query:
             rows = []
             for item in revisions.history(file):
                 sha = item["sha"]
+                separator = "&" if "?" in view_url else "?"
                 rows.append(
-                    f'<li><a href="{page_url}?rev={sha}">{sha[:10]}</a> '
+                    f'<li><a href="{view_url}{separator}rev={sha}">{sha[:10]}</a> '
                     f'{escape(item["date"])} — {escape(item["author"])}: '
                     f'{escape(item["subject"])} '
-                    f'<a href="{page_url}?diff={sha}">diff</a></li>'
+                    f'<a href="{view_url}{separator}diff={sha}">diff</a></li>'
                 )
             self.page(title, "<h1>Revision history</h1><ul>" + "".join(rows) + "</ul>"
                       + ("" if rows else "<p>No committed revisions yet.</p>"))
@@ -147,10 +203,26 @@ class WikiHandler(BaseHTTPRequestHandler):
             return
         revision = query.get("rev", [None])[0]
         source = revisions.read(file, revision) if revision else file.read_text(encoding="utf-8")
-        toolbar = f'<p><a href="{page_url}?history=1">Revision history</a>'
+        fallback = False
+        try:
+            rendered = render_page(source, requested_language)
+        except UnknownLanguage:
+            if revision is None:
+                raise
+            rendered = render_page(source)
+            fallback = True
+        title = rendered.title or title
+        separator = "&" if "?" in view_url else "?"
+        toolbar = f'<p><a href="{view_url}{separator}history=1">Revision history</a>'
         if revision:
-            toolbar += f' · Revision {escape(revision[:10])} · <a href="{page_url}">Current page</a>'
-        self.page(title, toolbar + "</p>" + render_markdown(source))
+            toolbar += f' · Revision {escape(revision[:10])} · <a href="{view_url}">Current page</a>'
+        body = language_nav(rendered, page_url, revision) + toolbar + "</p>" + rendered.html
+        if fallback:
+            body += (
+                '<p class="note">Language <code>' + escape(requested_language or "")
+                + "</code> is not available in this revision; showing the default language.</p>"
+            )
+        self.page(title, body, lang=rendered.language or "en")
 
 
 def create_server(config: Config) -> ThreadingHTTPServer:

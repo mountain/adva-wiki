@@ -1,6 +1,6 @@
 :root { color-scheme: light dark; font-family: system-ui, sans-serif; line-height: 1.6; }
 body { max-width: 62rem; margin: 2rem auto; padding: 0 1rem; }
-nav { border-bottom: 1px solid #888; padding-bottom: 1rem; }
+body > nav { border-bottom: 1px solid #888; padding-bottom: 1rem; }
 a { color: light-dark(#0759b5, #8cbfff); }
 img { max-width: 100%; height: auto; }
 pre, .math.block { overflow-x: auto; padding: 1rem; }
@@ -9,3 +9,7 @@ table { border-collapse: collapse; }
 td, th { border: 1px solid #888; padding: .4rem .8rem; }
 blockquote { border-left: .2rem solid #888; margin-left: 0; padding-left: 1rem; }
 .task-list-item { list-style-type: none; }
+.language-nav { display: flex; flex-wrap: wrap; gap: .25rem; margin: 1rem 0 1.25rem; }
+.language-nav a { padding: .35rem .8rem; border: 1px solid #888; border-radius: .35rem; text-decoration: none; }
+.language-nav a[aria-current="page"] { background: light-dark(#e8eefc, #26334d); font-weight: 600; }
+.note { border-left: .2rem solid #888; padding-left: 1rem; color: light-dark(#555, #bbb); }

@@ -48,7 +48,53 @@ $$
 $$
 
 KaTeX 0.16.22 assets load from jsDelivr; browsers need internet access for typeset
-math. If unavailable, the original LaTeX remains readable.
+math. If unavailable, the original LaTeX remains readable. Keep display math in
+its own paragraph, with blank lines around the `$$` fences; otherwise Markdown
+may parse it as inline math.
+
+## Multilingual pages
+
+A page may contain several languages in one Markdown file. Put a YAML front
+matter block at the very top and map each language code to the exact H1
+heading that starts that language's section:
+
+```markdown
+---
+languages:
+  en: Torsor
+  zh: 挠子（Torsor）
+default: en
+---
+
+# Torsor
+
+English text.
+
+# 挠子（Torsor）
+
+中文正文。
+```
+
+The canonical URL `/wiki/torsor.md` shows the default language. Each other
+language is a virtual subpage: `/wiki/torsor.zh.md`. A `?lang=zh` query works
+as an alias. Language tabs appear above the article. The `default` key is
+optional; the first language is used when it is omitted. A language code may
+be a simple code such as `en` or `zh`, or a regional code such as `zh-CN`.
+
+Sections under an H1 not listed in `languages` are shared: they appear after
+the selected language on every language page. Front matter is only treated as
+language metadata when it contains a `languages` mapping; otherwise it is
+left to the Markdown renderer. The parser accepts a small YAML subset: a
+`languages:` block with one indented `code: title` per line, an optional
+top-level `default: code`, and quoted or unquoted values.
+
+Wiki links can target a language subpage: `[[torsor.zh|the Chinese page]]`
+renders as [[torsor.zh|the Chinese page]]. Within a page, `[[#heading]]` stays
+in the current language. Relative image and link paths resolve from the
+canonical page path, so `![Diagram](images/diagram.png)` works on
+`/wiki/torsor.zh.md` too.
+
+See [[torsor]] for a worked example.
 
 ## Configuration and agent authoring
 
