@@ -236,6 +236,87 @@ The common checklist is short. A set $X$ is a $G$-torsor when:
 
 Then $X$ is isomorphic to $G$, but not canonically. To use the isomorphism, choose a point; to compare two choices, use the unique group element between them; to compare two points, use the difference; never add points without a basepoint.
 
+## Torsion, tearing, and the observer's hole
+
+The AEG and Adva uses of "invisible difference" meet at the torsor, but the meeting is precise and involves two different senses of "free." In AEG, the free object is the free product of additive and scaling histories; in a torsor, "free" refers to the action. Keeping these apart makes the bridge exact.
+
+### The charge fibre is a torsor
+
+In Paper 0 §8 the history group is the free product
+
+$$
+G=(\mathbb{R},+)*(\mathbb{R},+),
+$$
+
+with generators the additive steps $\mathsf A_p$ and the scaling steps $\mathsf M_q$. The charge map
+
+$$
+c:G\longrightarrow\mathbb{R}^2,\qquad \mathsf A_p\mapsto(p,0),\quad \mathsf M_q\mapsto(0,q)
+$$
+
+is the abelianization of $G$: `prop:p0-acs-is-abelianization` proves
+
+$$
+\ker c=[G,G].
+$$
+
+Fix a charge $b\in\mathbb{R}^2$ and choose a history $\gamma$ with $c(\gamma)=b$. Then the fibre is the right coset
+
+$$
+c^{-1}(b)=\gamma[G,G].
+$$
+
+The subgroup $[G,G]$ acts on this coset by left multiplication. The action is free: if $h\gamma h'=\gamma h'$, then $h\gamma=\gamma$, so $h=e$. It is transitive: given $\gamma h_1$ and $\gamma h_2$, the element $h=\gamma h_2h_1^{-1}\gamma^{-1}$ lies in $[G,G]$ because $[G,G]$ is normal, and $h\gamma h_1=\gamma h_2$. Hence **each charge fibre is a $[G,G]$-torsor**. This is a direct reading of the abelianization proposition; the paper does not use the word "torsor" here, but the structure is immediate.
+
+The relative torsion of two histories in the same fibre is
+
+$$
+\tau(\gamma,\delta)=\xi_\gamma-\xi_\delta,
+$$
+
+the difference of their target-frame translations. The underlying torsor difference is the group element $\gamma^{-1}\delta\in[G,G]$; $\tau$ is one coordinate of the affine difference between the two evaluations. Tearing is the geometric name for this relative torsion: same linear part, different additive content. `prop:p0-characters-cannot-see-tearing` makes the observer statement exact: every function of the charge endpoint is constant on the fibre, while $\tau$ need not vanish. The observer sees the base $b$, not the torsor fibre over it. This is the AEG form of "the finite observer cannot see the difference" — the difference is the hole.
+
+Two caveats. The "free" in $G$ is a free product, not a free group; the paper explicitly refuses to identify the history space with a free group without chosen generators and relations. And "torsion" here is relative arithmetic torsion, not group-theoretic torsion; it lives in the commutator subgroup $[G,G]$, which is exactly what the abelianization forgets.
+
+### The hole is a filling fibre
+
+Adva's finite observer is a bounded, versioned observation policy $Q$; it sees a quotient $q(h)$, not the history $h$, and a global finite observer need not exist (`0037` §5.14). The residual is not nothing. The typed-hole note `0079` states the shape:
+
+> The hole is syntactically empty and semantically a family.
+
+A hole is a filling fibre: the open bracket is the aperture, and the admissible fillings are the family. A torsor is the case where the forgotten differences form a group acting freely and transitively on that family. In that sense, **every torsor is a hole, but not every hole is a torsor**: if the stabilizer is nontrivial the family is a homogeneous space, and if there is no group action it is just a fibre.
+
+The through-form note `0070` gives a literal instance. The unmarked relation $\langle F_-\mid_N F_+\rangle$ is the carrier of all marked resolutions; a chosen resolution selects one graph inside it. The set of resolutions is a torsor under the monodromy group $\langle T_\delta\rangle\cong\mathbb{Z}$ (Paper V §8). The observer who does not choose sees the relation, i.e. the hole; the observer who chooses sees a function. The singularity does not erase the ambiguity; it changes its representation into a node plus its resolution fibre.
+
+The surreal tear note `0223` gives the cleanest value/presentation example. The state $q$ is the value of a form, and the presentation-day clock is $c_2$. The order clock descends to the value; the day clock does not. The witness is
+
+$$
+q(\ \mid\ )=q(\ \mid 1)=0,\qquad \mathrm{day}(\ \mid\ )=0,\quad \mathrm{day}(\ \mid 1)=2.
+$$
+
+There is a canonical section for surreal numbers — choose the simplest presentation — and it makes the day a function of the value; the tear is harmless there. AES has no such canonical section, so the defect is carried. This is the same dichotomy, in a different guise, as a torsor with a canonical trivialization versus one without: a section exists or it does not, and the tear is the witness that the chosen section is not canonical. `0021` adds the naturality failure: objectification chooses the simplest form, but the choice does not commute with scaling; the ordered holes and the surgery history are the residual. The pattern is the frame torsor's: set-theoretic sections exist, no equivariant section does.
+
+### Two directions of invisibility
+
+There is a second, opposite sense in which a finite observer "cannot see the hole." The frame analysis in `concept-ideal-point-naming` §7 states it:
+
+> Visible $\leftrightarrow$ needs a frame; invisible $\leftrightarrow$ needs no frame.
+
+The ordered carrier counts split concepts twice, because ordering the two points is a $\mathbb{Z}/2$-torsor; it misses non-split concepts entirely, because Frobenius swaps the two points and no ordering is available. Here the torsor is the visible side — the thing that needs a frame — and the hole is the canonical object that needs no frame. Visibility is not the same as canonicity.
+
+Thus the corpus has two dual configurations:
+
+1. **Base observer.** The observer sees the quotient and misses the fibre. The torsor is the invisible fibre: AEG's charge fibre, the resolution relation of `0047`/`0070`, the filling family of `0079`.
+2. **Framed carrier.** The carrier sees the torsor (the need for a frame) and misses the canonical object: the ordered bivaluation carrier sees split concepts twice and non-split concepts not at all.
+
+The same torsor can sit on either side of the visibility cut. Which side depends on what the observer's state space is, not on the torsor alone.
+
+### Summary
+
+**A torsor is the shape of a hole when the forgotten differences form a free transitive group action. The group element between two points of the fibre is the torsor difference; tearing is its geometric measure, and arithmetic torsion is its translation-coordinate shadow in the commutative quotient.**
+
+The bridge is exact in the AEG charge fibre and in the resolution fibre. In the surreal and frame examples it is a structural reading: the same dichotomy between a canonical section and a noncanonical one, rather than a claim that every presentation fibre is a group torsor.
+
 ## Common confusions
 
 **A torsor is not a group.** It becomes a group only after a point is chosen, and the group law depends on the point. The ternary difference is canonical; the binary sum is not.
@@ -246,7 +327,7 @@ Then $X$ is isomorphic to $G$, but not canonically. To use the isomorphism, choo
 
 **No equivariant section is not the same as no section.** In the frame case, set-theoretic sections exist; no $G$-equivariant section does. The obstruction is naturality, not existence.
 
-**A torsor is not torsion.** "Torsion" in group theory refers to elements of finite order, and the corpus also uses "torsion" for the commutator subgroup $[G,G]$. A torsor is a different notion: a free transitive action without a basepoint. The sentence "torsion is the basepoint-free part" is a local identification in the affine group, not a general definition.
+**A torsor is not torsion.** "Torsion" in group theory refers to elements of finite order, and the corpus also uses "torsion" for the commutator subgroup $[G,G]$. A torsor is a different notion: a free transitive action without a basepoint. The sentence "torsion is the basepoint-free part" is a local identification in the affine group, not a general definition. In the AEG charge fibre, the fibre is a $[G,G]$-torsor, but the relative torsion is a difference between two of its points, not the fibre itself.
 
 **The group is part of the data.** The affine instance is a torsor under $\mathbb{R}_{>0}$, not under $\mathbb{Z}$; the resolution torsor is under $\mathbb{Z}$. The same shape with a different group is a different torsor. Always ask: which group acts, and over what base?
 
@@ -293,18 +374,28 @@ The line references are to the commits named below.
   - [`paper-0/sections/03-aes-and-motion.tex`](https://github.com/mountain/aeg-paper/blob/402e0e7/paper-0/sections/03-aes-and-motion.tex#L745-L805), `prop:p0-affine-two-layers`.
   - [`notes/analysis-and-calculus/48-finite-field-trigonometry.tex`](https://github.com/mountain/aeg-paper/blob/402e0e7/notes/analysis-and-calculus/48-finite-field-trigonometry.tex#L180-L190), norm fibres as torsors.
   - [`paper-4/sections/04-condensation-and-continuation.tex`](https://github.com/mountain/aeg-paper/blob/402e0e7/paper-4/sections/04-condensation-and-continuation.tex#L40-L140), continuation and the normalizer criterion.
+  - [`paper-0/sections/08-acs-tearing.tex`](https://github.com/mountain/aeg-paper/blob/402e0e7/paper-0/sections/08-acs-tearing.tex#L142-L340), `conv:p0-history-group`, `prop:p0-acs-is-abelianization`, and `def:relative-torsion`.
+  - [`paper-0/sections/08-acs-tearing.tex`](https://github.com/mountain/aeg-paper/blob/402e0e7/paper-0/sections/08-acs-tearing.tex#L593-L649), `def:p0-tearing`.
+  - [`paper-0/sections/10-beyond-linear.tex`](https://github.com/mountain/aeg-paper/blob/402e0e7/paper-0/sections/10-beyond-linear.tex#L132-L150), `prop:p0-characters-cannot-see-tearing`.
 - **pcrg-paper** `c59ab6f`
   - [`references/developing/09-capacity-layers-and-the-torsor.md`](https://github.com/mountain/pcrg-paper/blob/c59ab6f/references/developing/09-capacity-layers-and-the-torsor.md#L30-L48), the torsor layer.
   - [`references/developing/10-the-trichotomy-and-what-changes-over-fq.md`](https://github.com/mountain/pcrg-paper/blob/c59ab6f/references/developing/10-the-trichotomy-and-what-changes-over-fq.md#L30-L45), the finite-field torsor.
   - [`notes/2026-10-11-descent-proposition.md`](https://github.com/mountain/pcrg-paper/blob/c59ab6f/notes/2026-10-11-descent-proposition.md#L71-L90), the third point and the no-equivariant-section proof.
   - [`notes/2026-10-11-concept-ideal-point-naming.md`](https://github.com/mountain/pcrg-paper/blob/c59ab6f/notes/2026-10-11-concept-ideal-point-naming.md#L690-L750), cosets, basepoints, and groupoids.
   - [`notes/2026-10-11-concept-ideal-point-naming.md`](https://github.com/mountain/pcrg-paper/blob/c59ab6f/notes/2026-10-11-concept-ideal-point-naming.md#L225-L270), ordering as a $\mathbb{Z}/2$-torsor.
+  - [`notes/2026-10-11-concept-ideal-point-naming.md`](https://github.com/mountain/pcrg-paper/blob/c59ab6f/notes/2026-10-11-concept-ideal-point-naming.md#L278-L353), visibility versus the need for a frame.
   - [`notes/2026-10-12-operator-kernel-transformation-groupoid-witness.py`](https://github.com/mountain/pcrg-paper/blob/c59ab6f/notes/2026-10-12-operator-kernel-transformation-groupoid-witness.py#L108-L120), the executable witness.
 - **process-geometry** `c47c96f`
   - [`docs/54-pendulum-elliptic-group-rank-lowering.md`](https://github.com/mountain/process-geometry/blob/c47c96f/docs/54-pendulum-elliptic-group-rank-lowering.md#L30-L40), the basepoint/torsor correction.
 - **adva** `17e1842a`
   - [`docs/research/0047-a1-nodal-through-crossing-geometry.md`](https://github.com/mountain/adva/blob/17e1842a/docs/research/0047-a1-nodal-through-crossing-geometry.md#L670-L710), phase torsor.
   - [`docs/research/0048-cellular-annulus-nodal-torus-dehn-twist.md`](https://github.com/mountain/adva/blob/17e1842a/docs/research/0048-cellular-annulus-nodal-torus-dehn-twist.md#L438-L450), the infinite cyclic torsor.
+  - [`docs/research/0223-surreal-order-and-the-tear.md`](https://github.com/mountain/adva/blob/17e1842a/docs/research/0223-surreal-order-and-the-tear.md#L1-L110), the value/presentation-day tear and the canonical-section reading.
+- **adva-machine** `51ee989`
+  - [`docs/research/0079-typed-hole-open-close-calibration-v0.md`](https://github.com/mountain/adva-machine/blob/51ee989/docs/research/0079-typed-hole-open-close-calibration-v0.md#L15-L40), the hole as a filling fibre; see also [the one-sentence form](https://github.com/mountain/adva-machine/blob/51ee989/docs/research/0079-typed-hole-open-close-calibration-v0.md#L157-L167).
+  - [`docs/research/0070-typed-surreal-through-forms.md`](https://github.com/mountain/adva-machine/blob/51ee989/docs/research/0070-typed-surreal-through-forms.md#L300-L325), the unmarked through relation and its resolution fibre.
+  - [`docs/research/0021-surreal-cut-objectification-no-go.md`](https://github.com/mountain/adva-machine/blob/51ee989/docs/research/0021-surreal-cut-objectification-no-go.md#L26-L50), non-injective and non-natural objectification.
+  - [`docs/research/0037-finite-observer-tricusp-surreal-reduction.md`](https://github.com/mountain/adva-machine/blob/51ee989/docs/research/0037-finite-observer-tricusp-surreal-reduction.md#L1040-L1060), the finite observer and the failure of a global section.
 
 # 挠子（Torsor）
 
@@ -537,6 +628,89 @@ $$
 
 于是 $X$ 与 $G$ 同构，但不是典范同构。要使用这个同构，就选一个点；要比较两个选择，就用它们之间唯一的群元素；要比较两个点，就用差；没有基点时，不要相加。
 
+## 挠、撕裂与观察者的洞
+
+AEG 与 Adva 的“看不见的差异”在挠子这里相遇，但相遇是精确的，而且涉及两个不同的“自由”。AEG 里自由的是加法史与乘法史的自由乘积；挠子里自由的是作用。把这两个 free 分开，桥才是精确的。
+
+### 电荷纤维是挠子
+
+Paper 0 §8 的 history group 是自由乘积
+
+$$
+G=(\mathbb{R},+)*(\mathbb{R},+),
+$$
+
+生成元是加法步 $\mathsf A_p$ 与乘法步 $\mathsf M_q$。电荷映射
+
+$$
+c:G\longrightarrow\mathbb{R}^2,\qquad \mathsf A_p\mapsto(p,0),\quad \mathsf M_q\mapsto(0,q)
+$$
+
+是 $G$ 的交换化：`prop:p0-acs-is-abelianization` 证明
+
+$$
+\ker c=[G,G].
+$$
+
+固定电荷 $b\in\mathbb{R}^2$，取历史 $\gamma$ 使 $c(\gamma)=b$。纤维是右陪集
+
+$$
+c^{-1}(b)=\gamma[G,G].
+$$
+
+子群 $[G,G]$ 通过左乘作用在这个陪集上。作用是自由的：若 $h\gamma h'=\gamma h'$，则 $h\gamma=\gamma$，故 $h=e$。作用是传递的：给定 $\gamma h_1$ 与 $\gamma h_2$，元素 $h=\gamma h_2h_1^{-1}\gamma^{-1}$ 落在 $[G,G]$ 中（因为 $[G,G]$ 正规），且 $h\gamma h_1=\gamma h_2$。所以**每根电荷纤维都是一个 $[G,G]$-挠子**。这是交换化命题的直接读法；论文没有在这里使用“挠子”一词，但结构是直接的。
+
+同一根纤维中两个历史的相对算术挠率（relative arithmetic torsion）是
+
+$$
+\tau(\gamma,\delta)=\xi_\gamma-\xi_\delta,
+$$
+
+即两个目标框架平移项之差。底层的挠子差是群元素 $\gamma^{-1}\delta\in[G,G]$；$\tau$ 是两次求值之仿射差的一个坐标。tearing（撕裂）是这个相对挠率的几何名字：线性部分相同，加法内容不同。`prop:p0-characters-cannot-see-tearing` 把观察者陈述说得很精确：电荷端点的任意函数在纤维上是常数，而 $\tau$ 不必为零。观察者看到的是底空间 $b$，不是它上面的挠子纤维。这是 AEG 版的“有限观察者看不到差异”——差异就是洞。
+
+两个 caveat。$G$ 里的 free 是自由乘积，不是自由群；论文明确拒绝在没有选定生成元与关系时把历史空间等同于自由群。这里的 torsion 是相对算术挠率，不是群论 torsion；它住在交换子群 $[G,G]$ 里，而 $[G,G]$ 正是交换化忘掉的部分。
+
+### 洞是填充纤维
+
+Adva 的有限观察者是一个有界、带版本的观察策略 $Q$；它看到商 $q(h)$，而不是历史 $h$，而且全局有限观察者不必存在（`0037` §5.14）。残差不等于无。typed-hole 笔记 `0079` 把形状说清楚了：
+
+> The hole is syntactically empty and semantically a family.
+>
+> 洞在句法上是空的，在语义上是一个族。
+
+洞是一个填充纤维：空括号是开口，允许的填充是族。若被遗忘的差异构成一个群在族上的自由传递作用，这个洞就是挠子。在这个意义上，**每个挠子都是洞，但不是每个洞都是挠子**：稳定子非平凡时，族是齐性空间；没有群作用时，它只是纤维。
+
+through-form 笔记 `0070` 给了一个字面实例。未标记关系 $\langle F_-\mid_N F_+\rangle$ 是全部标记消解的载体；选一个消解，就是在其中选一个图。消解集合是单值群 $\langle T_\delta\rangle\cong\mathbb{Z}$ 下的挠子（Paper V §8）。不选的观察者看到关系，也就是洞；选了的观察者看到函数。奇点不是把歧义擦掉，而是把它的表示换成“一个节点加它的消解纤维”。
+
+Surreal tear 笔记 `0223` 给出最干净的值/呈现例子。状态 $q$ 是形式的数值，呈现日 clock 是 $c_2$。序 clock 下降到值；呈现日 clock 不下降。见证是
+
+$$
+q(\ \mid\ )=q(\ \mid 1)=0,\qquad \mathrm{day}(\ \mid\ )=0,\quad \mathrm{day}(\ \mid 1)=2.
+$$
+
+Surreal 数有规范截面——取最简呈现——它使呈现日成为值的函数；那里的 tear 无害。AES 没有这样的规范截面，所以缺陷被携带。这与“有典范平凡化的挠子 vs 没有的挠子”是同一组二分，只是换了外衣：截面存在或不存在，而 tear 是所选截面不典范的见证。`0021` 补上自然性失败：对象化取最简形式，但这个选择不与缩放交换；ordered holes 与 surgery history 是残差。这个模式与框架挠子相同：集合论截面存在，等变截面不存在。
+
+### 两个方向的不可见
+
+还有第二种、方向相反的“看不到洞”。`concept-ideal-point-naming` §7 的框架分析说：
+
+> 可见 $\leftrightarrow$ 需要框架；不可见 $\leftrightarrow$ 不需要框架。
+
+有序载体把 split 概念数了两遍，因为给两点排序是一个 $\mathbb{Z}/2$-挠子；它完全看不见 non-split 概念，因为 Frobenius 交换两点，没有排序可用。这里挠子是可见的那一侧——需要框架的东西——而洞是不需要框架的典范对象。可见性不等于典范性。
+
+于是语料有两种对偶配置：
+
+1. **底空间观察者。** 观察者看到商，看不到纤维。挠子是看不见的纤维：AEG 的电荷纤维、`0047`/`0070` 的消解关系、`0079` 的填充族。
+2. **框架化载体。** 载体看到挠子（需要框架），看不到典范对象：有序 bivaluation 载体把 split 概念数两遍，把 non-split 概念数零遍。
+
+同一个挠子可以落在可见性切口的任一侧。落在哪一侧，取决于观察者的状态空间是什么，而不只取决于挠子本身。
+
+### 小结
+
+**挠子是“洞”在遗忘的差异构成自由传递作用时的形状。纤维中两点之差是挠子的群元素；tearing 是它的几何度量，算术 torsion 是它在交换化商里的平移坐标影子。**
+
+在 AEG 的电荷纤维与消解纤维中，这座桥是精确的。在 surreal 与框架例子中，它是一种结构读法：相同的“有/无典范截面”二分，而不是“每个呈现纤维都是群挠子”的断言。
+
 ## 常见混淆
 
 **挠子不是群。** 只有在选点之后它才是群，而且群律依赖这个点。三元的差是典范的，二元的和不是。
@@ -547,7 +721,7 @@ $$
 
 **没有等变截面不等于没有截面。** 在框架情形中，集合论截面存在；$G$-等变截面不存在。障碍是自然性，不是存在性。
 
-**挠子不是挠（torsion）。** 群论中的“挠”指有限阶元素；语料还用“torsion”指交换子群 $[G,G]$。挠子是另一个概念：没有基点的自由传递作用。“torsion 是无基点的那一部分”是仿射群中的局部等同，不是一般定义。
+**挠子不是挠（torsion）。** 群论中的“挠”指有限阶元素；语料还用“torsion”指交换子群 $[G,G]$。挠子是另一个概念：没有基点的自由传递作用。“torsion 是无基点的那一部分”是仿射群中的局部等同，不是一般定义。在 AEG 的电荷纤维中，纤维是 $[G,G]$-挠子，而相对挠率是纤维中两点之差，不是纤维本身。
 
 **群是数据的一部分。** 仿射实例是 $\mathbb{R}_{>0}$ 下的挠子，不是 $\mathbb{Z}$ 下的挠子；消解挠子是 $\mathbb{Z}$ 下的挠子。同样的形状配上不同的群，就是不同的挠子。总要问：哪个群在作用？底空间是什么？
 
@@ -594,15 +768,25 @@ $$
   - [`paper-0/sections/03-aes-and-motion.tex`](https://github.com/mountain/aeg-paper/blob/402e0e7/paper-0/sections/03-aes-and-motion.tex#L745-L805)，`prop:p0-affine-two-layers`。
   - [`notes/analysis-and-calculus/48-finite-field-trigonometry.tex`](https://github.com/mountain/aeg-paper/blob/402e0e7/notes/analysis-and-calculus/48-finite-field-trigonometry.tex#L180-L190)，范数纤维作为挠子。
   - [`paper-4/sections/04-condensation-and-continuation.tex`](https://github.com/mountain/aeg-paper/blob/402e0e7/paper-4/sections/04-condensation-and-continuation.tex#L40-L140)，延拓与正规化子判据。
+  - [`paper-0/sections/08-acs-tearing.tex`](https://github.com/mountain/aeg-paper/blob/402e0e7/paper-0/sections/08-acs-tearing.tex#L142-L340)，`conv:p0-history-group`、`prop:p0-acs-is-abelianization` 与 `def:relative-torsion`。
+  - [`paper-0/sections/08-acs-tearing.tex`](https://github.com/mountain/aeg-paper/blob/402e0e7/paper-0/sections/08-acs-tearing.tex#L593-L649)，`def:p0-tearing`。
+  - [`paper-0/sections/10-beyond-linear.tex`](https://github.com/mountain/aeg-paper/blob/402e0e7/paper-0/sections/10-beyond-linear.tex#L132-L150)，`prop:p0-characters-cannot-see-tearing`。
 - **pcrg-paper** `c59ab6f`
   - [`references/developing/09-capacity-layers-and-the-torsor.md`](https://github.com/mountain/pcrg-paper/blob/c59ab6f/references/developing/09-capacity-layers-and-the-torsor.md#L30-L48)，挠子层。
   - [`references/developing/10-the-trichotomy-and-what-changes-over-fq.md`](https://github.com/mountain/pcrg-paper/blob/c59ab6f/references/developing/10-the-trichotomy-and-what-changes-over-fq.md#L30-L45)，有限域挠子。
   - [`notes/2026-10-11-descent-proposition.md`](https://github.com/mountain/pcrg-paper/blob/c59ab6f/notes/2026-10-11-descent-proposition.md#L71-L90)，第三点与无等变截面的证明。
   - [`notes/2026-10-11-concept-ideal-point-naming.md`](https://github.com/mountain/pcrg-paper/blob/c59ab6f/notes/2026-10-11-concept-ideal-point-naming.md#L690-L750)，陪集、基点与群胚。
   - [`notes/2026-10-11-concept-ideal-point-naming.md`](https://github.com/mountain/pcrg-paper/blob/c59ab6f/notes/2026-10-11-concept-ideal-point-naming.md#L225-L270)，排序作为 $\mathbb{Z}/2$-挠子。
+  - [`notes/2026-10-11-concept-ideal-point-naming.md`](https://github.com/mountain/pcrg-paper/blob/c59ab6f/notes/2026-10-11-concept-ideal-point-naming.md#L278-L353)，可见性与“需要框架”的对偶。
   - [`notes/2026-10-12-operator-kernel-transformation-groupoid-witness.py`](https://github.com/mountain/pcrg-paper/blob/c59ab6f/notes/2026-10-12-operator-kernel-transformation-groupoid-witness.py#L108-L120)，可执行见证。
 - **process-geometry** `c47c96f`
   - [`docs/54-pendulum-elliptic-group-rank-lowering.md`](https://github.com/mountain/process-geometry/blob/c47c96f/docs/54-pendulum-elliptic-group-rank-lowering.md#L30-L40)，基点/挠子修正。
 - **adva** `17e1842a`
   - [`docs/research/0047-a1-nodal-through-crossing-geometry.md`](https://github.com/mountain/adva/blob/17e1842a/docs/research/0047-a1-nodal-through-crossing-geometry.md#L670-L710)，相位挠子。
   - [`docs/research/0048-cellular-annulus-nodal-torus-dehn-twist.md`](https://github.com/mountain/adva/blob/17e1842a/docs/research/0048-cellular-annulus-nodal-torus-dehn-twist.md#L438-L450)，无限循环挠子。
+  - [`docs/research/0223-surreal-order-and-the-tear.md`](https://github.com/mountain/adva/blob/17e1842a/docs/research/0223-surreal-order-and-the-tear.md#L1-L110)，值/呈现日撕裂与规范截面读法。
+- **adva-machine** `51ee989`
+  - [`docs/research/0079-typed-hole-open-close-calibration-v0.md`](https://github.com/mountain/adva-machine/blob/51ee989/docs/research/0079-typed-hole-open-close-calibration-v0.md#L15-L40)，洞作为填充纤维；另见[一句话形式](https://github.com/mountain/adva-machine/blob/51ee989/docs/research/0079-typed-hole-open-close-calibration-v0.md#L157-L167)。
+  - [`docs/research/0070-typed-surreal-through-forms.md`](https://github.com/mountain/adva-machine/blob/51ee989/docs/research/0070-typed-surreal-through-forms.md#L300-L325)，未标记 through 关系与消解纤维。
+  - [`docs/research/0021-surreal-cut-objectification-no-go.md`](https://github.com/mountain/adva-machine/blob/51ee989/docs/research/0021-surreal-cut-objectification-no-go.md#L26-L50)，非单射、非自然的对象化。
+  - [`docs/research/0037-finite-observer-tricusp-surreal-reduction.md`](https://github.com/mountain/adva-machine/blob/51ee989/docs/research/0037-finite-observer-tricusp-surreal-reduction.md#L1040-L1060)，有限观察者与全局截面的失效。
