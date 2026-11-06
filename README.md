@@ -12,6 +12,8 @@ Requires Python 3.11+ and Git:
 python -m venv .venv
 . .venv/bin/activate
 python -m pip install -e .
+cp wiki.example.toml wiki.toml   # local config; ignored by Git
+# edit wiki.toml to point at your checkouts
 adva-wiki --config wiki.toml
 ```
 
@@ -51,9 +53,11 @@ math. If unavailable, the original LaTeX remains readable.
 ## Configuration and agent authoring
 
 `wiki.toml` configures the content root, server, related projects, and news feeds.
-All filesystem paths resolve relative to the TOML file, not the working directory.
-Use repeated `[[projects]]` tables with `name` and `path`, and repeated `[[feeds]]`
-tables with `name` and an HTTP(S) `url`. Either list may be omitted.
+It is intentionally gitignored: copy `wiki.example.toml` to `wiki.toml` and edit
+the local copy, so machine-specific checkout paths never enter Git. All filesystem
+paths resolve relative to the TOML file, not the working directory. Use repeated
+`[[projects]]` tables with `name` and `path`, and repeated `[[feeds]]` tables with
+`name` and an HTTP(S) `url`. Either list may be omitted.
 
 Agents can obtain the source manifest as JSON:
 

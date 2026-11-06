@@ -1,0 +1,25 @@
+# Copy this file to wiki.toml and adjust it for your machine.
+# wiki.toml is gitignored so local checkout paths stay out of Git.
+
+[wiki]
+title = "adva-wiki"
+content_dir = "."
+
+[server]
+host = "127.0.0.1"
+port = 8000
+
+# Related projects the authoring agent may read. Paths are resolved relative
+# to this configuration file. Add one [[projects]] table per checkout, e.g.:
+#
+# [[projects]]
+# name = "aeg-paper"
+# path = "/path/to/aeg-paper"
+
+[[projects]]
+name = "adva-wiki"
+path = "."
+
+[[feeds]]
+name = "GitHub Blog"
+url = "https://github.blog/feed/"
