@@ -1,0 +1,21 @@
+[project]
+name = "adva-wiki"
+version = "0.1.0"
+description = "A Markdown and Git wiki for humans and authoring agents"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "linkify-it-py==2.2.0",
+    "markdown-it-py==4.2.0",
+    "mdit-py-plugins==0.6.1",
+]
+
+[project.scripts]
+adva-wiki = "adva_wiki.__main__:main"
+
+[build-system]
+requires = ["setuptools>=80.9"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.package-data]
+adva_wiki = ["static/*"]
