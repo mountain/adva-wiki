@@ -219,5 +219,7 @@ __marimo__/
 # Streamlit
 .streamlit/secrets.toml
 
+.idea/
+
 # Local wiki configuration; may contain machine-specific checkout paths
 wiki.toml
