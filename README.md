@@ -26,8 +26,8 @@ autolinks. Raw HTML is escaped rather than executed.
 
 | Feature | Syntax |
 | --- | --- |
-| Wiki link | `[[README]]` or `[[guides/Setup|Setup guide]]` |
-| Heading link | `[[README#run|Run instructions]]` |
+| Wiki link | `[[README]]` or `[[guides/Setup\|Setup guide]]` |
+| Heading link | `[[README#run\|Run instructions]]` |
 | Standard link | `[Setup](guides/Setup.md)` |
 | Image | `![Diagram](images/diagram.png)` |
 | Inline LaTeX | `$E = mc^2$` |
