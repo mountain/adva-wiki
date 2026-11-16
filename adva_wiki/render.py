@@ -1,9 +1,10 @@
 from dataclasses import dataclass
 from html import escape
 import re
-from urllib.parse import quote
+from urllib.parse import quote, urlsplit
 
 from markdown_it import MarkdownIt
+from markdown_it.token import Token
 from mdit_py_plugins.anchors import anchors_plugin
 from mdit_py_plugins.dollarmath import dollarmath_plugin
 from mdit_py_plugins.tasklists import tasklists_plugin
@@ -34,6 +35,34 @@ class RenderedPage:
     language: str | None = None
     default: str | None = None
     title: str | None = None
+
+
+@dataclass(frozen=True)
+class ParsedPage:
+    markdown: MarkdownIt
+    env: dict
+    views: dict[str | None, list[Token]]
+    titles: dict[str, str]
+    default: str | None
+
+    def view_language(self, language: str | None) -> str | None:
+        if language is None:
+            language = self.default
+        if language not in self.views:
+            raise UnknownLanguage(f"Page does not declare language {language!r}")
+        return language
+
+    def render(self, language: str | None = None, *, tokens: list[Token] | None = None) -> RenderedPage:
+        language = self.view_language(language)
+        if tokens is None:
+            tokens = self.views[language]
+        return RenderedPage(
+            html=self.markdown.renderer.render(tokens, self.markdown.options, self.env),
+            languages=tuple(Language(code, title) for code, title in self.titles.items()),
+            language=language,
+            default=self.default,
+            title=self.titles[language] if language is not None else None,
+        )
 
 
 def wiki_link(state, silent):
@@ -159,6 +188,12 @@ def _normalize_title(title: str) -> str:
     return " ".join(title.split())
 
 
+def heading_text(inline: Token) -> str:
+    return "".join(
+        token.content for token in inline.children or () if token.type in {"text", "code_inline"}
+    ).strip()
+
+
 def _split_sections(tokens) -> tuple[list, list[tuple[str, list]]]:
     preamble: list = []
     sections: list[tuple[str, list]] = []
@@ -189,28 +224,43 @@ def _split_sections(tokens) -> tuple[list, list[tuple[str, list]]]:
     return preamble, titled
 
 
-def render_page(source: str, language: str | None = None) -> RenderedPage:
-    """Render a page, selecting one language section when metadata is present."""
+def _add_reference_anchors(tokens: list[Token]) -> None:
+    number = 0
+    for block in tokens:
+        for token in block.children or ():
+            if token.type != "link_open":
+                continue
+            href = token.attrGet("href")
+            if not isinstance(href, str) or not href:
+                continue
+            try:
+                url = urlsplit(href)
+            except ValueError:
+                continue
+            if url.scheme or url.netloc:
+                continue
+            number += 1
+            # Assign once before splitting languages, so shared sections keep the same IDs.
+            # Heading slugs never contain colons.
+            token.attrs = {"id": f"wiki-ref:{number}", **token.attrs}
+
+
+def parse_page(source: str, markdown: MarkdownIt | None = None) -> ParsedPage:
+    """Parse the Markdown once and select tokens for each language view."""
     languages, default, body = parse_languages(source)
-    if not languages:
-        if language is not None:
-            raise UnknownLanguage(f"Page does not declare language {language!r}")
-        return RenderedPage(markdown_renderer().render(body))
-
-    if language is None:
-        language = default or next(iter(languages))
-    if language not in languages:
-        raise UnknownLanguage(f"Page does not declare language {language!r}")
-
     normalized = {code: _normalize_title(title) for code, title in languages.items()}
     if len(set(normalized.values())) != len(normalized):
         raise MetadataError("Each language must point at a distinct H1 title")
 
-    md = markdown_renderer()
+    md = markdown if markdown is not None else markdown_renderer()
     env: dict = {}
     tokens = md.parse(body, env)
+    _add_reference_anchors(tokens)
+    if not languages:
+        return ParsedPage(md, env, {None: tokens}, {}, None)
+
     preamble, sections = _split_sections(tokens)
-    selected: dict[str, list] = {code: [] for code in languages}
+    selected: dict[str, list[Token]] = {code: [] for code in languages}
     shared: list = []
     for title, section in sections:
         match = next(
@@ -228,15 +278,13 @@ def render_page(source: str, language: str | None = None) -> RenderedPage:
             "No H1 section matches the declared title for: " + ", ".join(missing)
         )
 
-    ordered = [*preamble, *selected[language], *shared]
-    html = md.renderer.render(ordered, md.options, env)
-    return RenderedPage(
-        html=html,
-        languages=tuple(Language(code, title) for code, title in languages.items()),
-        language=language,
-        default=default or next(iter(languages)),
-        title=languages[language],
-    )
+    views = {code: [*preamble, *section, *shared] for code, section in selected.items()}
+    return ParsedPage(md, env, views, languages, default or next(iter(languages)))
+
+
+def render_page(source: str, language: str | None = None) -> RenderedPage:
+    """Render a page, selecting one language section when metadata is present."""
+    return parse_page(source).render(language)
 
 
 def render_markdown(source: str) -> str:

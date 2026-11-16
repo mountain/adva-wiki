@@ -12,4 +12,6 @@ blockquote { border-left: .2rem solid #888; margin-left: 0; padding-left: 1rem; 
 .language-nav { display: flex; flex-wrap: wrap; gap: .25rem; margin: 1rem 0 1.25rem; }
 .language-nav a { padding: .35rem .8rem; border: 1px solid #888; border-radius: .35rem; text-decoration: none; }
 .language-nav a[aria-current="page"] { background: light-dark(#e8eefc, #26334d); font-weight: 600; }
+.backlinks { border-top: 1px solid #888; margin-top: 2rem; }
+[id^="wiki-ref:"]:target { outline: 2px solid currentColor; outline-offset: 2px; }
 .note { border-left: .2rem solid #888; padding-left: 1rem; color: light-dark(#555, #bbb); }

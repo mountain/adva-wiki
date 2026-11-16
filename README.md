@@ -96,6 +96,23 @@ canonical page path, so `![Diagram](images/diagram.png)` works on
 
 See [[torsor]] for a worked example.
 
+## Backlinks
+
+Current pages show **Backlinks** when other pages or language views link to
+them. Wiki links, relative Markdown links, and automatic concept links all
+count. Each source language view is listed once and opens its first valid
+reference to the current view.
+
+The first H1 of each language view supplies its concept name. The reader links
+the first eligible mention in body text, matching exact case and taking the
+longest name at each position. For example, `AB` takes the full span in an
+`A`/`AB` overlap. A valid authored link to a concept takes precedence throughout
+the source view. Names within links, code, and math are skipped, and a name
+shared by several destinations requires an authored link.
+
+Backlinks and automatic links are rebuilt from the current files on each page
+request. After a file rename, update authored links pointing to the old path.
+
 ## Configuration and agent authoring
 
 `wiki.toml` configures the content root, server, related projects, and news feeds.
