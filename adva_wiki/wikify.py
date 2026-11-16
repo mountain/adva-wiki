@@ -15,6 +15,7 @@ Design points
 """
 
 from collections.abc import Iterable
+from pathlib import Path
 import re
 
 from .autolinks import term_pattern
@@ -95,3 +96,43 @@ def wikify(
     for is_prose, text in _walk_prose(source):
         chunks.append(replace(text) if is_prose else text)
     return "".join(chunks)
+
+
+def load_concept_table(path: str | Path) -> list[str]:
+    """Read a concept table and return its phrases, longest-first.
+
+    Accepts both table shapes produced by the AEG pipeline:
+
+    * ``wikify-replacement-table.tsv``: ``phrase<TAB>[[phrase]]`` (phrase in
+      column 1, link in column 2);
+    * ``generic-word-concepts.tsv``: ``word<TAB>phrase<TAB>count<TAB>repos``
+      (phrase in column 2).
+
+    Lines starting with ``#`` and the first header row are ignored.  Duplicate
+    phrases are collapsed, and phrases longer than :data:`_MAX_PHRASE_LENGTH`
+    are dropped.
+    """
+    phrases: set[str] = set()
+    with open(path, encoding="utf-8") as stream:
+        first = True
+        for line in stream:
+            line = line.rstrip("\n")
+            if not line or line.startswith("#"):
+                continue
+            columns = line.split("\t")
+            if first:
+                first = False
+                if columns and columns[0].strip().lower() in {"phrase", "word"}:
+                    continue
+            if len(columns) >= 2 and columns[1].startswith("[["):
+                phrase = columns[0]
+            elif len(columns) >= 2:
+                phrase = columns[1]
+            elif columns:
+                phrase = columns[0]
+            else:
+                continue
+            phrase = phrase.strip()
+            if phrase and len(phrase) <= _MAX_PHRASE_LENGTH:
+                phrases.add(phrase)
+    return sorted(phrases, key=lambda p: (-len(p), p))

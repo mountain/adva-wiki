@@ -13,7 +13,7 @@ from urllib.parse import urlsplit
 from adva_wiki.config import load_config
 from adva_wiki.render import MetadataError, UnknownLanguage, parse_page, render_markdown, render_page
 from adva_wiki.revisions import Revisions
-from adva_wiki.wikify import wikify
+from adva_wiki.wikify import load_concept_table, wikify
 from adva_wiki.server import content_path, create_server
 
 
@@ -580,6 +580,20 @@ class WikiTests(unittest.TestCase):
 
 
 class WikifyTests(unittest.TestCase):
+    def test_load_concept_table_both_formats(self):
+        import tempfile, os
+        # wikify-replacement-table format: phrase \t [[phrase]]
+        f1 = tempfile.NamedTemporaryFile("w", suffix=".tsv", delete=False)
+        f1.write("phrase\tlink\nbasic hyperbolic model\t[[basic hyperbolic model]]\n# c\nhyperbolic model\t[[hyperbolic model]]\n")
+        f1.close()
+        self.assertEqual(load_concept_table(f1.name), ["basic hyperbolic model", "hyperbolic model"])
+        # generic-word-concepts format: word \t phrase \t count \t repos
+        f2 = tempfile.NamedTemporaryFile("w", suffix=".tsv", delete=False)
+        f2.write("word\tphrase\ttotal_count\trepos\norder\tdependency order\t104\tadva\n")
+        f2.close()
+        self.assertEqual(load_concept_table(f2.name), ["dependency order"])
+        os.unlink(f1.name); os.unlink(f2.name)
+
     def test_direct_replacement_and_longest_first(self):
         self.assertEqual(
             wikify("the basic hyperbolic model and hyperbolic model",
