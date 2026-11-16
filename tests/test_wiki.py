@@ -11,12 +11,25 @@ import unittest
 from urllib.parse import urlsplit
 
 from adva_wiki.config import load_config
-from adva_wiki.render import MetadataError, UnknownLanguage, render_markdown, render_page
+from adva_wiki.render import MetadataError, UnknownLanguage, parse_page, render_markdown, render_page
 from adva_wiki.revisions import Revisions
+from adva_wiki.wikify import wikify
 from adva_wiki.server import content_path, create_server
 
 
 class RenderingTests(unittest.TestCase):
+    def test_red_link_for_unresolved_wiki_target(self):
+        exists = {"torsor.md", "README.md"}.__contains__
+        html = parse_page(
+            "see [[torsor]] and [[missing concept]]", page_exists=exists
+        ).render().html
+        self.assertIn('href="/wiki/torsor.md"', html)
+        self.assertIn('href="/wiki/missing%20concept.md" class="red-link"', html)
+
+    def test_no_red_link_without_page_exists_callback(self):
+        html = parse_page("see [[missing concept]]").render().html
+        self.assertNotIn('class="red-link"', html)
+
     def test_gfm(self):
         html = render_markdown(
             "| A | B |\n| --- | --- |\n| 1 | 2 |\n\n"
@@ -566,5 +579,42 @@ class WikiTests(unittest.TestCase):
         self.assertEqual(Revisions(self.docs).history(self.docs / "new.md"), [])
 
 
+class WikifyTests(unittest.TestCase):
+    def test_direct_replacement_and_longest_first(self):
+        self.assertEqual(
+            wikify("the basic hyperbolic model and hyperbolic model",
+                   ["basic hyperbolic model", "hyperbolic model"]),
+            "the [[basic hyperbolic model]] and [[hyperbolic model]]",
+        )
+
+    def test_first_mention_only(self):
+        self.assertEqual(
+            wikify("dependency order then dependency order", ["dependency order"]),
+            "[[dependency order]] then dependency order",
+        )
+
+    def test_protected_spans_untouched(self):
+        source = (
+            "use `dependency order` and $dependency order$ and [[dependency order]]\n"
+            "and [dependency order](x.md)\n\n```\ndependency order\n```"
+        )
+        self.assertEqual(wikify(source, ["dependency order"]), source)
+
+    def test_chinese_overlap(self):
+        self.assertEqual(
+            wikify("先读几何原理和几何", ["几何原理", "几何"]),
+            "先读[[几何原理]]和[[几何]]",
+        )
+
+    def test_fence_and_prose_split(self):
+        source = "a ```\ndependency order\n``` and dependency order"
+        self.assertEqual(
+            wikify(source, ["dependency order"]),
+            "a ```\ndependency order\n``` and [[dependency order]]",
+        )
+
+
 if __name__ == "__main__":
+    unittest.main()
+
     unittest.main()

@@ -15,3 +15,5 @@ blockquote { border-left: .2rem solid #888; margin-left: 0; padding-left: 1rem; 
 .backlinks { border-top: 1px solid #888; margin-top: 2rem; }
 [id^="wiki-ref:"]:target { outline: 2px solid currentColor; outline-offset: 2px; }
 .note { border-left: .2rem solid #888; padding-left: 1rem; color: light-dark(#555, #bbb); }
+a.red-link { color: light-dark(#b3261e, #ff7a70); text-decoration-style: dotted; }
+a.red-link:hover { text-decoration-style: solid; }

@@ -82,12 +82,15 @@ def render_with_backlinks(
     current_language = current.view_language(requested_language)
     current_key = (current_name, current_language)
     current_tokens = current.views[current_language]
+    all_files = list(markdown_files(root))
+    names = {name for name, _ in all_files}
+    page_exists = names.__contains__
     pages = {current_name: current}
-    for name, file in markdown_files(root):
+    for name, file in all_files:
         if name == current_name:
             continue
         try:
-            pages[name] = parse_page(file.read_text(encoding="utf-8"), current.markdown)
+            pages[name] = parse_page(file.read_text(encoding="utf-8"), current.markdown, page_exists)
         except (OSError, UnicodeError, MetadataError):
             continue
 

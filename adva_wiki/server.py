@@ -166,12 +166,14 @@ class WikiHandler(BaseHTTPRequestHandler):
             return
         revision = query.get("rev", [None])[0]
         source = revisions.read(file, revision) if revision else file.read_text(encoding="utf-8")
-        parsed = parse_page(source)
         fallback = False
         backlinks = []
         if revision is None:
+            names = {name for name, _ in markdown_files(root)}
+            parsed = parse_page(source, page_exists=names.__contains__)
             rendered, backlinks = render_with_backlinks(root, name, parsed, requested_language)
         else:
+            parsed = parse_page(source)
             try:
                 rendered = parsed.render(requested_language)
             except UnknownLanguage:

@@ -85,6 +85,9 @@ def wiki_link(state, silent):
     if not silent:
         token = state.push("link_open", "a", 1)
         token.attrSet("href", href)
+        page_exists = state.env.get("page_exists")
+        if page and page_exists is not None and not page_exists(page):
+            token.attrSet("class", "red-link")
         token = state.push("text", "", 0)
         token.content = label.strip() if separator else target
         state.push("link_close", "a", -1)
@@ -245,15 +248,20 @@ def _add_reference_anchors(tokens: list[Token]) -> None:
             token.attrs = {"id": f"wiki-ref:{number}", **token.attrs}
 
 
-def parse_page(source: str, markdown: MarkdownIt | None = None) -> ParsedPage:
-    """Parse the Markdown once and select tokens for each language view."""
+def parse_page(source: str, markdown: MarkdownIt | None = None, page_exists=None) -> ParsedPage:
+    """Parse the Markdown once and select tokens for each language view.
+
+    ``page_exists`` is an optional callable mapping a page name (such as
+    ``"torsor.md"``) to whether it exists; it is used to render unresolved
+    ``[[...]]`` targets as red links.
+    """
     languages, default, body = parse_languages(source)
     normalized = {code: _normalize_title(title) for code, title in languages.items()}
     if len(set(normalized.values())) != len(normalized):
         raise MetadataError("Each language must point at a distinct H1 title")
 
     md = markdown if markdown is not None else markdown_renderer()
-    env: dict = {}
+    env: dict = {"page_exists": page_exists}
     tokens = md.parse(body, env)
     _add_reference_anchors(tokens)
     if not languages:
