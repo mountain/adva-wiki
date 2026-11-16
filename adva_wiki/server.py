@@ -1,12 +1,13 @@
 from functools import partial
 from html import escape
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
-import os
-from pathlib import Path, PurePosixPath
+from pathlib import Path
 from urllib.parse import parse_qs, quote, unquote, urlsplit
 
+from .backlinks import Backlink, render_with_backlinks
 from .config import Config
-from .render import LANGUAGE_CODE, MetadataError, RenderedPage, UnknownLanguage, render_page
+from .content import content_path, language_href, markdown_files, page_href, split_language_alias
+from .render import MetadataError, RenderedPage, UnknownLanguage, parse_page
 from .revisions import GitError, Revisions
 
 
@@ -18,60 +19,32 @@ IMAGES = {
 STATIC = Path(__file__).parent / "static"
 
 
-def content_path(root: Path, name: str) -> Path:
-    parts = PurePosixPath(name).parts
-    if not parts or name.startswith("/") or "\\" in name:
-        raise ValueError("Invalid content path")
-    if any(part.startswith(".") for part in parts):
-        raise ValueError("Hidden paths and parent traversal are not allowed")
-    path = root.joinpath(*parts)
-    if any(parent.is_symlink() for parent in (path, *path.parents) if parent != root):
-        raise ValueError("Symlinks are not served")
-    if not path.resolve().is_relative_to(root):
-        raise ValueError("Content must remain inside the wiki directory")
-    return path
-
-
-def split_language_alias(root: Path, name: str) -> tuple[str, str | None]:
-    """Map ``page.zh.md`` to ``page.md`` plus language ``zh`` if no such file exists."""
-    if not name.endswith(".md"):
-        return name, None
-    stem = name[:-3]
-    base, separator, code = stem.rpartition(".")
-    if not separator or not base or not LANGUAGE_CODE.fullmatch(code):
-        return name, None
-    if content_path(root, name).exists():
-        return name, None
-    base_name = base + ".md"
-    if not content_path(root, base_name).is_file():
-        return name, None
-    return base_name, code
-
-
-def language_href(page_url: str, code: str, default: str | None, revision: str | None) -> str:
-    if code == default:
-        href = page_url
-    elif page_url.endswith(".md"):
-        href = page_url[:-3] + "." + quote(code, safe="") + ".md"
-    else:
-        href = page_url + "?lang=" + quote(code, safe="")
-    if revision:
-        href += ("&" if "?" in href else "?") + "rev=" + quote(revision, safe="")
-    return href
-
-
-def language_nav(rendered: RenderedPage, page_url: str, revision: str | None) -> str:
+def language_nav(root: Path, name: str, rendered: RenderedPage, revision: str | None) -> str:
     if len(rendered.languages) < 2:
         return ""
     links = []
     for language in rendered.languages:
-        href = language_href(page_url, language.code, rendered.default, revision)
+        href = language_href(root, name, language.code, rendered.default)
+        if revision:
+            href += ("&" if "?" in href else "?") + "rev=" + quote(revision, safe="")
         current = ' aria-current="page"' if language.code == rendered.language else ""
         links.append(
             f'<a href="{escape(href)}" hreflang="{escape(language.code)}" '
             f'lang="{escape(language.code)}"{current}>{escape(language.title)}</a>'
         )
     return '<nav class="language-nav" aria-label="Page languages">' + "".join(links) + "</nav>"
+
+
+def backlinks_section(backlinks: list[Backlink]) -> str:
+    if not backlinks:
+        return ""
+    rows = []
+    for backlink in backlinks:
+        label = backlink.title
+        if backlink.heading and backlink.heading != label:
+            label += " · " + backlink.heading
+        rows.append(f'<li><a href="{escape(backlink.href)}">{escape(label)}</a></li>')
+    return '<section class="backlinks"><h2>Backlinks</h2><ul>' + "".join(rows) + "</ul></section>"
 
 
 def layout(title: str, body: str, wiki_title: str, lang: str = "en") -> str:
@@ -135,6 +108,7 @@ class WikiHandler(BaseHTTPRequestHandler):
             self.page("Unavailable", "<h1>Unable to read content</h1>", 500)
 
     def route(self):
+        root = self.config.content_dir
         url = urlsplit(self.path)
         path = unquote(url.path, errors="strict")
         query = parse_qs(url.query)
@@ -149,37 +123,26 @@ class WikiHandler(BaseHTTPRequestHandler):
             self.respond(200, (STATIC / path.rsplit("/", 1)[1]).read_bytes(), mime)
             return
         if path == "/pages":
-            links = []
-            for directory, dirs, files in os.walk(self.config.content_dir):
-                dirs[:] = sorted(
-                    name for name in dirs
-                    if not name.startswith(".") and not (Path(directory) / name).is_symlink()
-                )
-                for filename in sorted(files):
-                    if not filename.endswith(".md"):
-                        continue
-                    name = (Path(directory) / filename).relative_to(self.config.content_dir).as_posix()
-                    try:
-                        content_path(self.config.content_dir, name)
-                    except ValueError:
-                        continue
-                    links.append(f'<li><a href="/wiki/{quote(name)}">{escape(name[:-3])}</a></li>')
+            links = [
+                f'<li><a href="{page_href(name)}">{escape(name[:-3])}</a></li>'
+                for name, _ in markdown_files(root)
+            ]
             self.page("All pages", "<h1>All pages</h1><ul>" + "".join(links) + "</ul>")
             return
         if not path.startswith("/wiki/"):
             raise FileNotFoundError
         requested_name = path.removeprefix("/wiki/") or "README.md"
-        name, alias_language = split_language_alias(self.config.content_dir, requested_name)
+        name, alias_language = split_language_alias(root, requested_name)
         requested_language = alias_language or (query.get("lang", [None])[0] or None)
-        file = content_path(self.config.content_dir, name)
+        file = content_path(root, name)
         if file.suffix.lower() in IMAGES:
             self.respond(200, file.read_bytes(), IMAGES[file.suffix.lower()])
             return
         if file.suffix != ".md":
             raise FileNotFoundError
-        revisions = Revisions(self.config.content_dir)
-        page_url = "/wiki/" + quote(name)
-        view_url = "/wiki/" + quote(requested_name)
+        revisions = Revisions(root)
+        name = file.relative_to(root).as_posix()
+        view_url = page_href(requested_name)
         if alias_language is None and "lang" in query and requested_language:
             view_url += "?lang=" + quote(requested_language, safe="")
         title = name[:-3]
@@ -204,19 +167,25 @@ class WikiHandler(BaseHTTPRequestHandler):
         revision = query.get("rev", [None])[0]
         source = revisions.read(file, revision) if revision else file.read_text(encoding="utf-8")
         fallback = False
-        try:
-            rendered = render_page(source, requested_language)
-        except UnknownLanguage:
-            if revision is None:
-                raise
-            rendered = render_page(source)
-            fallback = True
+        backlinks = []
+        if revision is None:
+            names = {name for name, _ in markdown_files(root)}
+            parsed = parse_page(source, page_exists=names.__contains__)
+            rendered, backlinks = render_with_backlinks(root, name, parsed, requested_language)
+        else:
+            parsed = parse_page(source)
+            try:
+                rendered = parsed.render(requested_language)
+            except UnknownLanguage:
+                rendered = parsed.render()
+                fallback = True
         title = rendered.title or title
         separator = "&" if "?" in view_url else "?"
         toolbar = f'<p><a href="{view_url}{separator}history=1">Revision history</a>'
         if revision:
             toolbar += f' · Revision {escape(revision[:10])} · <a href="{view_url}">Current page</a>'
-        body = language_nav(rendered, page_url, revision) + toolbar + "</p>" + rendered.html
+        body = language_nav(root, name, rendered, revision) + toolbar + "</p>" + rendered.html
+        body += backlinks_section(backlinks)
         if fallback:
             body += (
                 '<p class="note">Language <code>' + escape(requested_language or "")
