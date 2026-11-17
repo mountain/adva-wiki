@@ -580,6 +580,24 @@ class WikiTests(unittest.TestCase):
 
 
 class WikifyTests(unittest.TestCase):
+    def test_plural_links_to_singular_canonical(self):
+        self.assertEqual(
+            wikify("the arithmetic motions", ["arithmetic motion"]),
+            "the [[arithmetic motion|arithmetic motions]]",
+        )
+
+    def test_plural_irregular(self):
+        self.assertEqual(
+            wikify("two matrices", ["matrix"]),
+            "two [[matrix|matrices]]",
+        )
+
+    def test_plural_shares_first_mention_with_singular(self):
+        self.assertEqual(
+            wikify("the arithmetic motion then arithmetic motions", ["arithmetic motion"]),
+            "the [[arithmetic motion]] then arithmetic motions",
+        )
+
     def test_case_insensitive_first_mention_preserves_case(self):
         self.assertEqual(
             wikify("Flow equation and flow equation and FLOW EQUATION", ["flow equation"]),

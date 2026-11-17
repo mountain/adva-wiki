@@ -25,6 +25,27 @@ from .autolinks import term_pattern
 # path-like fragments ("check path library root") do not pollute the matcher.
 _MAX_PHRASE_LENGTH = 48
 
+_PLURAL_IRREGULAR = {
+    "matrix": "matrices", "index": "indices", "vertex": "vertices",
+    "analysis": "analyses", "basis": "bases", "criterion": "criteria",
+}
+
+
+def _plural(word: str) -> str:
+    """Return the English plural of a (normally singular) word."""
+    if word in _PLURAL_IRREGULAR:
+        return _PLURAL_IRREGULAR[word]
+    if word.endswith(("s", "x", "z", "ch", "sh")):
+        return word + "es"
+    if word.endswith("y") and len(word) > 1 and word[-2] not in "aeiou":
+        return word[:-1] + "ies"
+    return word + "s"
+
+
+def _looks_plural(word: str) -> bool:
+    """A cheap heuristic: does this word already look plural?"""
+    return word.endswith("s") and not word.endswith(("ss", "us", "is"))
+
 
 def _protected_regex() -> re.Pattern[str]:
     """One regex that matches every span that must not be wikified."""
@@ -73,13 +94,32 @@ def wikify(
     ``skip`` lists phrases to leave unlinked even if present — pass the page's
     own title(s) there to avoid self-links.
 
+    Plural forms of each phrase's last word are recognised and link to the
+    singular canonical form, e.g. ``arithmetic motions`` becomes
+    ``[[arithmetic motion|arithmetic motions]]``.
+
     Protected spans (code, math, links, HTML) are copied through unchanged.
 
     >>> wikify("the dependency order", ["dependency order"])
     'the [[dependency order]]'
     """
     terms = sorted({p.strip() for p in phrases if p.strip() and len(p.strip()) <= _MAX_PHRASE_LENGTH})
-    pattern = term_pattern(terms, case_sensitive=False)
+
+    # Map each matched form (lowercased) to its canonical phrase.  Besides the
+    # exact phrases, register the plural of each phrase's last word so that
+    # "arithmetic motions" links to "arithmetic motion" as
+    # [[arithmetic motion|arithmetic motions]].
+    forms: dict[str, str] = {}
+    for phrase in terms:
+        forms.setdefault(phrase.lower(), phrase)
+        words = phrase.split()
+        last = words[-1]
+        if not _looks_plural(last):
+            plural = _plural(last)
+            if plural != last:
+                forms.setdefault(" ".join(words[:-1] + [plural]).lower(), phrase)
+
+    pattern = term_pattern(forms.keys(), case_sensitive=False)
     if pattern is None:
         return source
 
@@ -90,14 +130,19 @@ def wikify(
         output: list[str] = []
         position = 0
         for match in pattern.finditer(text):
-            phrase = match.group()
-            key = phrase.lower()
+            matched = match.group()
+            matched_lower = matched.lower()
+            canonical = forms[matched_lower]
+            key = canonical.lower()
             if key in skip_lower:
                 continue
             if not link_all and key in linked:
                 continue
             output.append(text[position:match.start()])
-            output.append(f"[[{phrase}]]")
+            if canonical != matched_lower:
+                output.append(f"[[{canonical}|{matched}]]")
+            else:
+                output.append(f"[[{matched}]]")
             position = match.end()
             linked.add(key)
         output.append(text[position:])

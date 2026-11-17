@@ -7,7 +7,7 @@ default: en
 
 # Hyperbolic model
 
-The **[[basic hyperbolic model]]** is the regular arithmetic expression space (AES)
+The **[[basic hyperbolic model]]** is the [[regular arithmetic expression space]] ([[AES]])
 
 $$\mathfrak E_0(\mu,\lambda)=(\mathbb H^2,g_{\mu,\lambda},a;\mu,\lambda)$$
 
@@ -15,16 +15,16 @@ on the upper half-plane $\mathbb H^2=\{(x,y)\in\mathbb R^2:y>0\}$, with metric
 
 $$g_{\mu,\lambda}=\frac1{y^2}\left(\frac{dx^2}{\mu^2}+\frac{dy^2}{\lambda^2}\right)$$
 
-and assignment $a(x,y)=-x/y$.  It has constant Gaussian curvature
-$K=-\lambda^2$, no puncture, and its assignment vanishes along one complete
-geodesic.  In earlier drafts it was written $\mathfrak E_{\mathrm{hyp}}(\mu,\lambda)$.
+and [[assignment]] $a(x,y)=-x/y$.  It has constant Gaussian [[curvature]]
+$K=-\lambda^2$, no [[puncture]], and its assignment vanishes along one complete
+[[geodesic]].  In earlier drafts it was written $\mathfrak E_{\mathrm{hyp}}(\mu,\lambda)$.
 
 The metric admits a group-theoretic description: writing
 $G=\operatorname{Aff}^+(1,\mathbb R)$ for the positive affine group, the
 left-invariant vector fields $X_u=-\mu y\,\partial_x$ and $X_v=-\lambda y\,\partial_y$
 form the [[canonical arithmetic frame]], whose bracket is the constant $\mu\lambda$,
 the curvature of the [[arithmetic flow]].  The [[basic model]] is complete with constant
-curvature, and it is the model in which the arithmetic motions are read as point
+curvature, and it is the model in which the [[arithmetic motion|arithmetic motions]] are read as point
 paths.
 
 # 双曲模型

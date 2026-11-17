@@ -7,17 +7,17 @@ default: en
 
 # Flow equation
 
-In a regular arithmetic expression space (AES) $\mathfrak E=(M,g,a;\mu,\lambda)$
+In a [[regular arithmetic expression space]] ([[AES]]) $\mathfrak E=(M,g,a;\mu,\lambda)$
 with its [[canonical arithmetic frame]], the **flow equation** is the first-order
-[[ordinary differential equation]] satisfied by the assignment $a$ along a
+[[ordinary differential equation]] satisfied by the [[assignment]] $a$ along a
 unit-speed curve $\gamma$ whose tangent is
 $\dot\gamma=\cos\theta\,X_u+\sin\theta\,X_v$:
 
 $$\frac{d}{ds}(a\circ\gamma)=\mu\cos\theta+\lambda(a\circ\gamma)\sin\theta.$$
 
 For constant $\theta$, its solutions are the directional affine solutions.  The
-[[arithmetic flow]] is the [[horizontal lift]] of an Ehresmann connection over the
-direction plane, and the constant $\mu\lambda$ is its curvature; the same
+[[arithmetic flow]] is the [[horizontal lift]] of an [[Ehresmann]] connection over the
+direction plane, and the constant $\mu\lambda$ is its [[curvature]]; the same
 bracket is computed intrinsically in the [[canonical frame]] and gives the
 [[hyperbolic area form]] of the [[basic model]].
 
