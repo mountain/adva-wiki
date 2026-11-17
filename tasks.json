@@ -1,812 +1,4538 @@
 [
   {
-    "en": "process history",
-    "word": "history",
+    "en": "flow equation",
+    "word": "flow",
+    "zh": "流方程",
     "priority": 1,
-    "zh": "过程历史"
+    "freq": 401
   },
   {
-    "en": "finite carrier",
-    "word": "carrier",
+    "en": "construction history",
+    "word": "history",
+    "zh": "构造历史",
     "priority": 2,
-    "zh": "有限载体"
+    "freq": 160
+  },
+  {
+    "en": "hyperbolic model",
+    "word": "model",
+    "zh": "双曲模型",
+    "priority": 3,
+    "freq": 154
+  },
+  {
+    "en": "weighted area",
+    "word": "area",
+    "zh": "加权面积",
+    "priority": 4,
+    "freq": 135
+  },
+  {
+    "en": "multiplicative charge",
+    "word": "charge",
+    "zh": "乘法荷",
+    "priority": 5,
+    "freq": 126
   },
   {
     "en": "finite model",
     "word": "model",
-    "priority": 3,
-    "zh": "有限模型"
+    "zh": "有限模型",
+    "priority": 6,
+    "freq": 122
   },
   {
-    "en": "arithmetic rank",
-    "word": "rank",
-    "priority": 4,
-    "zh": "算术秩"
+    "en": "basic model",
+    "word": "model",
+    "zh": "基本模型",
+    "priority": 7,
+    "freq": 120
+  },
+  {
+    "en": "contact model",
+    "word": "model",
+    "zh": "接触模型",
+    "priority": 8,
+    "freq": 120
+  },
+  {
+    "en": "order defect",
+    "word": "defect",
+    "zh": "序缺陷",
+    "priority": 9,
+    "freq": 118
+  },
+  {
+    "en": "evaluation order",
+    "word": "order",
+    "zh": "求值序",
+    "priority": 10,
+    "freq": 113
   },
   {
     "en": "universal cover",
     "word": "cover",
-    "priority": 5,
-    "zh": "万有覆盖"
+    "zh": "万有覆盖",
+    "priority": 11,
+    "freq": 113
   },
   {
-    "en": "causal cut",
-    "word": "cut",
-    "priority": 6,
-    "zh": "因果切割"
-  },
-  {
-    "en": "retained history",
-    "word": "history",
-    "priority": 7,
-    "zh": "保留历史"
+    "en": "finite carrier",
+    "word": "carrier",
+    "zh": "有限载体",
+    "priority": 12,
+    "freq": 106
   },
   {
     "en": "dependency order",
     "word": "order",
-    "priority": 8,
-    "zh": "依赖偏序"
-  },
-  {
-    "en": "flow equation",
-    "word": "flow",
-    "priority": 9,
-    "zh": "流方程"
-  },
-  {
-    "en": "literal history",
-    "word": "history",
-    "priority": 10,
-    "zh": "字面历史"
-  },
-  {
-    "en": "lifted history",
-    "word": "history",
-    "priority": 11,
-    "zh": "提升历史"
-  },
-  {
-    "en": "observer transport",
-    "word": "transport",
-    "priority": 12,
-    "zh": "观察者传输"
-  },
-  {
-    "en": "process rank",
-    "word": "rank",
+    "zh": "依赖偏序",
     "priority": 13,
-    "zh": "过程秩"
+    "freq": 104
   },
   {
-    "en": "causal order",
-    "word": "order",
+    "en": "process history",
+    "word": "history",
+    "zh": "过程历史",
     "priority": 14,
-    "zh": "因果序"
+    "freq": 102
   },
   {
-    "en": "partial order",
-    "word": "order",
+    "en": "arithmetic frame",
+    "word": "frame",
+    "zh": "算术框架",
     "priority": 15,
-    "zh": "偏序"
+    "freq": 96
   },
   {
-    "en": "state carrier",
-    "word": "carrier",
-    "priority": 16,
-    "zh": "状态载体"
-  },
-  {
-    "en": "upper cut",
-    "word": "cut",
-    "priority": 17,
-    "zh": "上切割"
-  },
-  {
-    "en": "history geometry",
-    "word": "history",
-    "priority": 18,
-    "zh": "历史几何"
-  },
-  {
-    "en": "occurrence history",
-    "word": "history",
-    "priority": 19,
-    "zh": "出现历史"
-  },
-  {
-    "en": "forward differential",
-    "word": "differential",
-    "priority": 20,
-    "zh": "前向微分"
-  },
-  {
-    "en": "source history",
-    "word": "history",
-    "priority": 21,
-    "zh": "源历史"
-  },
-  {
-    "en": "braid transport",
-    "word": "transport",
-    "priority": 22,
-    "zh": "辫传输"
-  },
-  {
-    "en": "research programme",
-    "word": "programme",
-    "priority": 23,
-    "zh": "研究计划"
-  },
-  {
-    "en": "exact carrier",
-    "word": "carrier",
-    "priority": 24,
-    "zh": "精确载体"
-  },
-  {
-    "en": "global section",
-    "word": "section",
-    "priority": 25,
-    "zh": "全局截面"
-  },
-  {
-    "en": "cost model",
-    "word": "model",
-    "priority": 26,
-    "zh": "成本模型"
-  },
-  {
-    "en": "spectral carrier",
-    "word": "carrier",
-    "priority": 27,
-    "zh": "谱载体"
-  },
-  {
-    "en": "cut elimination",
-    "word": "cut",
-    "priority": 28,
-    "zh": "切割消去"
-  },
-  {
-    "en": "graft frame",
-    "word": "frame",
-    "priority": 29,
-    "zh": "嫁接框架"
-  },
-  {
-    "en": "ordered history",
-    "word": "history",
-    "priority": 30,
-    "zh": "有序历史"
-  },
-  {
-    "en": "event order",
-    "word": "order",
-    "priority": 31,
-    "zh": "事件序"
-  },
-  {
-    "en": "space frame",
-    "word": "frame",
-    "priority": 32,
-    "zh": "空间框架"
-  },
-  {
-    "en": "linear lift",
-    "word": "lift",
-    "priority": 33,
-    "zh": "线性提升"
-  },
-  {
-    "en": "neutral carrier",
-    "word": "carrier",
-    "priority": 34,
-    "zh": "中性载体"
-  },
-  {
-    "en": "common carrier",
-    "word": "carrier",
-    "priority": 35,
-    "zh": "公共载体"
-  },
-  {
-    "en": "declared carrier",
-    "word": "carrier",
-    "priority": 36,
-    "zh": "声明载体"
-  },
-  {
-    "en": "lifted path",
-    "word": "path",
-    "priority": 37,
-    "zh": "提升路径"
-  },
-  {
-    "en": "predicate transport",
-    "word": "transport",
-    "priority": 38,
-    "zh": "谓词传输"
-  },
-  {
-    "en": "unit frame",
-    "word": "frame",
-    "priority": 39,
-    "zh": "单位框架"
-  },
-  {
-    "en": "event rank",
+    "en": "arithmetic rank",
     "word": "rank",
-    "priority": 40,
-    "zh": "事件秩"
+    "zh": "算术秩",
+    "priority": 16,
+    "freq": 96
   },
   {
-    "en": "checked carrier",
-    "word": "carrier",
-    "priority": 41,
-    "zh": "检查载体"
+    "en": "affine flow",
+    "word": "flow",
+    "zh": "仿射流",
+    "priority": 17,
+    "freq": 92
   },
   {
-    "en": "observer carrier",
-    "word": "carrier",
-    "priority": 42,
-    "zh": "观察者载体"
+    "en": "horizontal differential",
+    "word": "differential",
+    "zh": "水平微分",
+    "priority": 18,
+    "freq": 92
   },
   {
-    "en": "scope cut",
-    "word": "cut",
-    "priority": 43,
-    "zh": "作用域切割"
+    "en": "zero tube",
+    "word": "tube",
+    "zh": "零管",
+    "priority": 19,
+    "freq": 90
   },
   {
-    "en": "projective matrix",
-    "word": "matrix",
-    "priority": 44,
-    "zh": "射影矩阵"
-  },
-  {
-    "en": "diagram order",
-    "word": "order",
-    "priority": 45,
-    "zh": "图表序"
-  },
-  {
-    "en": "projective frame",
-    "word": "frame",
-    "priority": 46,
-    "zh": "射影框架"
-  },
-  {
-    "en": "finite charge",
-    "word": "charge",
-    "priority": 47,
-    "zh": "有限荷"
-  },
-  {
-    "en": "checked cut",
-    "word": "cut",
-    "priority": 48,
-    "zh": "检查切割"
-  },
-  {
-    "en": "lineage order",
-    "word": "order",
-    "priority": 49,
-    "zh": "谱系序"
-  },
-  {
-    "en": "total order",
-    "word": "order",
-    "priority": 50,
-    "zh": "全序"
-  },
-  {
-    "en": "scope path",
-    "word": "path",
-    "priority": 51,
-    "zh": "作用域路径"
+    "en": "marked history",
+    "word": "history",
+    "zh": "标记历史",
+    "priority": 20,
+    "freq": 89
   },
   {
     "en": "six state carrier",
     "word": "carrier",
-    "priority": 52,
-    "zh": "六态载体"
+    "zh": "六态载体",
+    "priority": 21,
+    "freq": 87
   },
   {
-    "en": "history carrier",
-    "word": "carrier",
-    "priority": 53,
-    "zh": "历史载体"
+    "en": "spinal history",
+    "word": "history",
+    "zh": "脊历史",
+    "priority": 22,
+    "freq": 87
   },
   {
-    "en": "decorated cut",
+    "en": "arithmetic flow",
+    "word": "flow",
+    "zh": "算术流",
+    "priority": 23,
+    "freq": 86
+  },
+  {
+    "en": "additive charge",
+    "word": "charge",
+    "zh": "加法荷",
+    "priority": 24,
+    "freq": 85
+  },
+  {
+    "en": "causal cut",
     "word": "cut",
-    "priority": 54,
-    "zh": "装饰切割"
+    "zh": "因果切割",
+    "priority": 25,
+    "freq": 84
   },
   {
-    "en": "canonical frame",
-    "word": "frame",
-    "priority": 55,
-    "zh": "规范框架"
-  },
-  {
-    "en": "e0 grid",
-    "word": "grid",
-    "priority": 56,
-    "zh": "E0 网格"
-  },
-  {
-    "en": "program history",
-    "word": "history",
-    "priority": 57,
-    "zh": "程序历史"
-  },
-  {
-    "en": "oriented lift",
-    "word": "lift",
-    "priority": 58,
-    "zh": "定向提升"
-  },
-  {
-    "en": "state transport",
-    "word": "transport",
-    "priority": 59,
-    "zh": "状态传输"
-  },
-  {
-    "en": "evidence carrier",
-    "word": "carrier",
-    "priority": 60,
-    "zh": "证据载体"
-  },
-  {
-    "en": "finite obstruction",
-    "word": "obstruction",
-    "priority": 61,
-    "zh": "有限阻碍"
-  },
-  {
-    "en": "entailment order",
-    "word": "order",
-    "priority": 62,
-    "zh": "蕴含序"
-  },
-  {
-    "en": "implementation order",
-    "word": "order",
-    "priority": 63,
-    "zh": "实现序"
-  },
-  {
-    "en": "observer order",
-    "word": "order",
-    "priority": 64,
-    "zh": "观察者序"
-  },
-  {
-    "en": "rational frame",
-    "word": "frame",
-    "priority": 65,
-    "zh": "有理框架"
-  },
-  {
-    "en": "copy history",
-    "word": "history",
-    "priority": 66,
-    "zh": "复制历史"
-  },
-  {
-    "en": "history lift",
-    "word": "lift",
-    "priority": 67,
-    "zh": "历史提升"
-  },
-  {
-    "en": "schedule order",
-    "word": "order",
-    "priority": 68,
-    "zh": "调度序"
-  },
-  {
-    "en": "occurrence path",
-    "word": "path",
-    "priority": 69,
-    "zh": "出现路径"
-  },
-  {
-    "en": "proof transport",
-    "word": "transport",
-    "priority": 70,
-    "zh": "证明传输"
-  },
-  {
-    "en": "characteristic carrier",
-    "word": "carrier",
-    "priority": 71,
-    "zh": "特征载体"
-  },
-  {
-    "en": "six port carrier",
-    "word": "carrier",
-    "priority": 72,
-    "zh": "六端口载体"
-  },
-  {
-    "en": "universal carrier",
-    "word": "carrier",
-    "priority": 73,
-    "zh": "万有载体"
-  },
-  {
-    "en": "lower cut",
-    "word": "cut",
-    "priority": 74,
-    "zh": "下切割"
-  },
-  {
-    "en": "logical duality",
-    "word": "duality",
-    "priority": 75,
-    "zh": "逻辑对偶"
-  },
-  {
-    "en": "scope expansion",
-    "word": "expansion",
-    "priority": 76,
-    "zh": "作用域展开"
-  },
-  {
-    "en": "frame cut",
-    "word": "frame",
-    "priority": 77,
-    "zh": "框架切割"
-  },
-  {
-    "en": "evidence history",
-    "word": "history",
-    "priority": 78,
-    "zh": "证据历史"
-  },
-  {
-    "en": "history unfolding",
-    "word": "history",
-    "priority": 79,
-    "zh": "历史展开"
-  },
-  {
-    "en": "period matrix",
-    "word": "matrix",
-    "priority": 80,
-    "zh": "周期矩阵"
-  },
-  {
-    "en": "temporal order",
-    "word": "order",
-    "priority": 81,
-    "zh": "时间序"
-  },
-  {
-    "en": "reduction sequence",
-    "word": "reduction",
-    "priority": 82,
-    "zh": "约化序列"
-  },
-  {
-    "en": "canonical carrier",
-    "word": "carrier",
-    "priority": 83,
-    "zh": "规范载体"
-  },
-  {
-    "en": "cut presentations",
-    "word": "cut",
-    "priority": 84,
-    "zh": "切割呈现"
-  },
-  {
-    "en": "lorentzian metric",
+    "en": "horizontal metric",
     "word": "metric",
-    "priority": 85,
-    "zh": "洛伦兹度量"
-  },
-  {
-    "en": "higher rank",
-    "word": "rank",
-    "priority": 86,
-    "zh": "高秩"
-  },
-  {
-    "en": "exact cut",
-    "word": "cut",
-    "priority": 87,
-    "zh": "精确切割"
-  },
-  {
-    "en": "differential equations",
-    "word": "differential",
-    "priority": 88,
-    "zh": "微分方程"
-  },
-  {
-    "en": "differential structure",
-    "word": "differential",
-    "priority": 89,
-    "zh": "微分结构"
-  },
-  {
-    "en": "exact frame",
-    "word": "frame",
-    "priority": 90,
-    "zh": "精确框架"
-  },
-  {
-    "en": "ordered frame",
-    "word": "frame",
-    "priority": 91,
-    "zh": "有序框架"
-  },
-  {
-    "en": "braid history",
-    "word": "history",
-    "priority": 92,
-    "zh": "辫历史"
-  },
-  {
-    "en": "crossing history",
-    "word": "history",
-    "priority": 93,
-    "zh": "交叉历史"
-  },
-  {
-    "en": "discard history",
-    "word": "history",
-    "priority": 94,
-    "zh": "丢弃历史"
-  },
-  {
-    "en": "process lift",
-    "word": "lift",
-    "priority": 95,
-    "zh": "过程提升"
-  },
-  {
-    "en": "declared model",
-    "word": "model",
-    "priority": 96,
-    "zh": "声明模型"
-  },
-  {
-    "en": "observer motion",
-    "word": "motion",
-    "priority": 97,
-    "zh": "观察者运动"
-  },
-  {
-    "en": "explicit obstruction",
-    "word": "obstruction",
-    "priority": 98,
-    "zh": "显式阻碍"
-  },
-  {
-    "en": "cyclic order",
-    "word": "order",
-    "priority": 99,
-    "zh": "循环序"
-  },
-  {
-    "en": "input order",
-    "word": "order",
-    "priority": 100,
-    "zh": "输入序"
-  },
-  {
-    "en": "reduction problem",
-    "word": "reduction",
-    "priority": 101,
-    "zh": "约化问题"
-  },
-  {
-    "en": "square root",
-    "word": "root",
-    "priority": 102,
-    "zh": "平方根"
-  },
-  {
-    "en": "reversible transport",
-    "word": "transport",
-    "priority": 103,
-    "zh": "可逆传输"
-  },
-  {
-    "en": "double cover",
-    "word": "cover",
-    "priority": 104,
-    "zh": "双重覆盖"
-  },
-  {
-    "en": "differential calculus",
-    "word": "differential",
-    "priority": 105,
-    "zh": "微分演算"
-  },
-  {
-    "en": "projective duality",
-    "word": "duality",
-    "priority": 106,
-    "zh": "射影对偶"
+    "zh": "水平度量",
+    "priority": 26,
+    "freq": 82
   },
   {
     "en": "iota frame",
     "word": "frame",
-    "priority": 107,
-    "zh": "iota 框架"
+    "zh": "iota 框架",
+    "priority": 27,
+    "freq": 77
   },
   {
-    "en": "residual history",
-    "word": "history",
-    "priority": 108,
-    "zh": "残差历史"
-  },
-  {
-    "en": "exact obstruction",
-    "word": "obstruction",
-    "priority": 109,
-    "zh": "精确阻碍"
-  },
-  {
-    "en": "vertical rank",
-    "word": "rank",
-    "priority": 110,
-    "zh": "垂直秩"
-  },
-  {
-    "en": "frontier transport",
-    "word": "transport",
-    "priority": 111,
-    "zh": "前沿传输"
-  },
-  {
-    "en": "candidate carrier",
-    "word": "carrier",
-    "priority": 112,
-    "zh": "候选载体"
-  },
-  {
-    "en": "geometric carrier",
-    "word": "carrier",
-    "priority": 113,
-    "zh": "几何载体"
-  },
-  {
-    "en": "program carrier",
-    "word": "carrier",
-    "priority": 114,
-    "zh": "程序载体"
-  },
-  {
-    "en": "branch cut",
-    "word": "cut",
-    "priority": 115,
-    "zh": "分支切割"
-  },
-  {
-    "en": "middle cut",
-    "word": "cut",
-    "priority": 116,
-    "zh": "中切割"
-  },
-  {
-    "en": "coherence defect",
-    "word": "defect",
-    "priority": 117,
-    "zh": "相干缺陷"
-  },
-  {
-    "en": "strict descent",
-    "word": "descent",
-    "priority": 118,
-    "zh": "严格下降"
-  },
-  {
-    "en": "differential equation",
-    "word": "differential",
-    "priority": 119,
-    "zh": "微分方程"
-  },
-  {
-    "en": "frame boundary",
-    "word": "frame",
-    "priority": 120,
-    "zh": "框架边界"
-  },
-  {
-    "en": "injective model",
-    "word": "model",
-    "priority": 121,
-    "zh": "单射模型"
-  },
-  {
-    "en": "triadic obstruction",
-    "word": "obstruction",
-    "priority": 122,
-    "zh": "三元阻碍"
-  },
-  {
-    "en": "hole order",
+    "en": "partial order",
     "word": "order",
-    "priority": 123,
-    "zh": "孔序"
+    "zh": "偏序",
+    "priority": 28,
+    "freq": 75
   },
   {
-    "en": "subject reduction",
-    "word": "reduction",
-    "priority": 124,
-    "zh": "主归约"
-  },
-  {
-    "en": "bracket surface",
-    "word": "surface",
-    "priority": 125,
-    "zh": "括号曲面"
-  },
-  {
-    "en": "flat surface",
-    "word": "surface",
-    "priority": 126,
-    "zh": "平坦曲面"
-  },
-  {
-    "en": "line circle",
-    "word": "circle",
-    "priority": 127,
-    "zh": "线圆"
-  },
-  {
-    "en": "topological cover",
-    "word": "cover",
-    "priority": 128,
-    "zh": "拓扑覆盖"
-  },
-  {
-    "en": "total defect",
-    "word": "defect",
-    "priority": 129,
-    "zh": "总缺陷"
-  },
-  {
-    "en": "moving frame",
-    "word": "frame",
-    "priority": 130,
-    "zh": "活动框架"
-  },
-  {
-    "en": "finite history",
+    "en": "retained history",
     "word": "history",
-    "priority": 131,
-    "zh": "有限历史"
+    "zh": "保留历史",
+    "priority": 29,
+    "freq": 69
   },
   {
-    "en": "group inversion",
-    "word": "inversion",
-    "priority": 132,
-    "zh": "群反演"
+    "en": "observer transport",
+    "word": "transport",
+    "zh": "观察者传输",
+    "priority": 30,
+    "freq": 66
   },
   {
-    "en": "matrix multiplication",
+    "en": "cost model",
+    "word": "model",
+    "zh": "成本模型",
+    "priority": 31,
+    "freq": 65
+  },
+  {
+    "en": "literal history",
+    "word": "history",
+    "zh": "字面历史",
+    "priority": 32,
+    "freq": 65
+  },
+  {
+    "en": "differential calculus",
+    "word": "differential",
+    "zh": "微分演算",
+    "priority": 33,
+    "freq": 64
+  },
+  {
+    "en": "lifted history",
+    "word": "history",
+    "zh": "提升历史",
+    "priority": 34,
+    "freq": 64
+  },
+  {
+    "en": "arithmetic grid",
+    "word": "grid",
+    "zh": "算术网格",
+    "priority": 35,
+    "freq": 63
+  },
+  {
+    "en": "hyperbolic metric",
+    "word": "metric",
+    "zh": "双曲度量",
+    "priority": 36,
+    "freq": 62
+  },
+  {
+    "en": "sign cover",
+    "word": "cover",
+    "zh": "符号覆盖",
+    "priority": 37,
+    "freq": 62
+  },
+  {
+    "en": "braid transport",
+    "word": "transport",
+    "zh": "辫传输",
+    "priority": 38,
+    "freq": 60
+  },
+  {
+    "en": "canonical frame",
+    "word": "frame",
+    "zh": "规范框架",
+    "priority": 39,
+    "freq": 59
+  },
+  {
+    "en": "charge endpoint",
+    "word": "charge",
+    "zh": "荷端点",
+    "priority": 40,
+    "freq": 59
+  },
+  {
+    "en": "path inverse",
+    "word": "path",
+    "zh": "路径逆",
+    "priority": 41,
+    "freq": 59
+  },
+  {
+    "en": "process rank",
+    "word": "rank",
+    "zh": "过程秩",
+    "priority": 42,
+    "freq": 58
+  },
+  {
+    "en": "total order",
+    "word": "order",
+    "zh": "全序",
+    "priority": 43,
+    "freq": 58
+  },
+  {
+    "en": "event order",
+    "word": "order",
+    "zh": "事件序",
+    "priority": 44,
+    "freq": 57
+  },
+  {
+    "en": "affine defect",
+    "word": "defect",
+    "zh": "仿射缺陷",
+    "priority": 45,
+    "freq": 56
+  },
+  {
+    "en": "basic hyperbolic model",
+    "word": "model",
+    "zh": "基本双曲模型",
+    "priority": 46,
+    "freq": 54
+  },
+  {
+    "en": "causal order",
+    "word": "order",
+    "zh": "因果序",
+    "priority": 47,
+    "freq": 54
+  },
+  {
+    "en": "cyclic order",
+    "word": "order",
+    "zh": "循环序",
+    "priority": 48,
+    "freq": 54
+  },
+  {
+    "en": "riemannian metric",
+    "word": "metric",
+    "zh": "黎曼度量",
+    "priority": 49,
+    "freq": 54
+  },
+  {
+    "en": "cayley model",
+    "word": "model",
+    "zh": "凯莱模型",
+    "priority": 50,
+    "freq": 53
+  },
+  {
+    "en": "square root",
+    "word": "root",
+    "zh": "平方根",
+    "priority": 51,
+    "freq": 53
+  },
+  {
+    "en": "exact carrier",
+    "word": "carrier",
+    "zh": "精确载体",
+    "priority": 52,
+    "freq": 52
+  },
+  {
+    "en": "history geometry",
+    "word": "history",
+    "zh": "历史几何",
+    "priority": 53,
+    "freq": 51
+  },
+  {
+    "en": "lifted path",
+    "word": "path",
+    "zh": "提升路径",
+    "priority": 54,
+    "freq": 51
+  },
+  {
+    "en": "occurrence history",
+    "word": "history",
+    "zh": "出现历史",
+    "priority": 55,
+    "freq": 51
+  },
+  {
+    "en": "projective matrix",
     "word": "matrix",
-    "priority": 133,
-    "zh": "矩阵乘法"
+    "zh": "射影矩阵",
+    "priority": 56,
+    "freq": 51
+  },
+  {
+    "en": "research programme",
+    "word": "programme",
+    "zh": "研究计划",
+    "priority": 57,
+    "freq": 51
+  },
+  {
+    "en": "state carrier",
+    "word": "carrier",
+    "zh": "状态载体",
+    "priority": 58,
+    "freq": 51
+  },
+  {
+    "en": "upper cut",
+    "word": "cut",
+    "zh": "上切割",
+    "priority": 59,
+    "freq": 51
+  },
+  {
+    "en": "forward differential",
+    "word": "differential",
+    "zh": "前向微分",
+    "priority": 60,
+    "freq": 48
+  },
+  {
+    "en": "marked spinal history",
+    "word": "history",
+    "zh": "标记脊历史",
+    "priority": 61,
+    "freq": 48
+  },
+  {
+    "en": "source history",
+    "word": "history",
+    "zh": "源历史",
+    "priority": 62,
+    "freq": 48
+  },
+  {
+    "en": "acs charge",
+    "word": "charge",
+    "zh": "ACS 荷",
+    "priority": 63,
+    "freq": 47
+  },
+  {
+    "en": "arithmetic history",
+    "word": "history",
+    "zh": "算术历史",
+    "priority": 64,
+    "freq": 46
+  },
+  {
+    "en": "global section",
+    "word": "section",
+    "zh": "全局截面",
+    "priority": 65,
+    "freq": 46
+  },
+  {
+    "en": "charge projection",
+    "word": "charge",
+    "zh": "荷投影",
+    "priority": 66,
+    "freq": 45
+  },
+  {
+    "en": "linear lift",
+    "word": "lift",
+    "zh": "线性提升",
+    "priority": 67,
+    "freq": 45
   },
   {
     "en": "matrix product",
     "word": "matrix",
+    "zh": "矩阵积",
+    "priority": 68,
+    "freq": 45
+  },
+  {
+    "en": "total charge",
+    "word": "charge",
+    "zh": "总荷",
+    "priority": 69,
+    "freq": 45
+  },
+  {
+    "en": "corner order",
+    "word": "order",
+    "zh": "角序",
+    "priority": 70,
+    "freq": 44
+  },
+  {
+    "en": "declared carrier",
+    "word": "carrier",
+    "zh": "声明载体",
+    "priority": 71,
+    "freq": 44
+  },
+  {
+    "en": "matrix multiplication",
+    "word": "matrix",
+    "zh": "矩阵乘法",
+    "priority": 72,
+    "freq": 44
+  },
+  {
+    "en": "covariant differential",
+    "word": "differential",
+    "zh": "共变微分",
+    "priority": 73,
+    "freq": 43
+  },
+  {
+    "en": "free path",
+    "word": "path",
+    "zh": "自由路径",
+    "priority": 74,
+    "freq": 43
+  },
+  {
+    "en": "history language",
+    "word": "history",
+    "zh": "历史语言",
+    "priority": 75,
+    "freq": 43
+  },
+  {
+    "en": "neutral carrier",
+    "word": "carrier",
+    "zh": "中性载体",
+    "priority": 76,
+    "freq": 43
+  },
+  {
+    "en": "process residue",
+    "word": "residue",
+    "zh": "过程残差",
+    "priority": 77,
+    "freq": 43
+  },
+  {
+    "en": "acs path",
+    "word": "path",
+    "zh": "ACS 路径",
+    "priority": 78,
+    "freq": 42
+  },
+  {
+    "en": "cut elimination",
+    "word": "cut",
+    "zh": "切割消去",
+    "priority": 79,
+    "freq": 42
+  },
+  {
+    "en": "oriented lift",
+    "word": "lift",
+    "zh": "定向提升",
+    "priority": 80,
+    "freq": 42
+  },
+  {
+    "en": "projective frame",
+    "word": "frame",
+    "zh": "射影框架",
+    "priority": 81,
+    "freq": 42
+  },
+  {
+    "en": "spectral carrier",
+    "word": "carrier",
+    "zh": "谱载体",
+    "priority": 82,
+    "freq": 42
+  },
+  {
+    "en": "additive generator",
+    "word": "generator",
+    "zh": "加法生成元",
+    "priority": 83,
+    "freq": 41
+  },
+  {
+    "en": "double cover",
+    "word": "cover",
+    "zh": "双重覆盖",
+    "priority": 84,
+    "freq": 40
+  },
+  {
+    "en": "full history",
+    "word": "history",
+    "zh": "全历史",
+    "priority": 85,
+    "freq": 40
+  },
+  {
+    "en": "translation length",
+    "word": "length",
+    "zh": "平移长度",
+    "priority": 86,
+    "freq": 40
+  },
+  {
+    "en": "ordered history",
+    "word": "history",
+    "zh": "有序历史",
+    "priority": 87,
+    "freq": 39
+  },
+  {
+    "en": "arithmetic path",
+    "word": "path",
+    "zh": "算术路径",
+    "priority": 88,
+    "freq": 38
+  },
+  {
+    "en": "disc model",
+    "word": "model",
+    "zh": "圆盘模型",
+    "priority": 89,
+    "freq": 38
+  },
+  {
+    "en": "inverse metric",
+    "word": "metric",
+    "zh": "逆度量",
+    "priority": 90,
+    "freq": 38
+  },
+  {
+    "en": "markov descent",
+    "word": "descent",
+    "zh": "马尔可夫下降",
+    "priority": 91,
+    "freq": 38
+  },
+  {
+    "en": "relative defect",
+    "word": "defect",
+    "zh": "相对缺陷",
+    "priority": 92,
+    "freq": 38
+  },
+  {
+    "en": "space frame",
+    "word": "frame",
+    "zh": "空间框架",
+    "priority": 93,
+    "freq": 38
+  },
+  {
+    "en": "state transport",
+    "word": "transport",
+    "zh": "状态传输",
+    "priority": 94,
+    "freq": 38
+  },
+  {
+    "en": "boundary circle",
+    "word": "circle",
+    "zh": "边界圆",
+    "priority": 95,
+    "freq": 37
+  },
+  {
+    "en": "charge map",
+    "word": "charge",
+    "zh": "荷映射",
+    "priority": 96,
+    "freq": 37
+  },
+  {
+    "en": "scope cut",
+    "word": "cut",
+    "zh": "作用域切割",
+    "priority": 97,
+    "freq": 37
+  },
+  {
+    "en": "temporal order",
+    "word": "order",
+    "zh": "时间序",
+    "priority": 98,
+    "freq": 37
+  },
+  {
+    "en": "e0 grid",
+    "word": "grid",
+    "zh": "E0 网格",
+    "priority": 99,
+    "freq": 36
+  },
+  {
+    "en": "multiplicative generator",
+    "word": "generator",
+    "zh": "乘法生成元",
+    "priority": 100,
+    "freq": 36
+  },
+  {
+    "en": "orthonormal frame",
+    "word": "frame",
+    "zh": "正交标架",
+    "priority": 101,
+    "freq": 36
+  },
+  {
+    "en": "path groupoid",
+    "word": "path",
+    "zh": "路径群胚",
+    "priority": 102,
+    "freq": 35
+  },
+  {
+    "en": "acs area",
+    "word": "area",
+    "zh": "ACS 面积",
+    "priority": 103,
+    "freq": 34
+  },
+  {
+    "en": "area formula",
+    "word": "area",
+    "zh": "面积公式",
+    "priority": 104,
+    "freq": 34
+  },
+  {
+    "en": "bounded path",
+    "word": "path",
+    "zh": "有界路径",
+    "priority": 105,
+    "freq": 34
+  },
+  {
+    "en": "common carrier",
+    "word": "carrier",
+    "zh": "公共载体",
+    "priority": 106,
+    "freq": 34
+  },
+  {
+    "en": "declared model",
+    "word": "model",
+    "zh": "声明模型",
+    "priority": 107,
+    "freq": 34
+  },
+  {
+    "en": "finite obstruction",
+    "word": "obstruction",
+    "zh": "有限阻碍",
+    "priority": 108,
+    "freq": 34
+  },
+  {
+    "en": "predicate transport",
+    "word": "transport",
+    "zh": "谓词传输",
+    "priority": 109,
+    "freq": 34
+  },
+  {
+    "en": "side surface",
+    "word": "surface",
+    "zh": "侧面",
+    "priority": 110,
+    "freq": 34
+  },
+  {
+    "en": "arithmetic motion",
+    "word": "motion",
+    "zh": "算术运动",
+    "priority": 111,
+    "freq": 33
+  },
+  {
+    "en": "event rank",
+    "word": "rank",
+    "zh": "事件秩",
+    "priority": 112,
+    "freq": 33
+  },
+  {
+    "en": "first order",
+    "word": "order",
+    "zh": "一阶",
+    "priority": 113,
+    "freq": 33
+  },
+  {
+    "en": "information order",
+    "word": "order",
+    "zh": "信息序",
+    "priority": 114,
+    "freq": 33
+  },
+  {
+    "en": "riemannian surface",
+    "word": "surface",
+    "zh": "黎曼曲面",
+    "priority": 115,
+    "freq": 33
+  },
+  {
+    "en": "unit frame",
+    "word": "frame",
+    "zh": "单位框架",
+    "priority": 116,
+    "freq": 33
+  },
+  {
+    "en": "area integral",
+    "word": "area",
+    "zh": "面积积分",
+    "priority": 117,
+    "freq": 32
+  },
+  {
+    "en": "checked carrier",
+    "word": "carrier",
+    "zh": "检查载体",
+    "priority": 118,
+    "freq": 32
+  },
+  {
+    "en": "composition order",
+    "word": "order",
+    "zh": "复合序",
+    "priority": 119,
+    "freq": 32
+  },
+  {
+    "en": "compositional rank",
+    "word": "rank",
+    "zh": "复合秩",
+    "priority": 120,
+    "freq": 32
+  },
+  {
+    "en": "diagram order",
+    "word": "order",
+    "zh": "图表序",
+    "priority": 121,
+    "freq": 32
+  },
+  {
+    "en": "exact model",
+    "word": "model",
+    "zh": "精确模型",
+    "priority": 122,
+    "freq": 32
+  },
+  {
+    "en": "isolated zero model",
+    "word": "model",
+    "zh": "孤立零点模型",
+    "priority": 123,
+    "freq": 32
+  },
+  {
+    "en": "observer carrier",
+    "word": "carrier",
+    "zh": "观察者载体",
+    "priority": 124,
+    "freq": 32
+  },
+  {
+    "en": "addition multiplication grid",
+    "word": "grid",
+    "zh": "加法乘法网格",
+    "priority": 125,
+    "freq": 31
+  },
+  {
+    "en": "chronological order",
+    "word": "order",
+    "zh": "时间先后序",
+    "priority": 126,
+    "freq": 31
+  },
+  {
+    "en": "checked cut",
+    "word": "cut",
+    "zh": "检查切割",
+    "priority": 127,
+    "freq": 30
+  },
+  {
+    "en": "differential geometry",
+    "word": "differential",
+    "zh": "微分几何",
+    "priority": 128,
+    "freq": 30
+  },
+  {
+    "en": "finite charge",
+    "word": "charge",
+    "zh": "有限荷",
+    "priority": 129,
+    "freq": 30
+  },
+  {
+    "en": "frontier transport",
+    "word": "transport",
+    "zh": "前沿传输",
+    "priority": 130,
+    "freq": 30
+  },
+  {
+    "en": "history remains",
+    "word": "history",
+    "zh": "历史留存",
+    "priority": 131,
+    "freq": 30
+  },
+  {
+    "en": "lineage order",
+    "word": "order",
+    "zh": "谱系序",
+    "priority": 132,
+    "freq": 30
+  },
+  {
+    "en": "scope path",
+    "word": "path",
+    "zh": "作用域路径",
+    "priority": 133,
+    "freq": 30
+  },
+  {
+    "en": "word length",
+    "word": "length",
+    "zh": "字长",
     "priority": 134,
-    "zh": "矩阵积"
+    "freq": 30
+  },
+  {
+    "en": "zero germ",
+    "word": "germ",
+    "zh": "零芽",
+    "priority": 135,
+    "freq": 30
+  },
+  {
+    "en": "arithmetic flow equation",
+    "word": "flow",
+    "zh": "算术流方程",
+    "priority": 136,
+    "freq": 29
+  },
+  {
+    "en": "charge plane",
+    "word": "charge",
+    "zh": "荷平面",
+    "priority": 137,
+    "freq": 29
+  },
+  {
+    "en": "history remain",
+    "word": "history",
+    "zh": "历史留存",
+    "priority": 138,
+    "freq": 29
+  },
+  {
+    "en": "horizontal frame",
+    "word": "frame",
+    "zh": "水平标架",
+    "priority": 139,
+    "freq": 29
+  },
+  {
+    "en": "new rank",
+    "word": "rank",
+    "zh": "新秩",
+    "priority": 140,
+    "freq": 29
+  },
+  {
+    "en": "reverse transport",
+    "word": "transport",
+    "zh": "逆向传输",
+    "priority": 141,
+    "freq": 29
+  },
+  {
+    "en": "type path",
+    "word": "path",
+    "zh": "类型路径",
+    "priority": 142,
+    "freq": 29
+  },
+  {
+    "en": "decorated cut",
+    "word": "cut",
+    "zh": "装饰切割",
+    "priority": 143,
+    "freq": 28
+  },
+  {
+    "en": "differential equation",
+    "word": "differential",
+    "zh": "微分方程",
+    "priority": 144,
+    "freq": 28
+  },
+  {
+    "en": "differential equations",
+    "word": "differential",
+    "zh": "微分方程",
+    "priority": 145,
+    "freq": 28
+  },
+  {
+    "en": "differential structure",
+    "word": "differential",
+    "zh": "微分结构",
+    "priority": 146,
+    "freq": 28
+  },
+  {
+    "en": "empty history",
+    "word": "history",
+    "zh": "空历史",
+    "priority": 147,
+    "freq": 28
+  },
+  {
+    "en": "history carrier",
+    "word": "carrier",
+    "zh": "历史载体",
+    "priority": 148,
+    "freq": 28
+  },
+  {
+    "en": "history group",
+    "word": "history",
+    "zh": "历史群",
+    "priority": 149,
+    "freq": 28
+  },
+  {
+    "en": "history residual",
+    "word": "history",
+    "zh": "历史残差",
+    "priority": 150,
+    "freq": 28
+  },
+  {
+    "en": "iota carrier",
+    "word": "carrier",
+    "zh": "iota 载体",
+    "priority": 151,
+    "freq": 28
+  },
+  {
+    "en": "line circle",
+    "word": "circle",
+    "zh": "线圆",
+    "priority": 152,
+    "freq": 28
+  },
+  {
+    "en": "metric assignment",
+    "word": "metric",
+    "zh": "度量指派",
+    "priority": 153,
+    "freq": 28
+  },
+  {
+    "en": "oriented surface",
+    "word": "surface",
+    "zh": "定向曲面",
+    "priority": 154,
+    "freq": 28
+  },
+  {
+    "en": "path length",
+    "word": "length",
+    "zh": "路径长度",
+    "priority": 155,
+    "freq": 28
+  },
+  {
+    "en": "point path",
+    "word": "path",
+    "zh": "点路径",
+    "priority": 156,
+    "freq": 28
+  },
+  {
+    "en": "program history",
+    "word": "history",
+    "zh": "程序历史",
+    "priority": 157,
+    "freq": 28
+  },
+  {
+    "en": "coherence defect",
+    "word": "defect",
+    "zh": "相干缺陷",
+    "priority": 158,
+    "freq": 27
+  },
+  {
+    "en": "metric completion",
+    "word": "metric",
+    "zh": "度量完备化",
+    "priority": 159,
+    "freq": 27
+  },
+  {
+    "en": "time frame",
+    "word": "frame",
+    "zh": "时间框架",
+    "priority": 160,
+    "freq": 27
+  },
+  {
+    "en": "toy model",
+    "word": "model",
+    "zh": "玩具模型",
+    "priority": 161,
+    "freq": 27
+  },
+  {
+    "en": "affine model",
+    "word": "model",
+    "zh": "仿射模型",
+    "priority": 162,
+    "freq": 26
+  },
+  {
+    "en": "common lift",
+    "word": "lift",
+    "zh": "公共提升",
+    "priority": 163,
+    "freq": 26
+  },
+  {
+    "en": "construction order",
+    "word": "order",
+    "zh": "构造序",
+    "priority": 164,
+    "freq": 26
+  },
+  {
+    "en": "entailment order",
+    "word": "order",
+    "zh": "蕴含序",
+    "priority": 165,
+    "freq": 26
+  },
+  {
+    "en": "euclidean metric",
+    "word": "metric",
+    "zh": "欧氏度量",
+    "priority": 166,
+    "freq": 26
+  },
+  {
+    "en": "evidence carrier",
+    "word": "carrier",
+    "zh": "证据载体",
+    "priority": 167,
+    "freq": 26
+  },
+  {
+    "en": "implementation order",
+    "word": "order",
+    "zh": "实现序",
+    "priority": 168,
+    "freq": 26
+  },
+  {
+    "en": "observer order",
+    "word": "order",
+    "zh": "观察者序",
+    "priority": 169,
+    "freq": 26
+  },
+  {
+    "en": "prefix order",
+    "word": "order",
+    "zh": "前缀序",
+    "priority": 170,
+    "freq": 26
+  },
+  {
+    "en": "total defect",
+    "word": "defect",
+    "zh": "总缺陷",
+    "priority": 171,
+    "freq": 26
+  },
+  {
+    "en": "copy history",
+    "word": "history",
+    "zh": "复制历史",
+    "priority": 172,
+    "freq": 25
+  },
+  {
+    "en": "exact obstruction",
+    "word": "obstruction",
+    "zh": "精确阻碍",
+    "priority": 173,
+    "freq": 25
+  },
+  {
+    "en": "geometric carrier",
+    "word": "carrier",
+    "zh": "几何载体",
+    "priority": 174,
+    "freq": 25
+  },
+  {
+    "en": "history lift",
+    "word": "lift",
+    "zh": "历史提升",
+    "priority": 175,
+    "freq": 25
+  },
+  {
+    "en": "horizontal covariant differential",
+    "word": "differential",
+    "zh": "水平共变微分",
+    "priority": 176,
+    "freq": 25
+  },
+  {
+    "en": "local differential",
+    "word": "differential",
+    "zh": "局部微分",
+    "priority": 177,
+    "freq": 25
+  },
+  {
+    "en": "occurrence path",
+    "word": "path",
+    "zh": "出现路径",
+    "priority": 178,
+    "freq": 25
+  },
+  {
+    "en": "program length",
+    "word": "length",
+    "zh": "程序长度",
+    "priority": 179,
+    "freq": 25
+  },
+  {
+    "en": "proof transport",
+    "word": "transport",
+    "zh": "证明传输",
+    "priority": 180,
+    "freq": 25
+  },
+  {
+    "en": "rational frame",
+    "word": "frame",
+    "zh": "有理框架",
+    "priority": 181,
+    "freq": 25
+  },
+  {
+    "en": "real carrier",
+    "word": "carrier",
+    "zh": "实载体",
+    "priority": 182,
+    "freq": 25
+  },
+  {
+    "en": "relative affine defect",
+    "word": "defect",
+    "zh": "相对仿射缺陷",
+    "priority": 183,
+    "freq": 25
+  },
+  {
+    "en": "schedule order",
+    "word": "order",
+    "zh": "调度序",
+    "priority": 184,
+    "freq": 25
+  },
+  {
+    "en": "ambient surface",
+    "word": "surface",
+    "zh": "环绕曲面",
+    "priority": 185,
+    "freq": 24
+  },
+  {
+    "en": "characteristic carrier",
+    "word": "carrier",
+    "zh": "特征载体",
+    "priority": 186,
+    "freq": 24
+  },
+  {
+    "en": "cut through",
+    "word": "cut",
+    "zh": "切割穿过",
+    "priority": 187,
+    "freq": 24
+  },
+  {
+    "en": "declared grid",
+    "word": "grid",
+    "zh": "声明网格",
+    "priority": 188,
+    "freq": 24
+  },
+  {
+    "en": "evidence history",
+    "word": "history",
+    "zh": "证据历史",
+    "priority": 189,
+    "freq": 24
+  },
+  {
+    "en": "fine lift",
+    "word": "lift",
+    "zh": "精细提升",
+    "priority": 190,
+    "freq": 24
+  },
+  {
+    "en": "flow torsion",
+    "word": "flow",
+    "zh": "流挠",
+    "priority": 191,
+    "freq": 24
+  },
+  {
+    "en": "frame cut",
+    "word": "frame",
+    "zh": "框架切割",
+    "priority": 192,
+    "freq": 24
+  },
+  {
+    "en": "history unfolding",
+    "word": "history",
+    "zh": "历史展开",
+    "priority": 193,
+    "freq": 24
+  },
+  {
+    "en": "logical duality",
+    "word": "duality",
+    "zh": "逻辑对偶",
+    "priority": 194,
+    "freq": 24
+  },
+  {
+    "en": "lower cut",
+    "word": "cut",
+    "zh": "下切割",
+    "priority": 195,
+    "freq": 24
+  },
+  {
+    "en": "maximum length",
+    "word": "length",
+    "zh": "最大长度",
+    "priority": 196,
+    "freq": 24
+  },
+  {
+    "en": "period matrix",
+    "word": "matrix",
+    "zh": "周期矩阵",
+    "priority": 197,
+    "freq": 24
+  },
+  {
+    "en": "reduction sequence",
+    "word": "reduction",
+    "zh": "约化序列",
+    "priority": 198,
+    "freq": 24
+  },
+  {
+    "en": "scope expansion",
+    "word": "expansion",
+    "zh": "作用域展开",
+    "priority": 199,
+    "freq": 24
+  },
+  {
+    "en": "six port carrier",
+    "word": "carrier",
+    "zh": "六端口载体",
+    "priority": 200,
+    "freq": 24
+  },
+  {
+    "en": "smooth surface",
+    "word": "surface",
+    "zh": "光滑曲面",
+    "priority": 201,
+    "freq": 24
+  },
+  {
+    "en": "tube structure",
+    "word": "tube",
+    "zh": "管结构",
+    "priority": 202,
+    "freq": 24
+  },
+  {
+    "en": "unit circle",
+    "word": "circle",
+    "zh": "单位圆",
+    "priority": 203,
+    "freq": 24
+  },
+  {
+    "en": "universal carrier",
+    "word": "carrier",
+    "zh": "万有载体",
+    "priority": 204,
+    "freq": 24
+  },
+  {
+    "en": "upper half plane model",
+    "word": "model",
+    "zh": "上半平面模型",
+    "priority": 205,
+    "freq": 24
+  },
+  {
+    "en": "canonical carrier",
+    "word": "carrier",
+    "zh": "规范载体",
+    "priority": 206,
+    "freq": 23
+  },
+  {
+    "en": "central lift",
+    "word": "lift",
+    "zh": "中心提升",
+    "priority": 207,
+    "freq": 23
+  },
+  {
+    "en": "continuous affine flow",
+    "word": "flow",
+    "zh": "连续仿射流",
+    "priority": 208,
+    "freq": 23
+  },
+  {
+    "en": "cut presentations",
+    "word": "cut",
+    "zh": "切割呈现",
+    "priority": 209,
+    "freq": 23
+  },
+  {
+    "en": "higher rank",
+    "word": "rank",
+    "zh": "高秩",
+    "priority": 210,
+    "freq": 23
+  },
+  {
+    "en": "horizontal differential calculus",
+    "word": "differential",
+    "zh": "水平微分演算",
+    "priority": 211,
+    "freq": 23
+  },
+  {
+    "en": "inversion count",
+    "word": "inversion",
+    "zh": "逆序数",
+    "priority": 212,
+    "freq": 23
+  },
+  {
+    "en": "lorentzian metric",
+    "word": "metric",
+    "zh": "洛伦兹度量",
+    "priority": 213,
+    "freq": 23
+  },
+  {
+    "en": "matrix products",
+    "word": "matrix",
+    "zh": "矩阵积",
+    "priority": 214,
+    "freq": 23
+  },
+  {
+    "en": "matrix representation",
+    "word": "matrix",
+    "zh": "矩阵表示",
+    "priority": 215,
+    "freq": 23
+  },
+  {
+    "en": "partial evaluation",
+    "word": "partial",
+    "zh": "部分求值",
+    "priority": 216,
+    "freq": 23
+  },
+  {
+    "en": "punctured model",
+    "word": "model",
+    "zh": "穿孔模型",
+    "priority": 217,
+    "freq": 23
+  },
+  {
+    "en": "rank transition",
+    "word": "rank",
+    "zh": "秩转移",
+    "priority": 218,
+    "freq": 23
+  },
+  {
+    "en": "rectilinear grid",
+    "word": "grid",
+    "zh": "直线网格",
+    "priority": 219,
+    "freq": 23
+  },
+  {
+    "en": "riemann surface",
+    "word": "surface",
+    "zh": "黎曼面",
+    "priority": 220,
+    "freq": 23
+  },
+  {
+    "en": "translation defect",
+    "word": "defect",
+    "zh": "平移缺陷",
+    "priority": 221,
+    "freq": 23
+  },
+  {
+    "en": "braid history",
+    "word": "history",
+    "zh": "辫历史",
+    "priority": 222,
+    "freq": 22
+  },
+  {
+    "en": "charge path",
+    "word": "path",
+    "zh": "荷路径",
+    "priority": 223,
+    "freq": 22
+  },
+  {
+    "en": "crossing history",
+    "word": "history",
+    "zh": "交叉历史",
+    "priority": 224,
+    "freq": 22
+  },
+  {
+    "en": "cut frontier",
+    "word": "cut",
+    "zh": "切割前沿",
+    "priority": 225,
+    "freq": 22
+  },
+  {
+    "en": "discard history",
+    "word": "history",
+    "zh": "丢弃历史",
+    "priority": 226,
+    "freq": 22
+  },
+  {
+    "en": "dual grid",
+    "word": "grid",
+    "zh": "对偶网格",
+    "priority": 227,
+    "freq": 22
+  },
+  {
+    "en": "encke gap",
+    "word": "gap",
+    "zh": "恩克间隙",
+    "priority": 228,
+    "freq": 22
+  },
+  {
+    "en": "exact cut",
+    "word": "cut",
+    "zh": "精确切割",
+    "priority": 229,
+    "freq": 22
+  },
+  {
+    "en": "exact frame",
+    "word": "frame",
+    "zh": "精确框架",
+    "priority": 230,
+    "freq": 22
+  },
+  {
+    "en": "explicit obstruction",
+    "word": "obstruction",
+    "zh": "显式阻碍",
+    "priority": 231,
+    "freq": 22
+  },
+  {
+    "en": "hyperbolic area",
+    "word": "area",
+    "zh": "双曲面积",
+    "priority": 232,
+    "freq": 22
+  },
+  {
+    "en": "input order",
+    "word": "order",
+    "zh": "输入序",
+    "priority": 233,
+    "freq": 22
+  },
+  {
+    "en": "local model",
+    "word": "model",
+    "zh": "局部模型",
+    "priority": 234,
+    "freq": 22
+  },
+  {
+    "en": "observer motion",
+    "word": "motion",
+    "zh": "观察者运动",
+    "priority": 235,
+    "freq": 22
+  },
+  {
+    "en": "order reduction",
+    "word": "reduction",
+    "zh": "序约化",
+    "priority": 236,
+    "freq": 22
+  },
+  {
+    "en": "ordered frame",
+    "word": "frame",
+    "zh": "有序框架",
+    "priority": 237,
+    "freq": 22
+  },
+  {
+    "en": "path language",
+    "word": "path",
+    "zh": "路径语言",
+    "priority": 238,
+    "freq": 22
+  },
+  {
+    "en": "process lift",
+    "word": "lift",
+    "zh": "过程提升",
+    "priority": 239,
+    "freq": 22
+  },
+  {
+    "en": "proper tube",
+    "word": "tube",
+    "zh": "真管",
+    "priority": 240,
+    "freq": 22
+  },
+  {
+    "en": "reduction problem",
+    "word": "reduction",
+    "zh": "约化问题",
+    "priority": 241,
+    "freq": 22
+  },
+  {
+    "en": "reduction relation",
+    "word": "reduction",
+    "zh": "约化关系",
+    "priority": 242,
+    "freq": 22
+  },
+  {
+    "en": "reversible transport",
+    "word": "transport",
+    "zh": "可逆传输",
+    "priority": 243,
+    "freq": 22
+  },
+  {
+    "en": "capping obstruction",
+    "word": "obstruction",
+    "zh": "封顶阻碍",
+    "priority": 244,
+    "freq": 21
+  },
+  {
+    "en": "history operator",
+    "word": "history",
+    "zh": "历史算子",
+    "priority": 245,
+    "freq": 21
+  },
+  {
+    "en": "hyperbolic surface",
+    "word": "surface",
+    "zh": "双曲曲面",
+    "priority": 246,
+    "freq": 21
+  },
+  {
+    "en": "ordinary differential",
+    "word": "differential",
+    "zh": "常微分",
+    "priority": 247,
+    "freq": 21
+  },
+  {
+    "en": "projective duality",
+    "word": "duality",
+    "zh": "射影对偶",
+    "priority": 248,
+    "freq": 21
+  },
+  {
+    "en": "projective flow",
+    "word": "flow",
+    "zh": "射影流",
+    "priority": 249,
+    "freq": 21
+  },
+  {
+    "en": "remaining gap",
+    "word": "gap",
+    "zh": "剩余间隙",
+    "priority": 250,
+    "freq": 21
+  },
+  {
+    "en": "residual history",
+    "word": "history",
+    "zh": "残差历史",
+    "priority": 251,
+    "freq": 21
+  },
+  {
+    "en": "spacetime duality",
+    "word": "duality",
+    "zh": "时空对偶",
+    "priority": 252,
+    "freq": 21
+  },
+  {
+    "en": "tube topology",
+    "word": "tube",
+    "zh": "管拓扑",
+    "priority": 253,
+    "freq": 21
+  },
+  {
+    "en": "vertical rank",
+    "word": "rank",
+    "zh": "垂直秩",
+    "priority": 254,
+    "freq": 21
+  },
+  {
+    "en": "absolute path",
+    "word": "path",
+    "zh": "绝对路径",
+    "priority": 255,
+    "freq": 20
+  },
+  {
+    "en": "acs weighted area",
+    "word": "area",
+    "zh": "ACS 加权面积",
+    "priority": 256,
+    "freq": 20
+  },
+  {
+    "en": "aeg flow",
+    "word": "flow",
+    "zh": "AEG 流",
+    "priority": 257,
+    "freq": 20
+  },
+  {
+    "en": "bracket surface",
+    "word": "surface",
+    "zh": "括号曲面",
+    "priority": 258,
+    "freq": 20
+  },
+  {
+    "en": "branch cut",
+    "word": "cut",
+    "zh": "分支切割",
+    "priority": 259,
+    "freq": 20
+  },
+  {
+    "en": "candidate carrier",
+    "word": "carrier",
+    "zh": "候选载体",
+    "priority": 260,
+    "freq": 20
+  },
+  {
+    "en": "cut up",
+    "word": "cut",
+    "zh": "切割上",
+    "priority": 261,
+    "freq": 20
+  },
+  {
+    "en": "fixed metric",
+    "word": "metric",
+    "zh": "固定度量",
+    "priority": 262,
+    "freq": 20
+  },
+  {
+    "en": "flat surface",
+    "word": "surface",
+    "zh": "平坦曲面",
+    "priority": 263,
+    "freq": 20
+  },
+  {
+    "en": "frame boundary",
+    "word": "frame",
+    "zh": "框架边界",
+    "priority": 264,
+    "freq": 20
+  },
+  {
+    "en": "generator action",
+    "word": "generator",
+    "zh": "生成元作用",
+    "priority": 265,
+    "freq": 20
+  },
+  {
+    "en": "hole order",
+    "word": "order",
+    "zh": "孔序",
+    "priority": 266,
+    "freq": 20
+  },
+  {
+    "en": "horizontal lift",
+    "word": "lift",
+    "zh": "水平提升",
+    "priority": 267,
+    "freq": 20
+  },
+  {
+    "en": "injective model",
+    "word": "model",
+    "zh": "单射模型",
+    "priority": 268,
+    "freq": 20
+  },
+  {
+    "en": "metric extends",
+    "word": "metric",
+    "zh": "度量延拓",
+    "priority": 269,
+    "freq": 20
+  },
+  {
+    "en": "middle cut",
+    "word": "cut",
+    "zh": "中切割",
+    "priority": 270,
+    "freq": 20
+  },
+  {
+    "en": "partial function",
+    "word": "partial",
+    "zh": "部分函数",
+    "priority": 271,
+    "freq": 20
+  },
+  {
+    "en": "program carrier",
+    "word": "carrier",
+    "zh": "程序载体",
+    "priority": 272,
+    "freq": 20
+  },
+  {
+    "en": "projective transport",
+    "word": "transport",
+    "zh": "射影传输",
+    "priority": 273,
+    "freq": 20
+  },
+  {
+    "en": "singular model",
+    "word": "model",
+    "zh": "奇异模型",
+    "priority": 274,
+    "freq": 20
+  },
+  {
+    "en": "strict descent",
+    "word": "descent",
+    "zh": "严格下降",
+    "priority": 275,
+    "freq": 20
+  },
+  {
+    "en": "subject reduction",
+    "word": "reduction",
+    "zh": "主归约",
+    "priority": 276,
+    "freq": 20
+  },
+  {
+    "en": "triadic obstruction",
+    "word": "obstruction",
+    "zh": "三元阻碍",
+    "priority": 277,
+    "freq": 20
+  },
+  {
+    "en": "weighted area integral",
+    "word": "area",
+    "zh": "加权面积积分",
+    "priority": 278,
+    "freq": 20
+  },
+  {
+    "en": "adva iota frame",
+    "word": "frame",
+    "zh": "adva iota 框架",
+    "priority": 279,
+    "freq": 19
+  },
+  {
+    "en": "affine history",
+    "word": "history",
+    "zh": "仿射历史",
+    "priority": 280,
+    "freq": 19
+  },
+  {
+    "en": "borel reduction",
+    "word": "reduction",
+    "zh": "博雷尔约化",
+    "priority": 281,
+    "freq": 19
+  },
+  {
+    "en": "canonical arithmetic frame",
+    "word": "frame",
+    "zh": "规范算术框架",
+    "priority": 282,
+    "freq": 19
+  },
+  {
+    "en": "endpoint defect",
+    "word": "defect",
+    "zh": "端点缺陷",
+    "priority": 283,
+    "freq": 19
+  },
+  {
+    "en": "finite history",
+    "word": "history",
+    "zh": "有限历史",
+    "priority": 284,
+    "freq": 19
+  },
+  {
+    "en": "gradient lines",
+    "word": "gradient",
+    "zh": "梯度线",
+    "priority": 285,
+    "freq": 19
+  },
+  {
+    "en": "group inversion",
+    "word": "inversion",
+    "zh": "群反演",
+    "priority": 286,
+    "freq": 19
+  },
+  {
+    "en": "magnus expansion",
+    "word": "expansion",
+    "zh": "马格努斯展开",
+    "priority": 287,
+    "freq": 19
+  },
+  {
+    "en": "moving frame",
+    "word": "frame",
+    "zh": "活动框架",
+    "priority": 288,
+    "freq": 19
+  },
+  {
+    "en": "projective motion",
+    "word": "motion",
+    "zh": "射影运动",
+    "priority": 289,
+    "freq": 19
+  },
+  {
+    "en": "proper zero tube",
+    "word": "tube",
+    "zh": "真零管",
+    "priority": 290,
+    "freq": 19
+  },
+  {
+    "en": "topological cover",
+    "word": "cover",
+    "zh": "拓扑覆盖",
+    "priority": 291,
+    "freq": 19
   },
   {
     "en": "transport residual",
     "word": "transport",
-    "priority": 135,
-    "zh": "传输残差"
+    "zh": "传输残差",
+    "priority": 292,
+    "freq": 19
+  },
+  {
+    "en": "uniform motion",
+    "word": "motion",
+    "zh": "匀速运动",
+    "priority": 293,
+    "freq": 19
+  },
+  {
+    "en": "affine matrix",
+    "word": "matrix",
+    "zh": "仿射矩阵",
+    "priority": 294,
+    "freq": 18
+  },
+  {
+    "en": "boundary order",
+    "word": "order",
+    "zh": "边界序",
+    "priority": 295,
+    "freq": 18
+  },
+  {
+    "en": "boundary transport",
+    "word": "transport",
+    "zh": "边界传输",
+    "priority": 296,
+    "freq": 18
+  },
+  {
+    "en": "canonical lift",
+    "word": "lift",
+    "zh": "规范提升",
+    "priority": 297,
+    "freq": 18
+  },
+  {
+    "en": "canonical metric",
+    "word": "metric",
+    "zh": "规范度量",
+    "priority": 298,
+    "freq": 18
+  },
+  {
+    "en": "carrier coordinates",
+    "word": "carrier",
+    "zh": "载体坐标",
+    "priority": 299,
+    "freq": 18
+  },
+  {
+    "en": "circle closure",
+    "word": "circle",
+    "zh": "圆闭包",
+    "priority": 300,
+    "freq": 18
+  },
+  {
+    "en": "commutator defect",
+    "word": "defect",
+    "zh": "换位子缺陷",
+    "priority": 301,
+    "freq": 18
+  },
+  {
+    "en": "differential law",
+    "word": "differential",
+    "zh": "微分律",
+    "priority": 302,
+    "freq": 18
+  },
+  {
+    "en": "expression differential",
+    "word": "differential",
+    "zh": "表达式微分",
+    "priority": 303,
+    "freq": 18
+  },
+  {
+    "en": "global tube",
+    "word": "tube",
+    "zh": "全局管",
+    "priority": 304,
+    "freq": 18
+  },
+  {
+    "en": "history layer",
+    "word": "history",
+    "zh": "历史层",
+    "priority": 305,
+    "freq": 18
+  },
+  {
+    "en": "logarithmic charge",
+    "word": "charge",
+    "zh": "对数荷",
+    "priority": 306,
+    "freq": 18
+  },
+  {
+    "en": "matrix identity",
+    "word": "matrix",
+    "zh": "单位矩阵",
+    "priority": 307,
+    "freq": 18
+  },
+  {
+    "en": "open defect",
+    "word": "defect",
+    "zh": "开缺陷",
+    "priority": 308,
+    "freq": 18
+  },
+  {
+    "en": "refinement order",
+    "word": "order",
+    "zh": "精化序",
+    "priority": 309,
+    "freq": 18
+  },
+  {
+    "en": "research carrier",
+    "word": "carrier",
+    "zh": "研究载体",
+    "priority": 310,
+    "freq": 18
+  },
+  {
+    "en": "reversed history",
+    "word": "history",
+    "zh": "逆历史",
+    "priority": 311,
+    "freq": 18
+  },
+  {
+    "en": "reversed order",
+    "word": "order",
+    "zh": "逆序",
+    "priority": 312,
+    "freq": 18
+  },
+  {
+    "en": "triadic defect",
+    "word": "defect",
+    "zh": "三元缺陷",
+    "priority": 313,
+    "freq": 18
+  },
+  {
+    "en": "triangular matrix",
+    "word": "matrix",
+    "zh": "三角矩阵",
+    "priority": 314,
+    "freq": 18
+  },
+  {
+    "en": "zero circle",
+    "word": "circle",
+    "zh": "零圆",
+    "priority": 315,
+    "freq": 18
+  },
+  {
+    "en": "aeg history",
+    "word": "history",
+    "zh": "AEG 历史",
+    "priority": 316,
+    "freq": 17
+  },
+  {
+    "en": "braid lift",
+    "word": "lift",
+    "zh": "辫提升",
+    "priority": 317,
+    "freq": 17
+  },
+  {
+    "en": "charge compatibility",
+    "word": "charge",
+    "zh": "荷相容性",
+    "priority": 318,
+    "freq": 17
+  },
+  {
+    "en": "curved grid",
+    "word": "grid",
+    "zh": "弯曲网格",
+    "priority": 319,
+    "freq": 17
+  },
+  {
+    "en": "cut operator",
+    "word": "cut",
+    "zh": "切割算子",
+    "priority": 320,
+    "freq": 17
+  },
+  {
+    "en": "description length",
+    "word": "length",
+    "zh": "描述长度",
+    "priority": 321,
+    "freq": 17
+  },
+  {
+    "en": "differential form",
+    "word": "differential",
+    "zh": "微分形式",
+    "priority": 322,
+    "freq": 17
+  },
+  {
+    "en": "distributive expansion",
+    "word": "expansion",
+    "zh": "分配展开",
+    "priority": 323,
+    "freq": 17
+  },
+  {
+    "en": "double root",
+    "word": "root",
+    "zh": "二重根",
+    "priority": 324,
+    "freq": 17
+  },
+  {
+    "en": "evidence transport",
+    "word": "transport",
+    "zh": "证据传输",
+    "priority": 325,
+    "freq": 17
+  },
+  {
+    "en": "finite matrix",
+    "word": "matrix",
+    "zh": "有限矩阵",
+    "priority": 326,
+    "freq": 17
+  },
+  {
+    "en": "geodesic flow",
+    "word": "flow",
+    "zh": "测地流",
+    "priority": 327,
+    "freq": 17
+  },
+  {
+    "en": "geometric model",
+    "word": "model",
+    "zh": "几何模型",
+    "priority": 328,
+    "freq": 17
+  },
+  {
+    "en": "induced motion",
+    "word": "motion",
+    "zh": "诱导运动",
+    "priority": 329,
+    "freq": 17
+  },
+  {
+    "en": "initial cut",
+    "word": "cut",
+    "zh": "初始切割",
+    "priority": 330,
+    "freq": 17
+  },
+  {
+    "en": "internal evaluation order",
+    "word": "order",
+    "zh": "内部求值序",
+    "priority": 331,
+    "freq": 17
+  },
+  {
+    "en": "invariant metric",
+    "word": "metric",
+    "zh": "不变度量",
+    "priority": 332,
+    "freq": 17
+  },
+  {
+    "en": "local defect",
+    "word": "defect",
+    "zh": "局部缺陷",
+    "priority": 333,
+    "freq": 17
+  },
+  {
+    "en": "local section",
+    "word": "section",
+    "zh": "局部截面",
+    "priority": 334,
+    "freq": 17
+  },
+  {
+    "en": "metric equation",
+    "word": "metric",
+    "zh": "度量方程",
+    "priority": 335,
+    "freq": 17
+  },
+  {
+    "en": "multi zero model",
+    "word": "model",
+    "zh": "多零点模型",
+    "priority": 336,
+    "freq": 17
+  },
+  {
+    "en": "occurrence carrier",
+    "word": "carrier",
+    "zh": "出现载体",
+    "priority": 337,
+    "freq": 17
+  },
+  {
+    "en": "path records",
+    "word": "path",
+    "zh": "路径记录",
+    "priority": 338,
+    "freq": 17
+  },
+  {
+    "en": "affine metric",
+    "word": "metric",
+    "zh": "仿射度量",
+    "priority": 339,
+    "freq": 16
+  },
+  {
+    "en": "backward transport",
+    "word": "transport",
+    "zh": "反向传输",
+    "priority": 340,
+    "freq": 16
+  },
+  {
+    "en": "carrier references",
+    "word": "carrier",
+    "zh": "载体引用",
+    "priority": 341,
+    "freq": 16
+  },
+  {
+    "en": "categorical duality",
+    "word": "duality",
+    "zh": "范畴对偶",
+    "priority": 342,
+    "freq": 16
+  },
+  {
+    "en": "cut demand",
+    "word": "cut",
+    "zh": "切割需求",
+    "priority": 343,
+    "freq": 16
+  },
+  {
+    "en": "cut frontiers",
+    "word": "cut",
+    "zh": "切割前沿",
+    "priority": 344,
+    "freq": 16
+  },
+  {
+    "en": "developing cover",
+    "word": "cover",
+    "zh": "展开覆盖",
+    "priority": 345,
+    "freq": 16
+  },
+  {
+    "en": "frame change",
+    "word": "frame",
+    "zh": "框架变更",
+    "priority": 346,
+    "freq": 16
+  },
+  {
+    "en": "future multiplicative charge",
+    "word": "charge",
+    "zh": "未来乘法荷",
+    "priority": 347,
+    "freq": 16
+  },
+  {
+    "en": "grid structure",
+    "word": "grid",
+    "zh": "网格结构",
+    "priority": 348,
+    "freq": 16
+  },
+  {
+    "en": "heads cut",
+    "word": "cut",
+    "zh": "头部切割",
+    "priority": 349,
+    "freq": 16
+  },
+  {
+    "en": "history evaluation",
+    "word": "history",
+    "zh": "历史求值",
+    "priority": 350,
+    "freq": 16
+  },
+  {
+    "en": "intrinsic defect",
+    "word": "defect",
+    "zh": "内蕴缺陷",
+    "priority": 351,
+    "freq": 16
+  },
+  {
+    "en": "machine carrier",
+    "word": "carrier",
+    "zh": "机器载体",
+    "priority": 352,
+    "freq": 16
+  },
+  {
+    "en": "observable algebraic",
+    "word": "observable",
+    "zh": "可观察代数",
+    "priority": 353,
+    "freq": 16
+  },
+  {
+    "en": "occurrence order",
+    "word": "order",
+    "zh": "出现序",
+    "priority": 354,
+    "freq": 16
+  },
+  {
+    "en": "occurrence transport",
+    "word": "transport",
+    "zh": "出现传输",
+    "priority": 355,
+    "freq": 16
+  },
+  {
+    "en": "original diagram order",
+    "word": "order",
+    "zh": "原图序",
+    "priority": 356,
+    "freq": 16
+  },
+  {
+    "en": "parent path",
+    "word": "path",
+    "zh": "父路径",
+    "priority": 357,
+    "freq": 16
+  },
+  {
+    "en": "parent reduction",
+    "word": "reduction",
+    "zh": "父约化",
+    "priority": 358,
+    "freq": 16
+  },
+  {
+    "en": "planarity obstruction",
+    "word": "obstruction",
+    "zh": "平面性阻碍",
+    "priority": 359,
+    "freq": 16
+  },
+  {
+    "en": "prefix matrix",
+    "word": "matrix",
+    "zh": "前缀矩阵",
+    "priority": 360,
+    "freq": 16
+  },
+  {
+    "en": "rational carrier",
+    "word": "carrier",
+    "zh": "有理载体",
+    "priority": 361,
+    "freq": 16
+  },
+  {
+    "en": "reduction modulo",
+    "word": "reduction",
+    "zh": "模约化",
+    "priority": 362,
+    "freq": 16
+  },
+  {
+    "en": "rham differential",
+    "word": "differential",
+    "zh": "de Rham 微分",
+    "priority": 363,
+    "freq": 16
+  },
+  {
+    "en": "right comb",
+    "word": "comb",
+    "zh": "右梳",
+    "priority": 364,
+    "freq": 16
+  },
+  {
+    "en": "syntax frame",
+    "word": "frame",
+    "zh": "语法框架",
+    "priority": 365,
+    "freq": 16
+  },
+  {
+    "en": "word order",
+    "word": "order",
+    "zh": "词序",
+    "priority": 366,
+    "freq": 16
+  },
+  {
+    "en": "zero surface",
+    "word": "surface",
+    "zh": "零曲面",
+    "priority": 367,
+    "freq": 16
+  },
+  {
+    "en": "affine motion",
+    "word": "motion",
+    "zh": "仿射运动",
+    "priority": 368,
+    "freq": 15
+  },
+  {
+    "en": "closed path",
+    "word": "path",
+    "zh": "闭路径",
+    "priority": 369,
+    "freq": 15
+  },
+  {
+    "en": "cut checker",
+    "word": "cut",
+    "zh": "切割检查器",
+    "priority": 370,
+    "freq": 15
+  },
+  {
+    "en": "divisor charge",
+    "word": "charge",
+    "zh": "除子荷",
+    "priority": 371,
+    "freq": 15
+  },
+  {
+    "en": "exchange lift",
+    "word": "lift",
+    "zh": "交换提升",
+    "priority": 372,
+    "freq": 15
+  },
+  {
+    "en": "expression history",
+    "word": "history",
+    "zh": "表达式历史",
+    "priority": 373,
+    "freq": 15
+  },
+  {
+    "en": "flow equation da",
+    "word": "flow",
+    "zh": "流方程 da",
+    "priority": 374,
+    "freq": 15
+  },
+  {
+    "en": "history length",
+    "word": "length",
+    "zh": "历史长度",
+    "priority": 375,
+    "freq": 15
+  },
+  {
+    "en": "matrix action",
+    "word": "matrix",
+    "zh": "矩阵作用",
+    "priority": 376,
+    "freq": 15
+  },
+  {
+    "en": "metric ds",
+    "word": "metric",
+    "zh": "度量 ds",
+    "priority": 377,
+    "freq": 15
+  },
+  {
+    "en": "new process rank",
+    "word": "rank",
+    "zh": "新过程秩",
+    "priority": 378,
+    "freq": 15
+  },
+  {
+    "en": "observable quotient",
+    "word": "observable",
+    "zh": "可观察商",
+    "priority": 379,
+    "freq": 15
+  },
+  {
+    "en": "proposed duality",
+    "word": "duality",
+    "zh": "拟议对偶",
+    "priority": 380,
+    "freq": 15
+  },
+  {
+    "en": "reversed path",
+    "word": "path",
+    "zh": "逆路径",
+    "priority": 381,
+    "freq": 15
+  },
+  {
+    "en": "rewrite path",
+    "word": "path",
+    "zh": "重写路径",
+    "priority": 382,
+    "freq": 15
+  },
+  {
+    "en": "sheet observable",
+    "word": "observable",
+    "zh": "层可观察量",
+    "priority": 383,
+    "freq": 15
+  },
+  {
+    "en": "smooth riemannian metric",
+    "word": "metric",
+    "zh": "光滑黎曼度量",
+    "priority": 384,
+    "freq": 15
+  },
+  {
+    "en": "surreal cut",
+    "word": "cut",
+    "zh": "超现实切割",
+    "priority": 385,
+    "freq": 15
+  },
+  {
+    "en": "symplectic duality",
+    "word": "duality",
+    "zh": "辛对偶",
+    "priority": 386,
+    "freq": 15
+  },
+  {
+    "en": "taylor expansion",
+    "word": "expansion",
+    "zh": "泰勒展开",
+    "priority": 387,
+    "freq": 15
+  },
+  {
+    "en": "template metric",
+    "word": "metric",
+    "zh": "模板度量",
+    "priority": 388,
+    "freq": 15
+  },
+  {
+    "en": "time space duality",
+    "word": "duality",
+    "zh": "时空对偶",
+    "priority": 389,
+    "freq": 15
+  },
+  {
+    "en": "tube structures",
+    "word": "tube",
+    "zh": "管结构",
+    "priority": 390,
+    "freq": 15
+  },
+  {
+    "en": "unit tangent lift",
+    "word": "lift",
+    "zh": "单位切提升",
+    "priority": 391,
+    "freq": 15
+  },
+  {
+    "en": "adva path",
+    "word": "path",
+    "zh": "adva 路径",
+    "priority": 392,
+    "freq": 14
+  },
+  {
+    "en": "carrier matrix",
+    "word": "carrier",
+    "zh": "载体矩阵",
+    "priority": 393,
+    "freq": 14
+  },
+  {
+    "en": "charge shadow",
+    "word": "charge",
+    "zh": "荷影",
+    "priority": 394,
+    "freq": 14
+  },
+  {
+    "en": "clean obstruction",
+    "word": "obstruction",
+    "zh": "清洁阻碍",
+    "priority": 395,
+    "freq": 14
+  },
+  {
+    "en": "coordinate order",
+    "word": "order",
+    "zh": "坐标序",
+    "priority": 396,
+    "freq": 14
+  },
+  {
+    "en": "cut contains",
+    "word": "cut",
+    "zh": "切割包含",
+    "priority": 397,
+    "freq": 14
+  },
+  {
+    "en": "cut interval",
+    "word": "cut",
+    "zh": "切割区间",
+    "priority": 398,
+    "freq": 14
+  },
+  {
+    "en": "cut reduction",
+    "word": "reduction",
+    "zh": "切割约化",
+    "priority": 399,
+    "freq": 14
+  },
+  {
+    "en": "descent criterion",
+    "word": "descent",
+    "zh": "下降准则",
+    "priority": 400,
+    "freq": 14
+  },
+  {
+    "en": "differential theory",
+    "word": "differential",
+    "zh": "微分理论",
+    "priority": 401,
+    "freq": 14
+  },
+  {
+    "en": "enclosed area",
+    "word": "area",
+    "zh": "封闭面积",
+    "priority": 402,
+    "freq": 14
+  },
+  {
+    "en": "end compactification",
+    "word": "end",
+    "zh": "端紧化",
+    "priority": 403,
+    "freq": 14
+  },
+  {
+    "en": "equation defect",
+    "word": "defect",
+    "zh": "方程缺陷",
+    "priority": 404,
+    "freq": 14
+  },
+  {
+    "en": "exact descent",
+    "word": "descent",
+    "zh": "精确下降",
+    "priority": 405,
+    "freq": 14
+  },
+  {
+    "en": "finite pole",
+    "word": "pole",
+    "zh": "有限极",
+    "priority": 406,
+    "freq": 14
+  },
+  {
+    "en": "global charge",
+    "word": "charge",
+    "zh": "全局荷",
+    "priority": 407,
+    "freq": 14
+  },
+  {
+    "en": "history against",
+    "word": "history",
+    "zh": "历史对照",
+    "priority": 408,
+    "freq": 14
+  },
+  {
+    "en": "history category",
+    "word": "history",
+    "zh": "历史范畴",
+    "priority": 409,
+    "freq": 14
+  },
+  {
+    "en": "history depth",
+    "word": "history",
+    "zh": "历史深度",
+    "priority": 410,
+    "freq": 14
+  },
+  {
+    "en": "history placement",
+    "word": "history",
+    "zh": "历史放置",
+    "priority": 411,
+    "freq": 14
+  },
+  {
+    "en": "history proposition",
+    "word": "history",
+    "zh": "历史命题",
+    "priority": 412,
+    "freq": 14
+  },
+  {
+    "en": "legendrian flow",
+    "word": "flow",
+    "zh": "勒让德流",
+    "priority": 413,
+    "freq": 14
+  },
+  {
+    "en": "length energy",
+    "word": "length",
+    "zh": "长度能量",
+    "priority": 414,
+    "freq": 14
+  },
+  {
+    "en": "length energy merit",
+    "word": "length",
+    "zh": "长度能量优值",
+    "priority": 415,
+    "freq": 14
+  },
+  {
+    "en": "length zero",
+    "word": "length",
+    "zh": "零长度",
+    "priority": 416,
+    "freq": 14
+  },
+  {
+    "en": "log differential",
+    "word": "differential",
+    "zh": "对数微分",
+    "priority": 417,
+    "freq": 14
+  },
+  {
+    "en": "marked carrier",
+    "word": "carrier",
+    "zh": "标记载体",
+    "priority": 418,
+    "freq": 14
+  },
+  {
+    "en": "motion group",
+    "word": "motion",
+    "zh": "运动群",
+    "priority": 419,
+    "freq": 14
+  },
+  {
+    "en": "object history",
+    "word": "history",
+    "zh": "对象历史",
+    "priority": 420,
+    "freq": 14
+  },
+  {
+    "en": "physical model",
+    "word": "model",
+    "zh": "物理模型",
+    "priority": 421,
+    "freq": 14
+  },
+  {
+    "en": "process frame",
+    "word": "frame",
+    "zh": "过程框架",
+    "priority": 422,
+    "freq": 14
+  },
+  {
+    "en": "rank claims",
+    "word": "rank",
+    "zh": "秩声明",
+    "priority": 423,
+    "freq": 14
+  },
+  {
+    "en": "rectangular grid",
+    "word": "grid",
+    "zh": "矩形网格",
+    "priority": 424,
+    "freq": 14
+  },
+  {
+    "en": "relator path",
+    "word": "path",
+    "zh": "关系子路径",
+    "priority": 425,
+    "freq": 14
+  },
+  {
+    "en": "scalar observable",
+    "word": "observable",
+    "zh": "标量可观察量",
+    "priority": 426,
+    "freq": 14
+  },
+  {
+    "en": "slope rank",
+    "word": "rank",
+    "zh": "斜率秩",
+    "priority": 427,
+    "freq": 14
+  },
+  {
+    "en": "telescoping obstruction",
+    "word": "obstruction",
+    "zh": "望远镜阻碍",
+    "priority": 428,
+    "freq": 14
+  },
+  {
+    "en": "transport history",
+    "word": "transport",
+    "zh": "传输历史",
+    "priority": 429,
+    "freq": 14
+  },
+  {
+    "en": "universal lift",
+    "word": "lift",
+    "zh": "万有提升",
+    "priority": 430,
+    "freq": 14
+  },
+  {
+    "en": "zero event frame",
+    "word": "frame",
+    "zh": "零事件框架",
+    "priority": 431,
+    "freq": 14
+  },
+  {
+    "en": "aes motion",
+    "word": "motion",
+    "zh": "AES 运动",
+    "priority": 432,
+    "freq": 13
+  },
+  {
+    "en": "affine transport",
+    "word": "transport",
+    "zh": "仿射传输",
+    "priority": 433,
+    "freq": 13
+  },
+  {
+    "en": "area form",
+    "word": "area",
+    "zh": "面积形式",
+    "priority": 434,
+    "freq": 13
+  },
+  {
+    "en": "background metric",
+    "word": "metric",
+    "zh": "背景度量",
+    "priority": 435,
+    "freq": 13
+  },
+  {
+    "en": "bounded history",
+    "word": "history",
+    "zh": "有界历史",
+    "priority": 436,
+    "freq": 13
+  },
+  {
+    "en": "charge coordinates",
+    "word": "charge",
+    "zh": "荷坐标",
+    "priority": 437,
+    "freq": 13
+  },
+  {
+    "en": "closed history",
+    "word": "history",
+    "zh": "闭历史",
+    "priority": 438,
+    "freq": 13
+  },
+  {
+    "en": "comb comb",
+    "word": "comb",
+    "zh": "梳梳",
+    "priority": 439,
+    "freq": 13
+  },
+  {
+    "en": "completed cut",
+    "word": "cut",
+    "zh": "完成切割",
+    "priority": 440,
+    "freq": 13
+  },
+  {
+    "en": "defect acs",
+    "word": "defect",
+    "zh": "ACS 缺陷",
+    "priority": 441,
+    "freq": 13
+  },
+  {
+    "en": "frame torsor",
+    "word": "frame",
+    "zh": "框架挠子",
+    "priority": 442,
+    "freq": 13
+  },
+  {
+    "en": "history entries",
+    "word": "history",
+    "zh": "历史条目",
+    "priority": 443,
+    "freq": 13
+  },
+  {
+    "en": "history equivalence",
+    "word": "history",
+    "zh": "历史等价",
+    "priority": 444,
+    "freq": 13
+  },
+  {
+    "en": "history payload",
+    "word": "history",
+    "zh": "历史载荷",
+    "priority": 445,
+    "freq": 13
+  },
+  {
+    "en": "history quotients",
+    "word": "history",
+    "zh": "历史商",
+    "priority": 446,
+    "freq": 13
+  },
+  {
+    "en": "history tree",
+    "word": "history",
+    "zh": "历史树",
+    "priority": 447,
+    "freq": 13
+  },
+  {
+    "en": "incidence duality",
+    "word": "duality",
+    "zh": "关联对偶",
+    "priority": 448,
+    "freq": 13
+  },
+  {
+    "en": "incidence length",
+    "word": "length",
+    "zh": "关联长度",
+    "priority": 449,
+    "freq": 13
+  },
+  {
+    "en": "integer lift",
+    "word": "lift",
+    "zh": "整数提升",
+    "priority": 450,
+    "freq": 13
+  },
+  {
+    "en": "invariant affine metric",
+    "word": "metric",
+    "zh": "不变仿射度量",
+    "priority": 451,
+    "freq": 13
+  },
+  {
+    "en": "local frame",
+    "word": "frame",
+    "zh": "局部标架",
+    "priority": 452,
+    "freq": 13
+  },
+  {
+    "en": "logarithmic multiplicative charge",
+    "word": "charge",
+    "zh": "对数乘法荷",
+    "priority": 453,
+    "freq": 13
+  },
+  {
+    "en": "modular surface",
+    "word": "surface",
+    "zh": "模曲面",
+    "priority": 454,
+    "freq": 13
+  },
+  {
+    "en": "multiplicative motion",
+    "word": "motion",
+    "zh": "乘法运动",
+    "priority": 455,
+    "freq": 13
+  },
+  {
+    "en": "objectification rank",
+    "word": "rank",
+    "zh": "对象化秩",
+    "priority": 456,
+    "freq": 13
+  },
+  {
+    "en": "outer circle",
+    "word": "circle",
+    "zh": "外圆",
+    "priority": 457,
+    "freq": 13
+  },
+  {
+    "en": "perturbation propagation",
+    "word": "perturbation",
+    "zh": "扰动传播",
+    "priority": 458,
+    "freq": 13
+  },
+  {
+    "en": "pole cocycle",
+    "word": "pole",
+    "zh": "极上闭链",
+    "priority": 459,
+    "freq": 13
+  },
+  {
+    "en": "projective pole",
+    "word": "pole",
+    "zh": "射影极",
+    "priority": 460,
+    "freq": 13
+  },
+  {
+    "en": "projective process residue",
+    "word": "residue",
+    "zh": "射影过程残差",
+    "priority": 461,
+    "freq": 13
+  },
+  {
+    "en": "rational matrix",
+    "word": "matrix",
+    "zh": "有理矩阵",
+    "priority": 462,
+    "freq": 13
+  },
+  {
+    "en": "regular zero rigidity",
+    "word": "rigidity",
+    "zh": "正则零刚性",
+    "priority": 463,
+    "freq": 13
+  },
+  {
+    "en": "right expanded comb",
+    "word": "comb",
+    "zh": "右展开梳",
+    "priority": 464,
+    "freq": 13
+  },
+  {
+    "en": "scalar defect",
+    "word": "defect",
+    "zh": "标量缺陷",
+    "priority": 465,
+    "freq": 13
+  },
+  {
+    "en": "slot history",
+    "word": "history",
+    "zh": "槽历史",
+    "priority": 466,
+    "freq": 13
+  },
+  {
+    "en": "surface series",
+    "word": "surface",
+    "zh": "曲面级数",
+    "priority": 467,
+    "freq": 13
+  },
+  {
+    "en": "threaded tube",
+    "word": "tube",
+    "zh": "螺纹管",
+    "priority": 468,
+    "freq": 13
+  },
+  {
+    "en": "total multiplicative charge",
+    "word": "charge",
+    "zh": "总乘法荷",
+    "priority": 469,
+    "freq": 13
+  },
+  {
+    "en": "transition matrix",
+    "word": "matrix",
+    "zh": "转移矩阵",
+    "priority": 470,
+    "freq": 13
+  },
+  {
+    "en": "tube theorem",
+    "word": "tube",
+    "zh": "管定理",
+    "priority": 471,
+    "freq": 13
+  },
+  {
+    "en": "unit vector model",
+    "word": "model",
+    "zh": "单位向量模型",
+    "priority": 472,
+    "freq": 13
+  },
+  {
+    "en": "algebraic carrier",
+    "word": "carrier",
+    "zh": "代数载体",
+    "priority": 473,
+    "freq": 12
+  },
+  {
+    "en": "birkhoff duality",
+    "word": "duality",
+    "zh": "伯克霍夫对偶",
+    "priority": 474,
+    "freq": 12
+  },
+  {
+    "en": "bounded defect",
+    "word": "defect",
+    "zh": "有界缺陷",
+    "priority": 475,
+    "freq": 12
+  },
+  {
+    "en": "branched cover",
+    "word": "cover",
+    "zh": "分支覆盖",
+    "priority": 476,
+    "freq": 12
+  },
+  {
+    "en": "carrier check",
+    "word": "carrier",
+    "zh": "载体检查",
+    "priority": 477,
+    "freq": 12
+  },
+  {
+    "en": "checked lift",
+    "word": "lift",
+    "zh": "检查提升",
+    "priority": 478,
+    "freq": 12
+  },
+  {
+    "en": "closed circle",
+    "word": "circle",
+    "zh": "闭圆",
+    "priority": 479,
+    "freq": 12
+  },
+  {
+    "en": "companion programme",
+    "word": "programme",
+    "zh": "伴生纲领",
+    "priority": 480,
+    "freq": 12
+  },
+  {
+    "en": "conformal metric",
+    "word": "metric",
+    "zh": "共形度量",
+    "priority": 481,
+    "freq": 12
+  },
+  {
+    "en": "cut graph",
+    "word": "cut",
+    "zh": "切割图",
+    "priority": 482,
+    "freq": 12
+  },
+  {
+    "en": "cut lift",
+    "word": "lift",
+    "zh": "切割提升",
+    "priority": 483,
+    "freq": 12
+  },
+  {
+    "en": "darboux reduction",
+    "word": "reduction",
+    "zh": "达布约化",
+    "priority": 484,
+    "freq": 12
+  },
+  {
+    "en": "deterministic frame",
+    "word": "frame",
+    "zh": "确定性框架",
+    "priority": 485,
+    "freq": 12
+  },
+  {
+    "en": "differential expressions",
+    "word": "differential",
+    "zh": "微分表达式",
+    "priority": 486,
+    "freq": 12
+  },
+  {
+    "en": "differential pillar",
+    "word": "differential",
+    "zh": "微分支柱",
+    "priority": 487,
+    "freq": 12
+  },
+  {
+    "en": "finite grid",
+    "word": "grid",
+    "zh": "有限网格",
+    "priority": 488,
+    "freq": 12
+  },
+  {
+    "en": "finite path",
+    "word": "path",
+    "zh": "有限路径",
+    "priority": 489,
+    "freq": 12
+  },
+  {
+    "en": "finite surface",
+    "word": "surface",
+    "zh": "有限曲面",
+    "priority": 490,
+    "freq": 12
+  },
+  {
+    "en": "finite type carrier",
+    "word": "carrier",
+    "zh": "有限型载体",
+    "priority": 491,
+    "freq": 12
+  },
+  {
+    "en": "first lift",
+    "word": "lift",
+    "zh": "首次提升",
+    "priority": 492,
+    "freq": 12
+  },
+  {
+    "en": "generator skew",
+    "word": "generator",
+    "zh": "生成元斜",
+    "priority": 493,
+    "freq": 12
+  },
+  {
+    "en": "grid points",
+    "word": "grid",
+    "zh": "网格点",
+    "priority": 494,
+    "freq": 12
+  },
+  {
+    "en": "infinitesimal flow",
+    "word": "flow",
+    "zh": "无穷小流",
+    "priority": 495,
+    "freq": 12
+  },
+  {
+    "en": "inversion criterion",
+    "word": "inversion",
+    "zh": "反演准则",
+    "priority": 496,
+    "freq": 12
+  },
+  {
+    "en": "legendre duality",
+    "word": "duality",
+    "zh": "勒让德对偶",
+    "priority": 497,
+    "freq": 12
+  },
+  {
+    "en": "lift quotient",
+    "word": "lift",
+    "zh": "提升商",
+    "priority": 498,
+    "freq": 12
+  },
+  {
+    "en": "linear common lift",
+    "word": "lift",
+    "zh": "线性公共提升",
+    "priority": 499,
+    "freq": 12
+  },
+  {
+    "en": "local order",
+    "word": "order",
+    "zh": "局部序",
+    "priority": 500,
+    "freq": 12
+  },
+  {
+    "en": "machine path",
+    "word": "path",
+    "zh": "机器路径",
+    "priority": 501,
+    "freq": 12
+  },
+  {
+    "en": "matrix synthesis",
+    "word": "matrix",
+    "zh": "矩阵合成",
+    "priority": 502,
+    "freq": 12
+  },
+  {
+    "en": "matrix transpose",
+    "word": "matrix",
+    "zh": "矩阵转置",
+    "priority": 503,
+    "freq": 12
+  },
+  {
+    "en": "metric realization",
+    "word": "metric",
+    "zh": "度量实现",
+    "priority": 504,
+    "freq": 12
+  },
+  {
+    "en": "metric space",
+    "word": "metric",
+    "zh": "度量空间",
+    "priority": 505,
+    "freq": 12
+  },
+  {
+    "en": "oriented orthonormal frame",
+    "word": "frame",
+    "zh": "定向正交标架",
+    "priority": 506,
+    "freq": 12
+  },
+  {
+    "en": "partial domains",
+    "word": "partial",
+    "zh": "部分域",
+    "priority": 507,
+    "freq": 12
+  },
+  {
+    "en": "path lift",
+    "word": "lift",
+    "zh": "路径提升",
+    "priority": 508,
+    "freq": 12
+  },
+  {
+    "en": "path ripple",
+    "word": "path",
+    "zh": "路径涟漪",
+    "priority": 509,
+    "freq": 12
+  },
+  {
+    "en": "process carrier",
+    "word": "carrier",
+    "zh": "过程载体",
+    "priority": 510,
+    "freq": 12
+  },
+  {
+    "en": "quotient model",
+    "word": "model",
+    "zh": "商模型",
+    "priority": 511,
+    "freq": 12
+  },
+  {
+    "en": "reduction theorem",
+    "word": "reduction",
+    "zh": "约化定理",
+    "priority": 512,
+    "freq": 12
+  },
+  {
+    "en": "riccati flow",
+    "word": "flow",
+    "zh": "里卡蒂流",
+    "priority": 513,
+    "freq": 12
+  },
+  {
+    "en": "round metric",
+    "word": "metric",
+    "zh": "圆度量",
+    "priority": 514,
+    "freq": 12
+  },
+  {
+    "en": "seam circle",
+    "word": "circle",
+    "zh": "接缝圆",
+    "priority": 515,
+    "freq": 12
+  },
+  {
+    "en": "set cover",
+    "word": "cover",
+    "zh": "集合覆盖",
+    "priority": 516,
+    "freq": 12
+  },
+  {
+    "en": "singular metric",
+    "word": "metric",
+    "zh": "奇异度量",
+    "priority": 517,
+    "freq": 12
+  },
+  {
+    "en": "source length",
+    "word": "length",
+    "zh": "源长度",
+    "priority": 518,
+    "freq": 12
+  },
+  {
+    "en": "source occurrence history",
+    "word": "history",
+    "zh": "源出现历史",
+    "priority": 519,
+    "freq": 12
+  },
+  {
+    "en": "topological transport",
+    "word": "transport",
+    "zh": "拓扑传输",
+    "priority": 520,
+    "freq": 12
+  },
+  {
+    "en": "tube braid",
+    "word": "tube",
+    "zh": "管辫",
+    "priority": 521,
+    "freq": 12
+  },
+  {
+    "en": "tube knot",
+    "word": "tube",
+    "zh": "管结",
+    "priority": 522,
+    "freq": 12
+  },
+  {
+    "en": "unit speed path",
+    "word": "path",
+    "zh": "单位速率路径",
+    "priority": 523,
+    "freq": 12
+  },
+  {
+    "en": "upper half plane metric",
+    "word": "metric",
+    "zh": "上半平面度量",
+    "priority": 524,
+    "freq": 12
+  },
+  {
+    "en": "area contact",
+    "word": "area",
+    "zh": "面积接触",
+    "priority": 525,
+    "freq": 11
+  },
+  {
+    "en": "bolza surface",
+    "word": "surface",
+    "zh": "博尔扎曲面",
+    "priority": 526,
+    "freq": 11
+  },
+  {
+    "en": "bracket defect",
+    "word": "defect",
+    "zh": "括号缺陷",
+    "priority": 527,
+    "freq": 11
+  },
+  {
+    "en": "charge paths",
+    "word": "charge",
+    "zh": "荷路径",
+    "priority": 528,
+    "freq": 11
+  },
+  {
+    "en": "circle bundle",
+    "word": "circle",
+    "zh": "圆丛",
+    "priority": 529,
+    "freq": 11
+  },
+  {
+    "en": "circle circle",
+    "word": "circle",
+    "zh": "圆圆",
+    "priority": 530,
+    "freq": 11
+  },
+  {
+    "en": "closed loop observable",
+    "word": "observable",
+    "zh": "闭环可观察量",
+    "priority": 531,
+    "freq": 11
+  },
+  {
+    "en": "collar descent",
+    "word": "descent",
+    "zh": "领下降",
+    "priority": 532,
+    "freq": 11
+  },
+  {
+    "en": "computational model",
+    "word": "model",
+    "zh": "计算模型",
+    "priority": 533,
+    "freq": 11
+  },
+  {
+    "en": "continuous flow",
+    "word": "flow",
+    "zh": "连续流",
+    "priority": 534,
+    "freq": 11
+  },
+  {
+    "en": "declaration order",
+    "word": "order",
+    "zh": "声明序",
+    "priority": 535,
+    "freq": 11
+  },
+  {
+    "en": "domain metric",
+    "word": "metric",
+    "zh": "定义域度量",
+    "priority": 536,
+    "freq": 11
+  },
+  {
+    "en": "duality reverses",
+    "word": "duality",
+    "zh": "对偶反转",
+    "priority": 537,
+    "freq": 11
+  },
+  {
+    "en": "edge transport",
+    "word": "transport",
+    "zh": "边传输",
+    "priority": 538,
+    "freq": 11
+  },
+  {
+    "en": "exact matrix",
+    "word": "matrix",
+    "zh": "精确矩阵",
+    "priority": 539,
+    "freq": 11
+  },
+  {
+    "en": "fibre transport",
+    "word": "transport",
+    "zh": "纤维传输",
+    "priority": 540,
+    "freq": 11
+  },
+  {
+    "en": "finite defect",
+    "word": "defect",
+    "zh": "有限缺陷",
+    "priority": 541,
+    "freq": 11
+  },
+  {
+    "en": "finite descent",
+    "word": "descent",
+    "zh": "有限下降",
+    "priority": 542,
+    "freq": 11
+  },
+  {
+    "en": "fixed model",
+    "word": "model",
+    "zh": "固定模型",
+    "priority": 543,
+    "freq": 11
+  },
+  {
+    "en": "frozen model",
+    "word": "model",
+    "zh": "冻结模型",
+    "priority": 544,
+    "freq": 11
+  },
+  {
+    "en": "full expansion",
+    "word": "expansion",
+    "zh": "全展开",
+    "priority": 545,
+    "freq": 11
+  },
+  {
+    "en": "history decoder",
+    "word": "history",
+    "zh": "历史解码器",
+    "priority": 546,
+    "freq": 11
+  },
+  {
+    "en": "history reindexing",
+    "word": "history",
+    "zh": "历史重索引",
+    "priority": 547,
+    "freq": 11
+  },
+  {
+    "en": "initial perturbation",
+    "word": "perturbation",
+    "zh": "初始扰动",
+    "priority": 548,
+    "freq": 11
+  },
+  {
+    "en": "integer matrix",
+    "word": "matrix",
+    "zh": "整数矩阵",
+    "priority": 549,
+    "freq": 11
+  },
+  {
+    "en": "interpretation frame",
+    "word": "frame",
+    "zh": "解释框架",
+    "priority": 550,
+    "freq": 11
+  },
+  {
+    "en": "marked surface",
+    "word": "surface",
+    "zh": "标记曲面",
+    "priority": 551,
+    "freq": 11
+  },
+  {
+    "en": "order completeness",
+    "word": "order",
+    "zh": "序完备性",
+    "priority": 552,
+    "freq": 11
+  },
+  {
+    "en": "pole chart",
+    "word": "pole",
+    "zh": "极图",
+    "priority": 553,
+    "freq": 11
+  },
+  {
+    "en": "rational history",
+    "word": "history",
+    "zh": "有理历史",
+    "priority": 554,
+    "freq": 11
+  },
+  {
+    "en": "real zero tube",
+    "word": "tube",
+    "zh": "实零管",
+    "priority": 555,
+    "freq": 11
+  },
+  {
+    "en": "regular hyperbolic model",
+    "word": "model",
+    "zh": "正则双曲模型",
+    "priority": 556,
+    "freq": 11
+  },
+  {
+    "en": "relation transport",
+    "word": "transport",
+    "zh": "关系传输",
+    "priority": 557,
+    "freq": 11
+  },
+  {
+    "en": "remaining programme",
+    "word": "programme",
+    "zh": "剩余纲领",
+    "priority": 558,
+    "freq": 11
+  },
+  {
+    "en": "residue classes",
+    "word": "residue",
+    "zh": "剩余类",
+    "priority": 559,
+    "freq": 11
+  },
+  {
+    "en": "residue field",
+    "word": "residue",
+    "zh": "剩余域",
+    "priority": 560,
+    "freq": 11
+  },
+  {
+    "en": "rigidity statement",
+    "word": "rigidity",
+    "zh": "刚性断言",
+    "priority": 561,
+    "freq": 11
+  },
+  {
+    "en": "root permutation",
+    "word": "root",
+    "zh": "根置换",
+    "priority": 562,
+    "freq": 11
+  },
+  {
+    "en": "semantic carrier",
+    "word": "carrier",
+    "zh": "语义载体",
+    "priority": 563,
+    "freq": 11
+  },
+  {
+    "en": "singular germ",
+    "word": "germ",
+    "zh": "奇异芽",
+    "priority": 564,
+    "freq": 11
+  },
+  {
+    "en": "thick circle",
+    "word": "circle",
+    "zh": "粗圆",
+    "priority": 565,
+    "freq": 11
+  },
+  {
+    "en": "torsion transport",
+    "word": "transport",
+    "zh": "挠传输",
+    "priority": 566,
+    "freq": 11
+  },
+  {
+    "en": "unit length",
+    "word": "length",
+    "zh": "单位长度",
+    "priority": 567,
+    "freq": 11
+  },
+  {
+    "en": "xy model",
+    "word": "model",
+    "zh": "XY 模型",
+    "priority": 568,
+    "freq": 11
+  },
+  {
+    "en": "area law",
+    "word": "area",
+    "zh": "面积律",
+    "priority": 569,
+    "freq": 10
+  },
+  {
+    "en": "brownian motion",
+    "word": "motion",
+    "zh": "布朗运动",
+    "priority": 570,
+    "freq": 10
+  },
+  {
+    "en": "canonical evaluation order",
+    "word": "order",
+    "zh": "规范求值序",
+    "priority": 571,
+    "freq": 10
+  },
+  {
+    "en": "canonical section",
+    "word": "section",
+    "zh": "规范截面",
+    "priority": 572,
+    "freq": 10
+  },
+  {
+    "en": "carrier dimension",
+    "word": "carrier",
+    "zh": "载体维数",
+    "priority": 573,
+    "freq": 10
+  },
+  {
+    "en": "chamber transport",
+    "word": "transport",
+    "zh": "腔传输",
+    "priority": 574,
+    "freq": 10
+  },
+  {
+    "en": "circle derivation",
+    "word": "circle",
+    "zh": "圆求导",
+    "priority": 575,
+    "freq": 10
+  },
+  {
+    "en": "circle pierce",
+    "word": "circle",
+    "zh": "圆穿刺",
+    "priority": 576,
+    "freq": 10
+  },
+  {
+    "en": "complex surface",
+    "word": "surface",
+    "zh": "复曲面",
+    "priority": 577,
+    "freq": 10
+  },
+  {
+    "en": "continuation germ",
+    "word": "germ",
+    "zh": "延拓芽",
+    "priority": 578,
+    "freq": 10
+  },
+  {
+    "en": "continuous arithmetic motion",
+    "word": "motion",
+    "zh": "连续算术运动",
+    "priority": 579,
+    "freq": 10
+  },
+  {
+    "en": "cut cochain",
+    "word": "cut",
+    "zh": "切割上链",
+    "priority": 580,
+    "freq": 10
+  },
+  {
+    "en": "de rham differential",
+    "word": "differential",
+    "zh": "de Rham 微分",
+    "priority": 581,
+    "freq": 10
+  },
+  {
+    "en": "descent through",
+    "word": "descent",
+    "zh": "下降穿过",
+    "priority": 582,
+    "freq": 10
+  },
+  {
+    "en": "differential expression",
+    "word": "differential",
+    "zh": "微分表达式",
+    "priority": 583,
+    "freq": 10
+  },
+  {
+    "en": "differential rule",
+    "word": "differential",
+    "zh": "微分规则",
+    "priority": 584,
+    "freq": 10
+  },
+  {
+    "en": "differential rules",
+    "word": "differential",
+    "zh": "微分规则",
+    "priority": 585,
+    "freq": 10
+  },
+  {
+    "en": "differential viewpoint",
+    "word": "differential",
+    "zh": "微分观点",
+    "priority": 586,
+    "freq": 10
+  },
+  {
+    "en": "domain metric assignment",
+    "word": "metric",
+    "zh": "定义域度量指派",
+    "priority": 587,
+    "freq": 10
+  },
+  {
+    "en": "effective cut obstruction",
+    "word": "obstruction",
+    "zh": "有效切割阻碍",
+    "priority": 588,
+    "freq": 10
+  },
+  {
+    "en": "elementary model",
+    "word": "model",
+    "zh": "初等模型",
+    "priority": 589,
+    "freq": 10
+  },
+  {
+    "en": "end boundary",
+    "word": "end",
+    "zh": "端边界",
+    "priority": 590,
+    "freq": 10
+  },
+  {
+    "en": "exact lift",
+    "word": "lift",
+    "zh": "精确提升",
+    "priority": 591,
+    "freq": 10
+  },
+  {
+    "en": "external model",
+    "word": "model",
+    "zh": "外部模型",
+    "priority": 592,
+    "freq": 10
+  },
+  {
+    "en": "generator counts",
+    "word": "generator",
+    "zh": "生成元计数",
+    "priority": 593,
+    "freq": 10
+  },
+  {
+    "en": "geometric path",
+    "word": "path",
+    "zh": "几何路径",
+    "priority": 594,
+    "freq": 10
+  },
+  {
+    "en": "head order",
+    "word": "order",
+    "zh": "头序",
+    "priority": 595,
+    "freq": 10
+  },
+  {
+    "en": "history cost",
+    "word": "history",
+    "zh": "历史代价",
+    "priority": 596,
+    "freq": 10
+  },
+  {
+    "en": "history parameter",
+    "word": "history",
+    "zh": "历史参数",
+    "priority": 597,
+    "freq": 10
+  },
+  {
+    "en": "history payloads",
+    "word": "history",
+    "zh": "历史载荷",
+    "priority": 598,
+    "freq": 10
+  },
+  {
+    "en": "history reconstruction",
+    "word": "history",
+    "zh": "历史重建",
+    "priority": 599,
+    "freq": 10
+  },
+  {
+    "en": "history residuals",
+    "word": "history",
+    "zh": "历史残差",
+    "priority": 600,
+    "freq": 10
+  },
+  {
+    "en": "hyperoperation rank",
+    "word": "rank",
+    "zh": "超运算秩",
+    "priority": 601,
+    "freq": 10
+  },
+  {
+    "en": "incidence coupled transport",
+    "word": "transport",
+    "zh": "关联耦合传输",
+    "priority": 602,
+    "freq": 10
+  },
+  {
+    "en": "input length",
+    "word": "length",
+    "zh": "输入长度",
+    "priority": 603,
+    "freq": 10
+  },
+  {
+    "en": "internal flow",
+    "word": "flow",
+    "zh": "内部流",
+    "priority": 604,
+    "freq": 10
+  },
+  {
+    "en": "k3 surface",
+    "word": "surface",
+    "zh": "K3 曲面",
+    "priority": 605,
+    "freq": 10
+  },
+  {
+    "en": "larger programme",
+    "word": "programme",
+    "zh": "更大纲领",
+    "priority": 606,
+    "freq": 10
+  },
+  {
+    "en": "lattice matrix",
+    "word": "matrix",
+    "zh": "格矩阵",
+    "priority": 607,
+    "freq": 10
+  },
+  {
+    "en": "left expanded comb",
+    "word": "comb",
+    "zh": "左展开梳",
+    "priority": 608,
+    "freq": 10
+  },
+  {
+    "en": "length dimension",
+    "word": "length",
+    "zh": "长度维数",
+    "priority": 609,
+    "freq": 10
+  },
+  {
+    "en": "lift remains",
+    "word": "lift",
+    "zh": "提升留存",
+    "priority": 610,
+    "freq": 10
+  },
+  {
+    "en": "lift retains",
+    "word": "lift",
+    "zh": "提升保留",
+    "priority": 611,
+    "freq": 10
+  },
+  {
+    "en": "ll cover",
+    "word": "cover",
+    "zh": "LL 覆盖",
+    "priority": 612,
+    "freq": 10
+  },
+  {
+    "en": "local generator",
+    "word": "generator",
+    "zh": "局部生成元",
+    "priority": 613,
+    "freq": 10
+  },
+  {
+    "en": "matrix form",
+    "word": "matrix",
+    "zh": "矩阵形式",
+    "priority": 614,
+    "freq": 10
+  },
+  {
+    "en": "matrix representatives",
+    "word": "matrix",
+    "zh": "矩阵代表",
+    "priority": 615,
+    "freq": 10
+  },
+  {
+    "en": "new arithmetic rank",
+    "word": "rank",
+    "zh": "新算术秩",
+    "priority": 616,
+    "freq": 10
+  },
+  {
+    "en": "observable language",
+    "word": "observable",
+    "zh": "可观察语言",
+    "priority": 617,
+    "freq": 10
+  },
+  {
+    "en": "obstruction rather",
+    "word": "obstruction",
+    "zh": "阻碍而非",
+    "priority": 618,
+    "freq": 10
+  },
+  {
+    "en": "ontology programme",
+    "word": "programme",
+    "zh": "本体论纲领",
+    "priority": 619,
+    "freq": 10
+  },
+  {
+    "en": "oriented riemannian surface",
+    "word": "surface",
+    "zh": "定向黎曼曲面",
+    "priority": 620,
+    "freq": 10
+  },
+  {
+    "en": "oriented smooth surface",
+    "word": "surface",
+    "zh": "定向光滑曲面",
+    "priority": 621,
+    "freq": 10
+  },
+  {
+    "en": "partial assignment",
+    "word": "partial",
+    "zh": "部分赋值",
+    "priority": 622,
+    "freq": 10
+  },
+  {
+    "en": "partial exact",
+    "word": "partial",
+    "zh": "部分精确",
+    "priority": 623,
+    "freq": 10
+  },
+  {
+    "en": "partial normalization",
+    "word": "partial",
+    "zh": "部分归一化",
+    "priority": 624,
+    "freq": 10
+  },
+  {
+    "en": "perturbation relation",
+    "word": "perturbation",
+    "zh": "扰动关系",
+    "priority": 625,
+    "freq": 10
+  },
+  {
+    "en": "picard lefschetz matrix",
+    "word": "matrix",
+    "zh": "皮卡-莱夫谢茨矩阵",
+    "priority": 626,
+    "freq": 10
+  },
+  {
+    "en": "pole exists",
+    "word": "pole",
+    "zh": "极存在",
+    "priority": 627,
+    "freq": 10
+  },
+  {
+    "en": "precise obstruction",
+    "word": "obstruction",
+    "zh": "精确阻碍",
+    "priority": 628,
+    "freq": 10
+  },
+  {
+    "en": "process generator",
+    "word": "generator",
+    "zh": "过程生成元",
+    "priority": 629,
+    "freq": 10
+  },
+  {
+    "en": "pullback metric",
+    "word": "metric",
+    "zh": "拉回度量",
+    "priority": 630,
+    "freq": 10
+  },
+  {
+    "en": "quotient descent",
+    "word": "descent",
+    "zh": "商下降",
+    "priority": 631,
+    "freq": 10
+  },
+  {
+    "en": "relation order",
+    "word": "order",
+    "zh": "关系序",
+    "priority": 632,
+    "freq": 10
+  },
+  {
+    "en": "remaining defect",
+    "word": "defect",
+    "zh": "剩余缺陷",
+    "priority": 633,
+    "freq": 10
+  },
+  {
+    "en": "residual transport",
+    "word": "transport",
+    "zh": "残差传输",
+    "priority": 634,
+    "freq": 10
+  },
+  {
+    "en": "residue modulo",
+    "word": "residue",
+    "zh": "剩余模",
+    "priority": 635,
+    "freq": 10
+  },
+  {
+    "en": "run length",
+    "word": "length",
+    "zh": "运行长度",
+    "priority": 636,
+    "freq": 10
+  },
+  {
+    "en": "source path",
+    "word": "path",
+    "zh": "源路径",
+    "priority": 637,
+    "freq": 10
+  },
+  {
+    "en": "spatial section",
+    "word": "section",
+    "zh": "空间截面",
+    "priority": 638,
+    "freq": 10
+  },
+  {
+    "en": "stable surface",
+    "word": "surface",
+    "zh": "稳定曲面",
+    "priority": 639,
+    "freq": 10
+  },
+  {
+    "en": "terminal world carrier",
+    "word": "carrier",
+    "zh": "终端世界载体",
+    "priority": 640,
+    "freq": 10
+  },
+  {
+    "en": "through length",
+    "word": "length",
+    "zh": "通过长度",
+    "priority": 641,
+    "freq": 10
+  },
+  {
+    "en": "total additive charge",
+    "word": "charge",
+    "zh": "总加法荷",
+    "priority": 642,
+    "freq": 10
+  },
+  {
+    "en": "trivial tube",
+    "word": "tube",
+    "zh": "平凡管",
+    "priority": 643,
+    "freq": 10
+  },
+  {
+    "en": "unit transport",
+    "word": "transport",
+    "zh": "单位传输",
+    "priority": 644,
+    "freq": 10
+  },
+  {
+    "en": "universal history",
+    "word": "history",
+    "zh": "万有历史",
+    "priority": 645,
+    "freq": 10
+  },
+  {
+    "en": "vanishing circle",
+    "word": "circle",
+    "zh": "消没圆",
+    "priority": 646,
+    "freq": 10
+  },
+  {
+    "en": "weak observable",
+    "word": "observable",
+    "zh": "弱可观察量",
+    "priority": 647,
+    "freq": 10
+  },
+  {
+    "en": "whole cut carrier",
+    "word": "carrier",
+    "zh": "整切割载体",
+    "priority": 648,
+    "freq": 10
   }
 ]
