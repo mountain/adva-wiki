@@ -10,7 +10,7 @@ Concepts = dict[str, tuple[str, str] | None]
 WORD_CHARACTER = r"[A-Za-z0-9_]"
 
 
-def term_pattern(terms: Iterable[str]) -> re.Pattern[str] | None:
+def term_pattern(terms: Iterable[str], *, case_sensitive: bool = True) -> re.Pattern[str] | None:
     choices = []
     for term in sorted(terms, key=lambda term: (-len(term), term)):
         pattern = re.escape(term)
@@ -19,7 +19,8 @@ def term_pattern(terms: Iterable[str]) -> re.Pattern[str] | None:
         if re.fullmatch(WORD_CHARACTER, term[-1]):
             pattern += rf"(?!{WORD_CHARACTER})"
         choices.append(pattern)
-    return re.compile("|".join(choices)) if choices else None
+    flags = 0 if case_sensitive else re.IGNORECASE
+    return re.compile("|".join(choices), flags) if choices else None
 
 
 def _inline_text(tokens: list[Token]) -> tuple[str, list[tuple[int, int, int]]]:

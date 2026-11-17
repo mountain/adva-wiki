@@ -61,21 +61,29 @@ def wikify(
     phrases: Iterable[str],
     *,
     link_all: bool = False,
+    skip: Iterable[str] = (),
 ) -> str:
     """Insert ``[[phrase]]`` wiki links for concept phrases.
 
     ``phrases`` is any iterable of concept phrases (the wikify table).  Matching
-    is longest-first, so overlapping phrases are resolved toward the longer one.
+    is longest-first and case-insensitive, so overlapping phrases are resolved
+    toward the longer one and ``Flow equation`` links the same concept as
+    ``flow equation``; the replacement preserves the original case.
+
+    ``skip`` lists phrases to leave unlinked even if present — pass the page's
+    own title(s) there to avoid self-links.
+
     Protected spans (code, math, links, HTML) are copied through unchanged.
 
     >>> wikify("the dependency order", ["dependency order"])
     'the [[dependency order]]'
     """
     terms = sorted({p.strip() for p in phrases if p.strip() and len(p.strip()) <= _MAX_PHRASE_LENGTH})
-    pattern = term_pattern(terms)
+    pattern = term_pattern(terms, case_sensitive=False)
     if pattern is None:
         return source
 
+    skip_lower = {s.strip().lower() for s in skip if s and s.strip()}
     linked: set[str] = set()
 
     def replace(text: str) -> str:
@@ -83,12 +91,15 @@ def wikify(
         position = 0
         for match in pattern.finditer(text):
             phrase = match.group()
-            if not link_all and phrase in linked:
+            key = phrase.lower()
+            if key in skip_lower:
+                continue
+            if not link_all and key in linked:
                 continue
             output.append(text[position:match.start()])
             output.append(f"[[{phrase}]]")
             position = match.end()
-            linked.add(phrase)
+            linked.add(key)
         output.append(text[position:])
         return "".join(output)
 

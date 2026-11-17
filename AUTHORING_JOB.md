@@ -53,15 +53,23 @@ default: en
 
 ### 3. wikify 源级替换
 
-用大词表对所有 `.md` 跑一次源级替换（幂等，`[[...]]` 不会被二次包裹）：
+对刚写的文件做源级替换（跳过自身标题，避免自链接；大小写不敏感、替换保留原文大小写）：
 
 ```sh
 cd /Users/mingli/AEG/adva-wiki
-UV_CACHE_DIR=/Users/mingli/AEG/.uv-cache uv run adva-wiki wikify \
-  --config wiki.toml --table /Users/mingli/AEG/wikify-replacement-table.tsv --write
+UV_CACHE_DIR=/Users/mingli/AEG/.uv-cache uv run python - <<'PY'
+from pathlib import Path
+from adva_wiki.wikify import load_concept_table, wikify
+name = "<英文名>"          # 本次概念英文名，如 "flow equation"
+zh   = "<中文名>"          # 本次概念中文名，如 "流方程"
+path = Path(name + ".md")
+phrases = load_concept_table('/Users/mingli/AEG/wikify-replacement-table.tsv')
+path.write_text(wikify(path.read_text(encoding='utf-8'), phrases, skip=[name, zh]),
+                encoding='utf-8')
+PY
 ```
 
-若本机没有 `wiki.toml`，先 `cp wiki.example.toml wiki.toml`（其 `content_dir = "."` 即可）。
+幂等：`[[...]]` 已是链接，不会被二次包裹；重跑安全。
 
 ### 4. 提交并推送（直接推 main）
 

@@ -580,6 +580,24 @@ class WikiTests(unittest.TestCase):
 
 
 class WikifyTests(unittest.TestCase):
+    def test_case_insensitive_first_mention_preserves_case(self):
+        self.assertEqual(
+            wikify("Flow equation and flow equation and FLOW EQUATION", ["flow equation"]),
+            "[[Flow equation]] and flow equation and FLOW EQUATION",
+        )
+
+    def test_skip_excludes_own_title(self):
+        self.assertEqual(
+            wikify("the flow equation", ["flow equation"], skip=["flow equation", "流方程"]),
+            "the flow equation",
+        )
+
+    def test_skip_is_case_insensitive(self):
+        self.assertEqual(
+            wikify("the flow equation", ["flow equation"], skip=["Flow equation"]),
+            "the flow equation",
+        )
+
     def test_load_concept_table_both_formats(self):
         import tempfile, os
         # wikify-replacement-table format: phrase \t [[phrase]]
