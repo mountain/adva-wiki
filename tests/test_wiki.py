@@ -580,6 +580,62 @@ class WikiTests(unittest.TestCase):
 
 
 class WikifyTests(unittest.TestCase):
+    def test_bilingual_titles_and_headings_leave_first_body_mention_available(self):
+        header = (
+            '---\nlanguages:\n  en: Torsor\n  zh: "挠子（Torsor）"\n'
+            'default: en\n# rotation and an unmatched `\n---\n'
+        )
+        body = (
+            '# Torsor\n\n## rotation\n\nTORSOR and torsors, rotation then `x` rotation.\n'
+            '\n# 挠子（Torsor）\n\n挠子（Torsor） and rotation.\n'
+        )
+        expected = header + body.replace('rotation then', '[[rotation]] then')
+        terms = ['torsor', '挠子（Torsor）', 'rotation']
+        for newline in ('\n', '\r\n', '\r'):
+            with self.subTest(newline=newline):
+                self.assertEqual(wikify((header + body).replace('\n', newline), terms),
+                                 expected.replace('\n', newline))
+        result = wikify(header + body, terms)
+        page = parse_page(result)
+        self.assertEqual(page.render('en').title, 'Torsor')
+        self.assertEqual(page.render('zh').title, '挠子（Torsor）')
+
+    def test_monolingual_setext_title_and_longest_body_match(self):
+        source = (
+            '**Matrix**\n==========\n\nAB and A\n--------\n\n'
+            'MATRIX, matrices, [AB](other.md), AB A AB A.'
+        )
+        result = wikify(source, ['matrix', 'ab', 'a'])
+        self.assertEqual(result, source.replace('AB A AB A.', '[[AB]] [[A]] AB A.'))
+
+    def test_cli_preview_and_write_exclude_filename_and_keep_source_bytes(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            docs = root / "pages"
+            docs.mkdir()
+            page = docs / "group.md"
+            source = (b"\xef\xbb\xbf# Algebra\r\n\r\n~~~text\r\nmotion\r\n~~~\r\n"
+                      b"\ngroups, algebra, motion and motion")
+            page.write_bytes(source)
+            config = root / "wiki.toml"
+            config.write_text('[wiki]\ncontent_dir = "pages"\n', encoding="utf-8")
+            table = root / "table.tsv"
+            table.write_text("group\nalgebra\nmotion\n", encoding="utf-8")
+            command = [sys.executable, "-m", "adva_wiki", "wikify",
+                       "--config", str(config), "--table", str(table)]
+            preview = subprocess.check_output([*command, "--diff"], text=True)
+            self.assertEqual(page.read_bytes(), source)
+            self.assertIn("--- a/group.md\n+++ b/group.md\n", preview)
+            self.assertIn("-groups, algebra, motion and motion\n", preview)
+            self.assertIn("+groups, algebra, [[motion]] and motion\n", preview)
+            self.assertEqual(subprocess.check_output([*command, "--write"], text=True),
+                             "wikified group.md\n")
+            self.assertEqual(page.read_bytes(), source.replace(b"motion and", b"[[motion]] and"))
+
+    def test_unicode_case_variant_of_own_title_allows_later_match(self):
+        self.assertEqual(wikify("# Torsor\n\nTorſor and group", ["torsor", "group"]),
+                         "# Torsor\n\nTorſor and [[group]]")
+
     def test_plural_links_to_singular_canonical(self):
         self.assertEqual(
             wikify("the arithmetic motions", ["arithmetic motion"]),

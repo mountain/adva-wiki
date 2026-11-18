@@ -9,7 +9,8 @@ Design points
 -------------
 * Longest-first matching resolves overlap: if both ``basic hyperbolic model``
   and ``hyperbolic model`` are in the table, the longer phrase wins first.
-* Code fences, inline code, math, and existing links are left untouched.
+* Language metadata, headings, code fences, inline code, math, and existing
+  links are left untouched.
 * By default only the *first* mention of each phrase is linked (Wikipedia style);
   pass ``link_all=True`` to link every eligible mention.
 """
@@ -19,6 +20,7 @@ from pathlib import Path
 import re
 
 from .autolinks import term_pattern
+from .render import heading_text, markdown_renderer, parse_languages
 
 
 # A phrase longer than this many characters is almost never a concept; skip it so
@@ -65,16 +67,38 @@ def _protected_regex() -> re.Pattern[str]:
 _PROTECTED = _protected_regex()
 
 
-def _walk_prose(source: str):
+def _page_structure(source: str) -> tuple[set[str], list[tuple[int, int]]]:
+    """Find the page's own titles and source ranges reserved for page structure."""
+    languages, _, body = parse_languages(source)
+    titles = set(languages.values())
+    offset = len(source) - len(body)  # Includes the original BOM and language header.
+    protected = [(0, offset)]
+    lines = [offset, *(offset + m.end() for m in re.finditer("\n", body)), len(source)]
+    declared = {" ".join(title.split()) for title in titles}
+    tokens = markdown_renderer().parse(body)
+    for index, token in enumerate(tokens):
+        if token.type != "heading_open" or token.map is None:
+            continue
+        start, end = token.map
+        protected.append((lines[start], lines[end]))
+        if token.tag == "h1":
+            inline = tokens[index + 1]
+            if not titles or " ".join(inline.content.split()) in declared:
+                titles.add(heading_text(inline))
+    return titles, protected
+
+
+def _walk_prose(source: str, protected: list[tuple[int, int]]):
     """Yield ``(is_prose, text)`` chunks of the source."""
     position = 0
-    for match in _PROTECTED.finditer(source):
-        if match.start() > position:
+    for start, end in [*protected, (len(source), len(source))]:
+        for match in _PROTECTED.finditer(source, position, start):
             yield True, source[position:match.start()]
-        yield False, match.group()
-        position = match.end()
-    if position < len(source):
-        yield True, source[position:]
+            yield False, match.group()
+            position = match.end()
+        yield True, source[position:start]
+        yield False, source[start:end]
+        position = end
 
 
 def wikify(
@@ -91,8 +115,8 @@ def wikify(
     toward the longer one and ``Flow equation`` links the same concept as
     ``flow equation``; the replacement preserves the original case.
 
-    ``skip`` lists phrases to leave unlinked even if present — pass the page's
-    own title(s) there to avoid self-links.
+    Page titles are excluded automatically. Pass additional names (such as
+    the wiki path without its extension) in ``skip``.
 
     Plural forms of each phrase's last word are recognised and link to the
     singular canonical form, e.g. ``arithmetic motions`` becomes
@@ -123,7 +147,14 @@ def wikify(
     if pattern is None:
         return source
 
-    skip_lower = {s.strip().lower() for s in skip if s and s.strip()}
+    # Match on the same line breaks as the reader, retaining each original
+    # separator for writeback. Wiki links inserted from a TSV are single-line.
+    original_lines = re.split(r"(\r\n?|\n)", source) if "\r" in source else None
+    if original_lines is not None:
+        source = "\n".join(original_lines[::2])
+    titles, protected = _page_structure(source)
+    titles.update(skip)
+    skip_lower = {s.strip().lower() for s in titles if s and s.strip()}
     linked: set[str] = set()
 
     def replace(text: str) -> str:
@@ -132,7 +163,9 @@ def wikify(
         for match in pattern.finditer(text):
             matched = match.group()
             matched_lower = matched.lower()
-            canonical = forms[matched_lower]
+            canonical = forms.get(matched_lower)
+            if canonical is None:  # IGNORECASE also matches Unicode forms absent from the table.
+                continue
             key = canonical.lower()
             if key in skip_lower:
                 continue
@@ -149,9 +182,13 @@ def wikify(
         return "".join(output)
 
     chunks = []
-    for is_prose, text in _walk_prose(source):
+    for is_prose, text in _walk_prose(source, protected):
         chunks.append(replace(text) if is_prose else text)
-    return "".join(chunks)
+    result = "".join(chunks)
+    if original_lines is not None:
+        original_lines[::2] = result.split("\n")
+        return "".join(original_lines)
+    return result
 
 
 def load_concept_table(path: str | Path) -> list[str]:

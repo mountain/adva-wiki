@@ -69,7 +69,9 @@ path.write_text(wikify(path.read_text(encoding='utf-8'), phrases, skip=[name, zh
 PY
 ```
 
-幂等：`[[...]]` 已是链接，不会被二次包裹；重跑安全。
+批量处理时，先用 `python -m adva_wiki wikify --config wiki.toml --table /Users/mingli/AEG/wikify-replacement-table.tsv --diff` 查看逐行差异。确认后将 `--diff` 换为 `--write` 写入。
+
+每次运行只给每个词条的首个可替换位置加链接。已有链接会原样保留，重跑时同一词条在后文的另一次出现仍可能被加链。
 
 ### 4. 提交并推送（直接推 main）
 
